@@ -1,12 +1,11 @@
-
+import Navbar from "./Component/Navbar/Navbar";
 
 function App() {
-
   return (
     <>
-Hello World
+      <Navbar />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
