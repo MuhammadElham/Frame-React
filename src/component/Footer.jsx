@@ -5,6 +5,7 @@ const Footer = () => {
   return (
     <div>
       <div className="flex flex-col sm:grid grid-cols-[3fr_1fr_1fr] gap-14 my-10 mt-40 text-sm">
+        
         {/* 1 Col */}
         <div>
           <img className="mb-5 w-32" src={assets.logo} alt="" />
@@ -15,6 +16,7 @@ const Footer = () => {
             aliquam modi maxime fugiat?
           </p>
         </div>
+
         {/* 2 Col */}
         <div>
           <p className="text-xl font-medium mb-5">COMPANY</p>
@@ -25,6 +27,7 @@ const Footer = () => {
             <li>Privacy Policy</li>
           </ul>
         </div>
+
         {/* 3 Col */}
         <div>
           <p className="text-xl font-medium mb-5">GET IN TOUCH</p>
