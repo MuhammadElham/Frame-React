@@ -1,5 +1,6 @@
 import React from "react";
 import { assets } from "../assets/assets";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -8,7 +9,7 @@ const Footer = () => {
         
         {/* 1 Col */}
         <div>
-          <img className="mb-5 w-32" src={assets.logo} alt="" />
+          <Link to='/'><img className="mb-5 w-32" src={assets.logo} alt="" /></Link>
           <p className="w-full md:w-2/3 text-gray-600">
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam
             harum nostrum repellendus vitae neque quis necessitatibus animi
