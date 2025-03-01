@@ -21,7 +21,7 @@ const About = () => {
         </div>
       </div>
       {/* Heading */}
-      <div className="text-xl py-4">
+      <div className="text-xl py-4 text-center sm:text-left">
         <Title text1={"WHY "} text2={"CHOOSE US"} />
       </div>
       {/* Boxes */}
