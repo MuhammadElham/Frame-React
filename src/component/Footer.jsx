@@ -6,16 +6,12 @@ const Footer = () => {
   return (
     <div>
       <div className="flex flex-col sm:grid grid-cols-[3fr_1fr_1fr] gap-14 my-10 mt-40 text-sm">
-        
         {/* 1 Col */}
         <div>
-          <Link to='/'><img className="mb-5 w-32" src={assets.logo} alt="" /></Link>
-          <p className="w-full md:w-2/3 text-gray-600">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam
-            harum nostrum repellendus vitae neque quis necessitatibus animi
-            autem voluptatibus sunt? Nisi minus, totam porro provident amet
-            aliquam modi maxime fugiat?
-          </p>
+          <Link to="/">
+            <img className="mb-5 w-32" src={assets.logo} alt="" />
+          </Link>
+          <p className="w-full md:w-2/3 text-gray-600">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam harum nostrum repellendus vitae neque quis necessitatibus animi autem voluptatibus sunt? Nisi minus, totam porro provident amet aliquam modi maxime fugiat?</p>
         </div>
 
         {/* 2 Col */}
@@ -34,12 +30,10 @@ const Footer = () => {
           <p className="text-xl font-medium mb-5">GET IN TOUCH</p>
           <ul className="flex flex-col gap-1 text-gray-600">
             <li>
-              <a href="tel:+923333003310">+92-333-3003310</a>
+              <a href="tel:+923333003310">Tel: (+92) 333-3003310</a>
             </li>
             <li>
-              <a href="mailto:elhamwaheed777@gmail.com">
-                elhamwaheed777@gmail.com
-              </a>
+              <a href="mailto:elhamwaheed777@gmail.com">elhamwaheed777@gmail.com</a>
             </li>
           </ul>
         </div>
