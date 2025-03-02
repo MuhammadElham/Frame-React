@@ -55,21 +55,11 @@ const Reels = () => {
           {reelsData.map((reel, index) => (
             <SwiperSlide key={reel.id} className="reel-slide relative rounded-xl overflow-hidden">
               <div className="relative w-full h-[400px]">
-                <video
-                  ref={(el) => (videoRefs.current[index] = el)}
-                  className="reel-video w-full h-full object-cover rounded-xl"
-                  preload="auto"
-                  playsInline
-                  muted
-                  onClick={() => togglePlay(index)}
-                >
+                <video ref={(el) => (videoRefs.current[index] = el)} className="reel-video w-full h-full object-cover rounded-xl" preload="metadata" playsInline muted onClick={() => togglePlay(index)}>
                   <source src={reel.video} type="video/mp4" />
                 </video>
                 {!playing[index] && (
-                  <button
-                    onClick={() => togglePlay(index)}
-                    className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 hover:bg-opacity-30 transition-all"
-                  >
+                  <button onClick={() => togglePlay(index)} className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 hover:bg-opacity-30 transition-all">
                     <svg className="w-12 h-12 text-white" fill="currentColor" viewBox="0 0 20 20">
                       <path d="M6.5 4.5v11l8-5.5-8-5.5z" />
                     </svg>
