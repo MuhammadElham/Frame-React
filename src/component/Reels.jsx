@@ -9,14 +9,19 @@ import video3 from "../assets/karigari Logos/Videos/video3.mp4";
 import video4 from "../assets/karigari Logos/Videos/video4.mp4";
 import video5 from "../assets/karigari Logos/Videos/video5.mp4";
 import video6 from "../assets/karigari Logos/Videos/video6.mp4";
-
+import poster1 from "../assets/karigari Logos/Thumbnail/thumbnail_video1.png";
+import poster2 from "../assets/karigari Logos/Thumbnail/thumbnail_video2.png";
+import poster3 from "../assets/karigari Logos/Thumbnail/thumbnail_video3.png";
+import poster4 from "../assets/karigari Logos/Thumbnail/thumbnail_video4.png";
+import poster5 from "../assets/karigari Logos/Thumbnail/thumbnail_video5.png";
+import poster6 from "../assets/karigari Logos/Thumbnail/thumbnail_video6.png";
 const reelsData = [
-  { id: 1, video: video1, type: "local" },
-  { id: 2, video: video2, type: "local" },
-  { id: 3, video: video3, type: "local" },
-  { id: 4, video: video4, type: "local" },
-  { id: 5, video: video5, type: "local" },
-  { id: 6, video: video6, type: "local" },
+  { id: 1, video: video1, type: "local", poster: poster1 },
+  { id: 2, video: video2, type: "local", poster: poster2 },
+  { id: 3, video: video3, type: "local", poster: poster3 },
+  { id: 4, video: video4, type: "local", poster: poster4 },
+  { id: 5, video: video5, type: "local", poster: poster5 },
+  { id: 6, video: video6, type: "local", poster: poster6 },
 ];
 
 const Reels = () => {
@@ -55,7 +60,7 @@ const Reels = () => {
           {reelsData.map((reel, index) => (
             <SwiperSlide key={reel.id} className="reel-slide relative rounded-xl overflow-hidden">
               <div className="relative w-full h-[400px]">
-                <video ref={(el) => (videoRefs.current[index] = el)} className="reel-video w-full h-full object-cover rounded-xl" preload="metadata" playsInline muted onClick={() => togglePlay(index)}>
+                <video ref={(el) => (videoRefs.current[index] = el)} className="reel-video w-full h-full object-cover rounded-xl" preload="metadata" poster={reel.poster} playsInline muted onClick={() => togglePlay(index)}>
                   <source src={reel.video} type="video/mp4" />
                 </video>
                 {!playing[index] && (
