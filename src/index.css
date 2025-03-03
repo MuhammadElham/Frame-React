@@ -64,3 +64,6 @@ a.active hr {
 .swiper-button-next:hover {
     background: rgba(0, 0, 0, 0.8);
 }
+button[aria-label="Download"] {
+    display: none !important;
+  }
