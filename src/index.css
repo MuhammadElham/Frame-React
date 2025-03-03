@@ -23,6 +23,7 @@ a.active hr {
         color: white;
     }
 }
+
 /* Reels */
 .play-btn {
     background: rgba(0, 0, 0, 0.7);
@@ -35,11 +36,12 @@ a.active hr {
 }
 
 /* Swiper Navigation Buttons */
-.swiper-button-prev, .swiper-button-next {
+.swiper-button-prev,
+.swiper-button-next {
     color: white !important;
-    font-size: 12px; /* Small icon size */
+    font-size: 12px;
     font-weight: bold;
-    width: 35px; /* Smaller button */
+    width: 35px;
     height: 35px;
     display: flex;
     align-items: center;
@@ -47,16 +49,18 @@ a.active hr {
     background: rgba(0, 0, 0, 0.5);
     border-radius: 50%;
     transition: 0.3s;
-    padding: 30px; /* Removed extra padding */
+    padding: 30px;
 }
 
 /* Reduce arrow icon size */
 .swiper-button-prev::after,
 .swiper-button-next::after {
-    font-size: 14px !important; /* Adjusted icon size */
+    font-size: 14px !important;
+    /* Adjusted icon size */
 }
 
 /* Hover Effect */
-.swiper-button-prev:hover, .swiper-button-next:hover {
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
     background: rgba(0, 0, 0, 0.8);
 }
