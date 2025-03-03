@@ -64,17 +64,17 @@ const Reels = () => {
           modules={[Navigation]}
           spaceBetween={10}
           breakpoints={{
-            320: { slidesPerView: 2 },
-            640: { slidesPerView: 4 },
-            1024: { slidesPerView: 5 },
-            1280: { slidesPerView: 6 },
+            320: { slidesPerView: 2.5 },
+            640: { slidesPerView: 4.5 },
+            1024: { slidesPerView: 5.5 },
+            1280: { slidesPerView: 6.5 },
           }}
           navigation={{ nextEl: ".swiper-button-next", prevEl: ".swiper-button-prev" }}
           loop={true}
         >
           {reelsData.map((reel, index) => (
             <SwiperSlide key={reel.id} className="reel-slide relative rounded-xl overflow-hidden">
-              <div className="relative w-full h-[400px]">
+              <div className="relative w-full h-[250px] lg:h-[300px] custom-height">
                 <video ref={(el) => (videoRefs.current[index] = el)} className="reel-video w-full h-full object-cover rounded-xl" preload="metadata" poster={reel.poster} playsInline muted onClick={() => togglePlay(index)} controlsList="nodownload" onContextMenu={(e) => e.preventDefault()}>
                   <source src={reel.video} type="video/mp4" />
                 </video>
