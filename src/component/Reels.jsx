@@ -75,17 +75,17 @@ const Reels = () => {
           {reelsData.map((reel, index) => (
             <SwiperSlide key={reel.id} className="reel-slide relative rounded-xl overflow-hidden">
               <div className="relative w-full h-[400px]">
-                <video 
-                ref={(el) => (videoRefs.current[index] = el)} 
-                className="reel-video w-full h-full object-cover rounded-xl" 
-                preload="metadata" 
-                poster={reel.poster} 
-                playsInline muted 
-                onClick={() => togglePlay(index)}
-                controlsList="nodownload"
-                onContextMenu={(e) => e.preventDefault()}
+                <video
+                  ref={(el) => (videoRefs.current[index] = el)}
+                  className="reel-video w-full h-full object-cover rounded-xl"
+                  preload="metadata"
+                  poster={reel.poster}
+                  playsInline
+                  muted
+                  onClick={() => togglePlay(index)}
+                  controlsList="nodownload"
+                  onContextMenu={(e) => e.preventDefault()}
                 >
-                  
                   <source src={reel.video} type="video/mp4" />
                 </video>
                 {!playing[index] && (
