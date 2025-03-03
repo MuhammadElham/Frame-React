@@ -3,18 +3,29 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import { Navigation } from "swiper/modules";
+// Video
 import video1 from "../assets/karigari Logos/Videos/video1.mp4";
 import video2 from "../assets/karigari Logos/Videos/video2.mp4";
 import video3 from "../assets/karigari Logos/Videos/video3.mp4";
 import video4 from "../assets/karigari Logos/Videos/video4.mp4";
 import video5 from "../assets/karigari Logos/Videos/video5.mp4";
 import video6 from "../assets/karigari Logos/Videos/video6.mp4";
+import video7 from "../assets/karigari Logos/Videos/video7.mp4";
+import video8 from "../assets/karigari Logos/Videos/video8.mp4";
+import video9 from "../assets/karigari Logos/Videos/video9.mp4";
+import video10 from "../assets/karigari Logos/Videos/video10.mp4";
+// Thumbnail
 import poster1 from "../assets/karigari Logos/Thumbnail/thumbnail_video1.png";
 import poster2 from "../assets/karigari Logos/Thumbnail/thumbnail_video2.png";
 import poster3 from "../assets/karigari Logos/Thumbnail/thumbnail_video3.png";
 import poster4 from "../assets/karigari Logos/Thumbnail/thumbnail_video4.png";
 import poster5 from "../assets/karigari Logos/Thumbnail/thumbnail_video5.png";
 import poster6 from "../assets/karigari Logos/Thumbnail/thumbnail_video6.png";
+import poster7 from "../assets/karigari Logos/Thumbnail/thumbnail_video7.png";
+import poster8 from "../assets/karigari Logos/Thumbnail/thumbnail_video8.png";
+import poster9 from "../assets/karigari Logos/Thumbnail/thumbnail_video9.png";
+import poster10 from "../assets/karigari Logos/Thumbnail/thumbnail_video10.png";
+// Data
 const reelsData = [
   { id: 1, video: video1, type: "local", poster: poster1 },
   { id: 2, video: video2, type: "local", poster: poster2 },
@@ -22,6 +33,10 @@ const reelsData = [
   { id: 4, video: video4, type: "local", poster: poster4 },
   { id: 5, video: video5, type: "local", poster: poster5 },
   { id: 6, video: video6, type: "local", poster: poster6 },
+  { id: 7, video: video7, type: "local", poster: poster7 },
+  { id: 8, video: video8, type: "local", poster: poster8 },
+  { id: 9, video: video9, type: "local", poster: poster9 },
+  { id: 10, video: video10, type: "local", poster: poster10 },
 ];
 
 const Reels = () => {
@@ -49,10 +64,10 @@ const Reels = () => {
           modules={[Navigation]}
           spaceBetween={10}
           breakpoints={{
-            320: { slidesPerView: 1 }, // 1 slide on very small screens
-            640: { slidesPerView: 2 }, // 2 slides on small screens
-            1024: { slidesPerView: 3 }, // 3 slides on medium screens
-            1280: { slidesPerView: 4 }, // 4 slides on large screens
+            320: { slidesPerView: 2 },
+            640: { slidesPerView: 4 },
+            1024: { slidesPerView: 5 },
+            1280: { slidesPerView: 6 },
           }}
           navigation={{ nextEl: ".swiper-button-next", prevEl: ".swiper-button-prev" }}
           loop={true}
