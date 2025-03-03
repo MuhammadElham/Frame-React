@@ -64,3 +64,10 @@ a.active hr {
 .swiper-button-next:hover {
     background: rgba(0, 0, 0, 0.8);
 }
+video::-webkit-media-controls-enclosure {
+    display: none !important;
+  }
+  button[aria-label="Download"] {
+    display: none !important;
+  }
+  
