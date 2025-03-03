@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
@@ -25,7 +25,6 @@ import poster7 from "../assets/karigari Logos/Thumbnail/thumbnail_video7.png";
 import poster8 from "../assets/karigari Logos/Thumbnail/thumbnail_video8.png";
 import poster9 from "../assets/karigari Logos/Thumbnail/thumbnail_video9.png";
 import poster10 from "../assets/karigari Logos/Thumbnail/thumbnail_video10.png";
-
 // Data
 const reelsData = [
   { id: 1, video: video1, type: "local", poster: poster1 },
@@ -43,26 +42,6 @@ const reelsData = [
 const Reels = () => {
   const videoRefs = useRef([]);
   const [playing, setPlaying] = useState({});
-
-  useEffect(() => {
-    const removeDownloadButtons = () => {
-      videoRefs.current.forEach((video) => {
-        if (video) {
-          video.removeAttribute("controls"); // Controls remove karo
-          video.controlsList = "nodownload"; // Download disable karo
-        }
-      });
-
-      // **Extra Safety**: Browser ke download buttons ko hide karne ke liye
-      setTimeout(() => {
-        document.querySelectorAll("button[aria-label='Download']").forEach((btn) => {
-          btn.style.display = "none";
-        });
-      }, 500);
-    };
-
-    removeDownloadButtons();
-  }, []);
 
   const togglePlay = (index) => {
     if (videoRefs.current[index]) {
@@ -96,16 +75,7 @@ const Reels = () => {
           {reelsData.map((reel, index) => (
             <SwiperSlide key={reel.id} className="reel-slide relative rounded-xl overflow-hidden">
               <div className="relative w-full h-[400px]">
-                <video
-                  ref={(el) => (videoRefs.current[index] = el)}
-                  className="reel-video w-full h-full object-cover rounded-xl"
-                  preload="metadata"
-                  poster={reel.poster}
-                  playsInline
-                  muted
-                  onClick={() => togglePlay(index)}
-                  onContextMenu={(e) => e.preventDefault()} // **Right-click Disable**
-                >
+                <video ref={(el) => (videoRefs.current[index] = el)} className="reel-video w-full h-full object-cover rounded-xl" preload="metadata" poster={reel.poster} playsInline muted onClick={() => togglePlay(index)} controlsList="nodownload" onContextMenu={(e) => e.preventDefault()}>
                   <source src={reel.video} type="video/mp4" />
                 </video>
                 {!playing[index] && (
