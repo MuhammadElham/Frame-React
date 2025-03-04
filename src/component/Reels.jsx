@@ -4,30 +4,18 @@ import "swiper/css";
 import "swiper/css/navigation";
 import { Navigation } from "swiper/modules";
 
-// Videos
-import video1 from "/videos/video1.mp4";
-import video2 from "/videos/video2.mp4";
-import video3 from "/videos/video3.mp4";
-import video4 from "/videos/video4.mp4";
-import video5 from "/videos/video5.mp4";
-import video6 from "/videos/video6.mp4";
-import video7 from "/videos/video7.mp4";
-import video8 from "/videos/video8.mp4";
-import video9 from "/videos/video9.mp4";
-import video10 from "/videos/video10.mp4";
-
-// Data
+// Videos - Direct Path (No Import)
 const reelsData = [
-  { id: 1, video: video1 },
-  { id: 2, video: video2 },
-  { id: 3, video: video3 },
-  { id: 4, video: video4 },
-  { id: 5, video: video5 },
-  { id: 6, video: video6 },
-  { id: 7, video: video7 },
-  { id: 8, video: video8 },
-  { id: 9, video: video9 },
-  { id: 10, video: video10 },
+  { id: 1, video: "/videos/video1.mp4" },
+  { id: 2, video: "/videos/video2.mp4" },
+  { id: 3, video: "/videos/video3.mp4" },
+  { id: 4, video: "/videos/video4.mp4" },
+  { id: 5, video: "/videos/video5.mp4" },
+  { id: 6, video: "/videos/video6.mp4" },
+  { id: 7, video: "/videos/video7.mp4" },
+  { id: 8, video: "/videos/video8.mp4" },
+  { id: 9, video: "/videos/video9.mp4" },
+  { id: 10, video: "/videos/video10.mp4" },
 ];
 
 const Reels = () => {
@@ -36,7 +24,7 @@ const Reels = () => {
   useEffect(() => {
     videoRefs.current.forEach((video) => {
       if (video) {
-        video.play();
+        video.play().catch((e) => console.log("Autoplay blocked", e));
       }
     });
   }, []);
