@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
@@ -20,13 +20,26 @@ const reelsData = [
 
 const Reels = () => {
   const videoRefs = useRef([]);
+  const [visibleVideos, setVisibleVideos] = useState({});
 
   useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const index = entry.target.getAttribute("data-index");
+          if (entry.isIntersecting) {
+            setVisibleVideos((prev) => ({ ...prev, [index]: true }));
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
+
     videoRefs.current.forEach((video) => {
-      if (video) {
-        video.play().catch((e) => console.log("Autoplay blocked", e));
-      }
+      if (video) observer.observe(video);
     });
+
+    return () => observer.disconnect();
   }, []);
 
   return (
@@ -36,10 +49,10 @@ const Reels = () => {
           modules={[Navigation]}
           spaceBetween={10}
           breakpoints={{
-            320: { slidesPerView: 2.5 },
-            640: { slidesPerView: 4.5 },
-            1024: { slidesPerView: 5.5 },
-            1280: { slidesPerView: 6.5 },
+            320: { slidesPerView: 2 },
+            640: { slidesPerView: 4 },
+            1024: { slidesPerView: 5 },
+            1280: { slidesPerView: 6 },
           }}
           navigation={{ nextEl: ".swiper-button-next", prevEl: ".swiper-button-prev" }}
           loop={true}
@@ -52,13 +65,13 @@ const Reels = () => {
                   className="reel-video w-full h-full object-cover rounded-xl"
                   playsInline
                   muted
-                  autoPlay
+                  autoPlay={visibleVideos[index] || false}
                   loop
                   controlsList="nodownload"
                   onContextMenu={(e) => e.preventDefault()}
-                  loading="lazy"
+                  data-index={index}
                 >
-                  <source src={reel.video} type="video/mp4" />
+                  {visibleVideos[index] && <source src={reel.video} type="video/mp4" />}
                 </video>
               </div>
             </SwiperSlide>
