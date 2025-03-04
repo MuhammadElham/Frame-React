@@ -5,16 +5,16 @@ import "swiper/css/navigation";
 import { Navigation } from "swiper/modules";
 
 // Videos
-import video1 from "../assets/karigari Logos/Videos/video1.mp4";
-import video2 from "../assets/karigari Logos/Videos/video2.mp4";
-import video3 from "../assets/karigari Logos/Videos/video3.mp4";
-import video4 from "../assets/karigari Logos/Videos/video4.mp4";
-import video5 from "../assets/karigari Logos/Videos/video5.mp4";
-import video6 from "../assets/karigari Logos/Videos/video6.mp4";
-import video7 from "../assets/karigari Logos/Videos/video7.mp4";
-import video8 from "../assets/karigari Logos/Videos/video8.mp4";
-import video9 from "../assets/karigari Logos/Videos/video9.mp4";
-import video10 from "../assets/karigari Logos/Videos/video10.mp4";
+import video1 from "/videos/video1.mp4";
+import video2 from "/videos/video2.mp4";
+import video3 from "/videos/video3.mp4";
+import video4 from "/videos/video4.mp4";
+import video5 from "/videos/video5.mp4";
+import video6 from "/videos/video6.mp4";
+import video7 from "/videos/video7.mp4";
+import video8 from "/videos/video8.mp4";
+import video9 from "/videos/video9.mp4";
+import video10 from "/videos/video10.mp4";
 
 // Data
 const reelsData = [
@@ -59,7 +59,17 @@ const Reels = () => {
           {reelsData.map((reel, index) => (
             <SwiperSlide key={reel.id} className="reel-slide relative rounded-xl overflow-hidden">
               <div className="relative w-full h-[250px] lg:h-[300px] custom-height">
-                <video ref={(el) => (videoRefs.current[index] = el)} className="reel-video w-full h-full object-cover rounded-xl" playsInline muted autoPlay loop controlsList="nodownload" onContextMenu={(e) => e.preventDefault()}>
+                <video
+                  ref={(el) => (videoRefs.current[index] = el)}
+                  className="reel-video w-full h-full object-cover rounded-xl"
+                  playsInline
+                  muted
+                  autoPlay
+                  loop
+                  controlsList="nodownload"
+                  onContextMenu={(e) => e.preventDefault()}
+                  loading="lazy"
+                >
                   <source src={reel.video} type="video/mp4" />
                 </video>
               </div>
