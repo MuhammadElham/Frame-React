@@ -1,6 +1,6 @@
 import React from "react";
-import { assets } from "../assets/assets";
 import bannerImage from "../assets/karigari Logos/Banner Image/banner1.jpg";
+import { Link } from "react-router-dom";
 
 const Hero = () => {
   return (
@@ -18,7 +18,7 @@ const Hero = () => {
         </div>
         <h1 className="prata-regular text-3xl sm:py-3 md:text-4xl lg:text-5xl leading-relaxed">Your Marriage, treasured</h1>
         <p className="text-sm lg:text-base sm:w-2/4">Every marriage has a beginning - make yours unforgettable with a handcrafted nikah certificate by Kargari.</p>
-        <button className="bg-white text-black hover:bg-black hover:text-white w-auto max-w-fit tracking-wide my-4 text-xs px-5 py-3 sm:px-6 sm:py-3 sm:text-sm md:my-6 lg:text-[16px] lg:px-8 lg:py-4">SHOP NIKKAH CONTRACTS</button>
+        <Link to="/collection"><button className="bg-white text-black hover:bg-black hover:text-white w-auto max-w-fit tracking-wide my-4 text-xs px-5 py-3 sm:px-6 sm:py-3 sm:text-sm md:my-6 lg:text-[16px] lg:px-8 lg:py-4">SHOP NIKKAH CONTRACTS</button></Link>
       </div>
     </div>
   );
