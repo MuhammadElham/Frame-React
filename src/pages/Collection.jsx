@@ -31,18 +31,14 @@ const Collection = () => {
       setSubCatgory((prev) => [...prev, e.target.value]);
     }
   };
-
+  // Rendering Data
   const applyFilter = () => {
-    let productsCopy = products.slice();
-    if (category.length > 0) {
-      productsCopy = productsCopy.filter((item) => category.includes(item.category));
-    }
-    setFilterProducts(productsCopy);
+    setFilterProducts(category.length ? products.filter((item) => category.includes(item.category)) : products);
   };
 
   useEffect(() => {
     setFilterProducts(products);
-  }, []);
+  }, [products]);
 
   useEffect(() => {
     applyFilter();
