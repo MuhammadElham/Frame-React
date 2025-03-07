@@ -56,35 +56,24 @@ const Collection = () => {
           <p className="mb-3 text-sm font-medium">CATEGORIES</p>
           <div className="flex flex-col gap-2 text-sm font-light text-gray-700">
             <p className="flex gap-2 cursor-default">
-              <input className="w-3 cursor-pointer" type="checkbox" value={"Men"} onChange={toggleCategory} />
-              Men
+              <input className="w-3 cursor-pointer" type="checkbox" value={"Frames"} onChange={toggleCategory} />
+              Frames
             </p>
             <p className="flex gap-2 cursor-default">
-              <input className="w-3 cursor-pointer" type="checkbox" value={"Women"} onChange={toggleCategory} />
-              Women
+              <input className="w-3 cursor-pointer" type="checkbox" value={"Ring Trays"} onChange={toggleCategory} />
+              Ring Trays
             </p>
             <p className="flex gap-2 cursor-default">
-              <input className="w-3 cursor-pointer" type="checkbox" value={"Kids"} onChange={toggleCategory} />
-              Kids
-            </p>
-          </div>
-        </div>
-        {/* Sub Category Filter */}
-        <div className={`border border-gray-300 pl-5 py-3 my-5 ${showFilter ? "" : "hidden"} sm:block `}>
-          <p className="mb-3 text-sm font-medium">TYPE</p>
-
-          <div className="flex flex-col gap-2 text-sm font-light text-gray-700">
-            <p className="flex gap-2 cursor-default">
-              <input className="w-3 cursor-pointer" type="checkbox" value={"Topwear"} onChange={toggleSubCategory} />
-              Topwear
+              <input className="w-3 cursor-pointer" type="checkbox" value={"Welcome Boards"} onChange={toggleCategory} />
+              Welcome Boards
             </p>
             <p className="flex gap-2 cursor-default">
-              <input className="w-3 cursor-pointer" type="checkbox" value={"Bottomwear"} onChange={toggleSubCategory} />
-              Bottomwear
+              <input className="w-3 cursor-pointer" type="checkbox" value={"Sweet Boxes"} onChange={toggleCategory} />
+              Sweet Boxes
             </p>
             <p className="flex gap-2 cursor-default">
-              <input className="w-3 cursor-pointer" type="checkbox" value={"Winterwear"} onChange={toggleSubCategory} />
-              Winterwear
+              <input className="w-3 cursor-pointer" type="checkbox" value={"Pens"} onChange={toggleCategory} />
+              Pens
             </p>
           </div>
         </div>
