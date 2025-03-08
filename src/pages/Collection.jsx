@@ -8,7 +8,6 @@ const Collection = () => {
   const [showFilter, setShowFilter] = useState(false);
   const [filterProducts, setFilterProducts] = useState([]);
   const [category, setCategory] = useState([]);
-  const [subCategory, setSubCatgory] = useState([]);
   const [sortType, setSortType] = useState("relevant");
 
   const toggleCategory = (e) => {
@@ -21,22 +20,12 @@ const Collection = () => {
       setCategory((prev) => [...prev, e.target.value]);
     }
   };
-  const toggleSubCategory = (e) => {
-    // for Check and unCheck
-    if (subCategory.includes(e.target.value)) {
-      setSubCatgory((prev) => prev.filter((item) => item !== e.target.value));
-    }
-    // for Multiple CheckBox
-    else {
-      setSubCatgory((prev) => [...prev, e.target.value]);
-    }
-  };
   // Rendering Data
   const applyFilter = () => {
     setFilterProducts(category.length ? products.filter((item) => category.includes(item.category)) : products);
   };
 
-  const sortProduct = () => {
+  const sortProduct = (filterProducts) => {
     let fpCopy = [...filterProducts];
     switch (sortType) {
       case "low-high":
@@ -46,22 +35,14 @@ const Collection = () => {
         fpCopy.sort((a, b) => b.price - a.price);
         break;
       default:
-        applyFilter();
         break;
     }
     setFilterProducts(fpCopy);
   };
   useEffect(() => {
-    sortProduct();
-  }, [sortType]);
-
-  useEffect(() => {
-    setFilterProducts(products);
-  }, [products]);
-
-  useEffect(() => {
-    applyFilter();
-  }, [category, subCategory]);
+    let filtered = category.length ? products.filter((item) => category.includes(item.category)) : products;
+    sortProduct(filtered);
+  }, [sortType, products, category]);
 
   return (
     <div className="flex flex-col sm:flex-row gap-1 sm:gap-10 pt-10 border-t">
