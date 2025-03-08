@@ -3,6 +3,7 @@ import { ShopContext } from "../context/ShopContext";
 import { assets } from "../assets/assets";
 import Title from "../component/Title";
 import ProductItem from "../component/ProductItem";
+
 const Collection = () => {
   const { products } = useContext(ShopContext);
   const [showFilter, setShowFilter] = useState(false);
@@ -11,37 +12,32 @@ const Collection = () => {
   const [sortType, setSortType] = useState("relevant");
 
   const toggleCategory = (e) => {
-    // for Check and unCheck
-    if (category.includes(e.target.value)) {
-      setCategory((prev) => prev.filter((item) => item !== e.target.value));
-    }
-    // for Multiple CheckBox
-    else {
-      setCategory((prev) => [...prev, e.target.value]);
-    }
-  };
-  // Rendering Data
-  const applyFilter = () => {
-    setFilterProducts(category.length ? products.filter((item) => category.includes(item.category)) : products);
+    setCategory((prev) => (prev.includes(e.target.value) ? prev.filter((item) => item !== e.target.value) : [...prev, e.target.value]));
   };
 
-  const sortProduct = (filterProducts) => {
-    let fpCopy = [...filterProducts];
+  const sortProduct = (filteredProducts) => {
+    let sortedProducts = [...filteredProducts];
+
     switch (sortType) {
       case "low-high":
-        fpCopy.sort((a, b) => a.price - b.price);
+        sortedProducts.sort((a, b) => a.price - b.price);
         break;
       case "high-low":
-        fpCopy.sort((a, b) => b.price - a.price);
+        sortedProducts.sort((a, b) => b.price - a.price);
         break;
       default:
         break;
     }
-    setFilterProducts(fpCopy);
+    setFilterProducts(sortedProducts);
   };
-  useEffect(() => {
+
+  const applyFilter = () => {
     let filtered = category.length ? products.filter((item) => category.includes(item.category)) : products;
     sortProduct(filtered);
+  };
+
+  useEffect(() => {
+    applyFilter();
   }, [sortType, products, category]);
 
   return (
@@ -56,36 +52,23 @@ const Collection = () => {
         <div className={`border border-gray-300 pl-5 py-3 mt-6 ${showFilter ? "" : "hidden"} sm:block `}>
           <p className="mb-3 text-sm font-medium">CATEGORIES</p>
           <div className="flex flex-col gap-2 text-sm font-light text-gray-700">
-            <p className="flex gap-2 cursor-default">
-              <input className="w-3 cursor-pointer" type="checkbox" value={"Frames"} onChange={toggleCategory} />
-              Frames
-            </p>
-            <p className="flex gap-2 cursor-default">
-              <input className="w-3 cursor-pointer" type="checkbox" value={"Ring Trays"} onChange={toggleCategory} />
-              Ring Trays
-            </p>
-            <p className="flex gap-2 cursor-default">
-              <input className="w-3 cursor-pointer" type="checkbox" value={"Welcome Boards"} onChange={toggleCategory} />
-              Welcome Boards
-            </p>
-            <p className="flex gap-2 cursor-default">
-              <input className="w-3 cursor-pointer" type="checkbox" value={"Sweet Boxes"} onChange={toggleCategory} />
-              Sweet Boxes
-            </p>
-            <p className="flex gap-2 cursor-default">
-              <input className="w-3 cursor-pointer" type="checkbox" value={"Pens"} onChange={toggleCategory} />
-              Pens
-            </p>
+            {["Frames", "Ring Trays", "Welcome Boards", "Sweet Boxes", "Pens"].map((item) => (
+              <p key={item} className="flex gap-2 cursor-default">
+                <input className="w-3 cursor-pointer" type="checkbox" value={item} onChange={toggleCategory} />
+                {item}
+              </p>
+            ))}
           </div>
         </div>
       </div>
+
       {/* Right Side */}
       <div className="flex-1">
         <div className="flex justify-between text-base sm:text-2xl mb-4">
           <Title text1={"ALL "} text2={"COLLECTIONS"} lineWidth="w-[1rem] md:w-12" />
           {/* Product Sort */}
           <select onChange={(e) => setSortType(e.target.value)} className="border-2 border-gray-300 text-[0.675rem] w-[130px] h-[30px] md:w-auto md:h-auto sm:text-sm px-2 cursor-pointer">
-            <option value="relavent">Sort by: Relavent</option>
+            <option value="relevant">Sort by: Relevant</option>
             <option value="low-high">Sort by: Low to High</option>
             <option value="high-low">Sort by: High to Low</option>
           </select>
