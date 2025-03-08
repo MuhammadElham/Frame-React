@@ -3,13 +3,13 @@ import { ShopContext } from "../context/ShopContext";
 import { assets } from "../assets/assets";
 import Title from "../component/Title";
 import ProductItem from "../component/ProductItem";
-
 const Collection = () => {
   const { products } = useContext(ShopContext);
   const [showFilter, setShowFilter] = useState(false);
   const [filterProducts, setFilterProducts] = useState([]);
   const [category, setCategory] = useState([]);
   const [subCategory, setSubCatgory] = useState([]);
+  const [sortType, setSortType] = useState("relevant");
 
   const toggleCategory = (e) => {
     // for Check and unCheck
@@ -36,6 +36,25 @@ const Collection = () => {
     setFilterProducts(category.length ? products.filter((item) => category.includes(item.category)) : products);
   };
 
+  const sortProduct = () => {
+    let fpCopy = [...filterProducts];
+    switch (sortType) {
+      case "low-high":
+        fpCopy.sort((a, b) => a.price - b.price);
+        break;
+      case "high-low":
+        fpCopy.sort((a, b) => b.price - a.price);
+        break;
+      default:
+        applyFilter();
+        break;
+    }
+    setFilterProducts(fpCopy);
+  };
+  useEffect(() => {
+    sortProduct();
+  }, [sortType]);
+
   useEffect(() => {
     setFilterProducts(products);
   }, [products]);
@@ -43,6 +62,7 @@ const Collection = () => {
   useEffect(() => {
     applyFilter();
   }, [category, subCategory]);
+
   return (
     <div className="flex flex-col sm:flex-row gap-1 sm:gap-10 pt-10 border-t">
       {/* Filter Options  */}
@@ -83,7 +103,7 @@ const Collection = () => {
         <div className="flex justify-between text-base sm:text-2xl mb-4">
           <Title text1={"ALL "} text2={"COLLECTIONS"} lineWidth="w-[1rem] md:w-12" />
           {/* Product Sort */}
-          <select className="border-2 border-gray-300 text-[0.675rem] w-[130px] h-[30px] md:w-auto md:h-auto sm:text-sm px-2 cursor-pointer">
+          <select onChange={(e) => setSortType(e.target.value)} className="border-2 border-gray-300 text-[0.675rem] w-[130px] h-[30px] md:w-auto md:h-auto sm:text-sm px-2 cursor-pointer">
             <option value="relavent">Sort by: Relavent</option>
             <option value="low-high">Sort by: Low to High</option>
             <option value="high-low">Sort by: High to Low</option>
