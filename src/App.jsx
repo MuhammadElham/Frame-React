@@ -10,7 +10,6 @@ import Login from "./pages/Login";
 import Orders from "./pages/Orders";
 import Navbar from "./component/Navbar";
 import Footer from "./component/Footer";
-import WhatsAppWidget from "./component/WhatsAppWidget";
 function App() {
   return (
     <>
@@ -28,7 +27,6 @@ function App() {
           <Route path="/orders" element={<Orders />} />
         </Routes>
         <Footer />
-        <WhatsAppWidget />
       </div>
     </>
   );
