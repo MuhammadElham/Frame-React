@@ -10,6 +10,7 @@ import Login from "./pages/Login";
 import Orders from "./pages/Orders";
 import Navbar from "./component/Navbar";
 import Footer from "./component/Footer";
+import WhatsAppChatButton from "./component/WhatsAppChatButton.jsx";
 function App() {
   return (
     <>
@@ -27,6 +28,7 @@ function App() {
           <Route path="/orders" element={<Orders />} />
         </Routes>
         <Footer />
+        <WhatsAppChatButton />
       </div>
     </>
   );
