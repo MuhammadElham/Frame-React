@@ -10,7 +10,7 @@ w-full top-0 left-0 z-[1000] px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]"
     >
       {/* 1 part */}
       <Link to="/">
-        <img src={assets.logo} className="w-20 sm:w-24 md:w-28 lg:w-32" alt="" />
+        <img src="https://res.cloudinary.com/dmmz8ldz9/image/upload/f_auto,q_auto/v1741605636/ecommerce-assets/flqrjp0nlmalt5vscokn.png" className="w-20 sm:w-24 md:w-28 lg:w-32" alt="" />
       </Link>
       {/* 2 part */}
       <ul className="hidden sm:flex gap-5 text-sm text-gray-700">
@@ -33,10 +33,10 @@ w-full top-0 left-0 z-[1000] px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]"
       </ul>
       {/* 3 part */}
       <div className="flex items-center gap-6">
-        <img src={assets.search_icon} className="w-5 cursor-pointer" alt="" />
+        <img src="https://res.cloudinary.com/dmmz8ldz9/image/upload/f_auto,q_auto:eco/v1741605704/ecommerce-assets/k5frntckft90j80ndcqr.png" className="w-5 cursor-pointer" alt="" />
 
         <div className="group relative">
-          <img src={assets.profile_icon} className="w-5 cursor-pointer" alt="" />
+          <img src="https://res.cloudinary.com/dmmz8ldz9/image/upload/f_auto,q_auto:eco/v1741605638/ecommerce-assets/rqqaaleguvchnayfiefv.png" className="w-5 cursor-pointer" alt="" />
           <div className="group-hover:block hidden absolute dropdown-menu right-0 pt-4">
             <div className="flex flex-col gap-2 w-36 py-3 px-5 bg-slate-100 text-gray-500 rounded">
               <p className="cursor-pointer hover:text-black">My Profile</p>
@@ -46,7 +46,7 @@ w-full top-0 left-0 z-[1000] px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]"
           </div>
         </div>
         <Link to="/cart" className="relative">
-          <img src={assets.cart_icon} className="w-5 min-w-5" alt="" />
+          <img src="https://res.cloudinary.com/dmmz8ldz9/image/upload/v1741605630/ecommerce-assets/dierfmkhsm9brcz3ge5p.png" className="w-5 min-w-5" alt="" />
           <p className="absolute right-[-5px] bottom-[-5px] w-4 text-center leading-4 bg-black text-white aspect-square rounded-full text-[8px]">10</p>
         </Link>
         {/* Menu Icon */}
