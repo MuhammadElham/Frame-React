@@ -6,16 +6,16 @@ import { Navigation } from "swiper/modules";
 
 // Videos - Direct Path (No Import)
 const reelsData = [
-  { id: 1, video: "/videos/video1.mp4" },
-  { id: 2, video: "/videos/video2.mp4" },
-  { id: 3, video: "/videos/video3.mp4" },
-  { id: 4, video: "/videos/video4.mp4" },
-  { id: 5, video: "/videos/video5.mp4" },
-  { id: 6, video: "/videos/video6.mp4" },
-  { id: 7, video: "/videos/video7.mp4" },
-  { id: 8, video: "/videos/video8.mp4" },
-  { id: 9, video: "/videos/video9.mp4" },
-  { id: 10, video: "/videos/video10.mp4" },
+  { id: 1, video: "https://res.cloudinary.com/dmmz8ldz9/video/upload/f_auto,q_auto,vc_auto/v1741613375/ecommerce-videos/yncig6trzxg9bqbrcqdu.mp4" },
+  { id: 2, video: "https://res.cloudinary.com/dmmz8ldz9/video/upload/f_auto,q_auto,vc_auto/v1741613372/ecommerce-videos/ax4v1eqa5pcbn6cwtzm2.mp4" },
+  { id: 3, video: "https://res.cloudinary.com/dmmz8ldz9/video/upload/f_auto,q_auto,vc_auto/v1741613364/ecommerce-videos/pmyppgvyzie1maiaqlpo.mp4" },
+  { id: 4, video: "https://res.cloudinary.com/dmmz8ldz9/video/upload/f_auto,q_auto,vc_auto/v1741613380/ecommerce-videos/gnqoprltjyps65hlcz3l.mp4" },
+  { id: 5, video: "https://res.cloudinary.com/dmmz8ldz9/video/upload/f_auto,q_auto,vc_auto/v1741613384/ecommerce-videos/onhtfia5mjvxmbxfz7pv.mp4" },
+  { id: 6, video: "https://res.cloudinary.com/dmmz8ldz9/video/upload/f_auto,q_auto,vc_auto/v1741613358/ecommerce-videos/unr1ybjd6jrmdx6psmiy.mp4" },
+  { id: 7, video: "https://res.cloudinary.com/dmmz8ldz9/video/upload/f_auto,q_auto,vc_auto/v1741613361/ecommerce-videos/sevfkzcbbfqo8karo6ks.mp4" },
+  { id: 8, video: "https://res.cloudinary.com/dmmz8ldz9/video/upload/f_auto,q_auto,vc_auto/v1741613366/ecommerce-videos/eyv5garyzbceggj7cgdz.mp4" },
+  { id: 9, video: "https://res.cloudinary.com/dmmz8ldz9/video/upload/f_auto,q_auto,vc_auto/v1741613356/ecommerce-videos/omxnrxz72c09zmkmarrk.mp4" },
+  { id: 10, video: "https://res.cloudinary.com/dmmz8ldz9/video/upload/f_auto,q_auto,vc_auto/v1741613377/ecommerce-videos/i4essvlh4feyfqingxxz.mp4" },
 ];
 
 const Reels = () => {

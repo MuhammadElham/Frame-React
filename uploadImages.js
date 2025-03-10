@@ -16,7 +16,7 @@ cloudinary.v2.config({
 });
 
 // 📂 Updated Folder Path for Images
-const folderPath = "E:/React/ECOMMERCE-APP/frontend/src/assets/karigari Logos/Banner Image";
+const folderPath = "E:\React\ECOMMERCE-APP\frontend\src\assets\karigari Logos\Videos";
 
 // 📤 Function to Upload Images
 const uploadImages = async () => {
