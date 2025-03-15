@@ -1,16 +1,16 @@
-import p_img1 from './p_img1.png'
-import p_img2_1 from './p_img2_1.png'
-import p_img2_2 from './p_img2_2.png'
-import p_img2_3 from './p_img2_3.png'
-import p_img2_4 from './p_img2_4.png'
-import p_img3 from './p_img3.png'
-import p_img4 from './p_img4.png'
-import p_img5 from './p_img5.png'
-import p_img6 from './p_img6.png'
-import p_img7 from './p_img7.png'
-import p_img8 from './p_img8.png'
-import p_img9 from './p_img9.png'
-import p_img10 from './p_img10.png'
+// import p_img1 from './p_img1.png'
+// import p_img2_1 from './p_img2_1.png'
+// import p_img2_2 from './p_img2_2.png'
+// import p_img2_3 from './p_img2_3.png'
+// import p_img2_4 from './p_img2_4.png'
+// import p_img3 from './p_img3.png'
+// import p_img4 from './p_img4.png'
+// import p_img5 from './p_img5.png'
+// import p_img6 from './p_img6.png'
+// import p_img7 from './p_img7.png'
+// import p_img8 from './p_img8.png'
+// import p_img9 from './p_img9.png'
+// import p_img10 from './p_img10.png'
 import p_img11 from './p_img11.png'
 import p_img12 from './p_img12.png'
 import p_img13 from './p_img13.png'
@@ -94,14 +94,29 @@ export const assets = {
     stripe_logo,
     cross_icon
 }
+export const productImage = {
+    p_img1:"https://res.cloudinary.com/dmmz8ldz9/image/upload/f_auto,q_auto/v1741605639/ecommerce-assets/iktuyiuthjwugpqnbqzn.png",
+    p_img2_1:"https://res.cloudinary.com/dmmz8ldz9/image/upload/f_auto,q_auto/v1741605665/ecommerce-assets/jcoghdtzmrv2r7wjxq6l.png",
+    p_img2_2:"https://res.cloudinary.com/dmmz8ldz9/image/upload/f_auto,q_auto/v1741605665/ecommerce-assets/jcoghdtzmrv2r7wjxq6l.png",
+    p_img2_3:"https://res.cloudinary.com/dmmz8ldz9/image/upload/f_auto,q_auto/v1741605665/ecommerce-assets/jcoghdtzmrv2r7wjxq6l.png",
+    p_img2_4:"https://res.cloudinary.com/dmmz8ldz9/image/upload/f_auto,q_auto/v1741605665/ecommerce-assets/jcoghdtzmrv2r7wjxq6l.png",
+    p_img3:"https://res.cloudinary.com/dmmz8ldz9/image/upload/f_auto,q_auto/v1741605668/ecommerce-assets/ruqwbtnax0y2etrde9jp.png",
+    p_img4:"https://res.cloudinary.com/dmmz8ldz9/image/upload/f_auto,q_auto/v1741605680/ecommerce-assets/fx1mb8kn5sfn4txpvsok.png",
+    p_img5:"https://res.cloudinary.com/dmmz8ldz9/image/upload/f_auto,q_auto/v1741605648/ecommerce-assets/totatoflmts0cv3blxug.png",
+    p_img6:"https://res.cloudinary.com/dmmz8ldz9/image/upload/f_auto,q_auto/v1741605698/ecommerce-assets/vylzld6qrlqxpqskredz.png",
+    p_img7:"https://res.cloudinary.com/dmmz8ldz9/image/upload/f_auto,q_auto/v1741605699/ecommerce-assets/nnpxtqrlnvsilsbb4jmn.png",
+    p_img8:"https://res.cloudinary.com/dmmz8ldz9/image/upload/f_auto,q_auto/v1741605700/ecommerce-assets/gdbeqlykkcp91jyxtgod.png",
+    p_img9:"https://res.cloudinary.com/dmmz8ldz9/image/upload/f_auto,q_auto/v1741605701/ecommerce-assets/zijadu3rmmxf428fvadp.png",
+    p_img10:"https://res.cloudinary.com/dmmz8ldz9/image/upload/f_auto,q_auto/v1741605641/ecommerce-assets/x7lhv3v1mxj9mdqxydyw.png",
 
+}
 export const products = [
     {
         _id: "aaaaa",
         name: "Women Round Neck Cotton Top",
         description: "A lightweight, usually knitted, pullover shirt, close-fitting and with a round neckline and short sleeves, worn as an undershirt or outer garment.",
         price: 100,
-        image: [p_img1],
+        image: productImage.p_img1,
         category: "Frames",
         subCategory: "Topwear",
         sizes: ["S", "M", "L"],
@@ -113,7 +128,8 @@ export const products = [
         name: "Men Round Neck Pure Cotton T-shirt",
         description: "A lightweight, usually knitted, pullover shirt, close-fitting and with a round neckline and short sleeves, worn as an undershirt or outer garment.",
         price: 200,
-        image: [p_img2_1,p_img2_2,p_img2_3,p_img2_4],
+        // image: [p_img2_1,p_img2_2,p_img2_3,p_img2_4],
+        image: [productImage.p_img2_1,productImage.p_img2_2,productImage.p_img2_3,productImage.p_img2_4],
         category: "Frames",
         subCategory: "Topwear",
         sizes: ["M", "L", "XL"],
@@ -125,7 +141,7 @@ export const products = [
         name: "Girls Round Neck Cotton Top",
         description: "A lightweight, usually knitted, pullover shirt, close-fitting and with a round neckline and short sleeves, worn as an undershirt or outer garment.",
         price: 220,
-        image: [p_img3],
+        image: productImage.p_img3,
         category: "Frames",
         subCategory: "Topwear",
         sizes: ["S", "L", "XL"],
@@ -137,7 +153,7 @@ export const products = [
         name: "Men Round Neck Pure Cotton T-shirt",
         description: "A lightweight, usually knitted, pullover shirt, close-fitting and with a round neckline and short sleeves, worn as an undershirt or outer garment.",
         price: 110,
-        image: [p_img4],
+        image: productImage.p_img4,
         category: "Frames",
         subCategory: "Topwear",
         sizes: ["S", "M", "XXL"],
@@ -149,7 +165,7 @@ export const products = [
         name: "Women Round Neck Cotton Top",
         description: "A lightweight, usually knitted, pullover shirt, close-fitting and with a round neckline and short sleeves, worn as an undershirt or outer garment.",
         price: 130,
-        image: [p_img5],
+        image: productImage.p_img5,
         category: "Ring Trays",
         subCategory: "Topwear",
         sizes: ["M", "L", "XL"],
@@ -161,7 +177,7 @@ export const products = [
         name: "Girls Round Neck Cotton Top",
         description: "A lightweight, usually knitted, pullover shirt, close-fitting and with a round neckline and short sleeves, worn as an undershirt or outer garment.",
         price: 140,
-        image: [p_img6],
+        image: productImage.p_img6,
         category: "Frames",
         subCategory: "Topwear",
         sizes: ["S", "L", "XL"],
@@ -173,7 +189,7 @@ export const products = [
         name: "Men Tapered Fit Flat-Front Trousers",
         description: "A lightweight, usually knitted, pullover shirt, close-fitting and with a round neckline and short sleeves, worn as an undershirt or outer garment.",
         price: 190,
-        image: [p_img7],
+        image: productImage.p_img7,
         category: "Welcome Boards",
         subCategory: "Bottomwear",
         sizes: ["S", "L", "XL"],
@@ -185,7 +201,7 @@ export const products = [
         name: "Men Round Neck Pure Cotton T-shirt",
         description: "A lightweight, usually knitted, pullover shirt, close-fitting and with a round neckline and short sleeves, worn as an undershirt or outer garment.",
         price: 140,
-        image: [p_img8],
+        image: productImage.p_img8,
         category: "Frames",
         subCategory: "Topwear",
         sizes: ["S", "M", "L", "XL"],
@@ -197,7 +213,7 @@ export const products = [
         name: "Girls Round Neck Cotton Top",
         description: "A lightweight, usually knitted, pullover shirt, close-fitting and with a round neckline and short sleeves, worn as an undershirt or outer garment.",
         price: 100,
-        image: [p_img9],
+        image: productImage.p_img9,
         category: "Welcome Boards",
         subCategory: "Topwear",
         sizes: ["M", "L", "XL"],
@@ -209,7 +225,7 @@ export const products = [
         name: "Men Tapered Fit Flat-Front Trousers",
         description: "A lightweight, usually knitted, pullover shirt, close-fitting and with a round neckline and short sleeves, worn as an undershirt or outer garment.",
         price: 110,
-        image: [p_img10],
+        image: productImage.p_img10,
         category: "Frames",
         subCategory: "Bottomwear",
         sizes: ["S", "L", "XL"],
