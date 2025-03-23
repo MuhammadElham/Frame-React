@@ -6,7 +6,6 @@ import dropdown_icon from './dropdown_icon.png'
 import exchange_icon from './exchange_icon.png'
 import profile_icon from './profile_icon.png'
 import quality_icon from './quality_icon.png'
-import search_icon from './search_icon.png'
 import star_dull_icon from './star_dull_icon.png'
 import star_icon from './star_icon.png'
 import support_img from './support_img.png'
@@ -23,7 +22,7 @@ export const assets = {
     exchange_icon,
     profile_icon,
     quality_icon,
-    search_icon,
+    search_icon:'https://res.cloudinary.com/dmmz8ldz9/image/upload/f_auto,q_auto/v1741605704/ecommerce-assets/k5frntckft90j80ndcqr.png',
     star_dull_icon,
     star_icon,
     bin_icon,
