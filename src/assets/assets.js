@@ -1,4 +1,3 @@
-import logo from './logo.png'
 import hero_img from './hero_img.png'
 import cart_icon from './cart_icon.png'
 import bin_icon from './bin_icon.png'
@@ -12,10 +11,9 @@ import support_img from './support_img.png'
 import menu_icon from './menu_icon.png'
 import razorpay_logo from './razorpay_logo.png'
 import stripe_logo from './stripe_logo.png'
-import cross_icon from './cross_icon.png'
 
 export const assets = {
-    logo,
+    logo:'https://res.cloudinary.com/dmmz8ldz9/image/upload/f_auto,q_auto/v1741605636/ecommerce-assets/flqrjp0nlmalt5vscokn.png',
     hero_img,
     cart_icon,
     dropdown_icon,
@@ -32,7 +30,7 @@ export const assets = {
     contact_img:"https://res.cloudinary.com/dmmz8ldz9/image/upload/f_auto,q_auto/v1741605632/ecommerce-assets/oxfk1hrjiu7njz9k0oxr.png",
     razorpay_logo,
     stripe_logo,
-    cross_icon
+    cross_icon:'https://res.cloudinary.com/dmmz8ldz9/image/upload/f_auto,q_auto/v1741605633/ecommerce-assets/zjnm267kxjrh6kbflkg4.png'
 }
 export const productImage = {
     p_img1:"https://res.cloudinary.com/dmmz8ldz9/image/upload/f_auto,q_auto/v1741605639/ecommerce-assets/iktuyiuthjwugpqnbqzn.png",

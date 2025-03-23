@@ -5,7 +5,7 @@ import Title from "../component/Title";
 import ProductItem from "../component/ProductItem";
 
 const Collection = () => {
-  const { products } = useContext(ShopContext);
+  const { products, search, showSearch } = useContext(ShopContext);
   const [showFilter, setShowFilter] = useState(false);
   const [filterProducts, setFilterProducts] = useState([]);
   const [category, setCategory] = useState([]);
@@ -30,16 +30,23 @@ const Collection = () => {
     }
     setFilterProducts(sortedProducts);
   };
-
+// GPT Logic which i change it 
   const applyFilter = () => {
-    let filtered = category.length ? products.filter((item) => category.includes(item.category)) : products;
-    sortProduct(filtered);
+    let filteredProducts = products.slice();
+    // 🔍 Apply Search Filter
+    if (search.length > 0) {
+      filteredProducts = filteredProducts.filter((item) => item.name.toLowerCase().includes(search.toLowerCase()));
+    }
+    // 🏷️ Apply Category Filter
+    if (category.length) {
+      filteredProducts = filteredProducts.filter((item) => category.includes(item.category));
+    }
+    // 📌 Apply Sorting
+    sortProduct(filteredProducts);
   };
-
   useEffect(() => {
     applyFilter();
-  }, [sortType, products, category]);
-
+  }, [sortType, products, category, search]);
   return (
     <div className="flex flex-col sm:flex-row gap-1 sm:gap-10 pt-10 border-t">
       {/* Filter Options  */}
