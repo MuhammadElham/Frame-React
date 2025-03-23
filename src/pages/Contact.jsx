@@ -2,7 +2,6 @@ import React from "react";
 import Title from "../component/Title";
 import { assets } from "../assets/assets";
 import NewsLetter from "../component/NewsLetter";
-
 const Contact = () => {
   return (
     <div>
