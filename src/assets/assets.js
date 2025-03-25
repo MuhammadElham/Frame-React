@@ -5,8 +5,6 @@ import dropdown_icon from './dropdown_icon.png'
 import exchange_icon from './exchange_icon.png'
 import profile_icon from './profile_icon.png'
 import quality_icon from './quality_icon.png'
-import star_dull_icon from './star_dull_icon.png'
-import star_icon from './star_icon.png'
 import support_img from './support_img.png'
 import menu_icon from './menu_icon.png'
 import razorpay_logo from './razorpay_logo.png'
@@ -21,8 +19,8 @@ export const assets = {
     profile_icon,
     quality_icon,
     search_icon:'https://res.cloudinary.com/dmmz8ldz9/image/upload/f_auto,q_auto/v1741605704/ecommerce-assets/k5frntckft90j80ndcqr.png',
-    star_dull_icon,
-    star_icon,
+    star_dull_icon:'https://res.cloudinary.com/dmmz8ldz9/image/upload/q_auto,f_auto/v1741605705/ecommerce-assets/qvew44ynpz6ttehj0auv.png',
+    star_icon:'https://res.cloudinary.com/dmmz8ldz9/image/upload/q_auto,f_auto/v1741605705/ecommerce-assets/p40zvxenlivjpkja66lc.png',
     bin_icon,
     support_img,
     menu_icon,

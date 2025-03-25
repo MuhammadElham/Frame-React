@@ -22,7 +22,9 @@ a.active hr {
         color: white;
     }
 }
-
+::-webkit-scrollbar{
+    display: none;
+}
 /* Reels */
 .play-btn {
     background: rgba(0, 0, 0, 0.7);
