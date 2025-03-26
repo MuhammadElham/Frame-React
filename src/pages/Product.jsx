@@ -7,23 +7,31 @@ const Product = () => {
   const { productId } = useParams();
   const { products, currency } = useContext(ShopContext);
   const [productData, setProductData] = useState(false);
-  const [image, setImage] = useState("");
+  const [image, setImage] = useState(null);
   const [size, setSize] = useState("");
 
   const fetchProductData = async () => {
-    products.map((item) => {
-      if (item._id === productId) {
-        setProductData({ ...item, image: Array.isArray(item.image) ? item.image : [item.image] });
-        setImage(item.image[0]);
-        return null;
-      }
-    });
+    const foundProduct = products.find((item) => item._id === productId);
+    if (foundProduct) {
+      setProductData({
+        ...foundProduct,
+        image: Array.isArray(foundProduct.image) ? foundProduct.image : [foundProduct.image],
+      });
+    }
   };
   useEffect(() => {
-    fetchProductData();
+    const getProduct = async () => {
+      await fetchProductData();
+    };
+    getProduct();
   }, [productId, products]);
-  console.log("Product Data ", productData);
-  console.log(typeof productData.image);
+
+  // Ensure image updates when productData changes
+  useEffect(() => {
+    if (productData && productData.image?.length > 0) {
+      setImage(productData.image[0]); // Ensuring image is set after productData updates
+    }
+  }, [productData]);
 
   return productData ? (
     <div className="border-t-2 pt-10 transition-opacity ease-in duration-500 opacity-100">
@@ -33,11 +41,11 @@ const Product = () => {
         <div className="flex-1 flex flex-col-reverse gap-3 sm:flex-row">
           <div className="flex sm:flex-col overflow-x-auto sm:overflow-y-scroll justify-between sm:justify-normal sm:w-[18.7%] w-full">
             {productData.image.map((item, index) => (
-              <img onClick={() => setImage(item)} src={item} key={index} className="w-[24%] sm:w-full sm:mb-3 flex-shrink-0 cursor-pointer" alt="" />
+              image && <img onClick={() => setImage(item)} src={item} key={index} className="w-[24%] sm:w-full sm:mb-3 flex-shrink-0 cursor-pointer" alt="" />
             ))}
           </div>
           <div className="w-full sm:w-[80%]">
-            <img className="w-full h-auto" src={image} alt="" />
+            {image && <img className="w-full h-auto" src={image} alt="" />}
           </div>
         </div>
         {/* Product Info */}
@@ -93,6 +101,7 @@ const Product = () => {
           </p>
         </div>
       </div>
+      {/* Related Products */}
     </div>
   ) : (
     <div className="opacity-0"></div>
