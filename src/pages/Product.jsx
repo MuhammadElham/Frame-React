@@ -6,7 +6,7 @@ import RelatedProduct from "../component/RelatedProduct";
 
 const Product = () => {
   const { productId } = useParams();
-  const { products, currency } = useContext(ShopContext);
+  const { products, currency, addToCart } = useContext(ShopContext);
   const [productData, setProductData] = useState(false);
   const [image, setImage] = useState(null);
   const [size, setSize] = useState("");
@@ -41,13 +41,9 @@ const Product = () => {
         {/* Product Image */}
         <div className="flex-1 flex flex-col-reverse gap-3 sm:flex-row">
           <div className="flex sm:flex-col overflow-x-auto sm:overflow-y-scroll justify-between sm:justify-normal sm:w-[18.7%] w-full">
-            {productData.image.map((item, index) => (
-              image && <img onClick={() => setImage(item)} src={item} key={index} className="w-[24%] sm:w-full sm:mb-3 flex-shrink-0 cursor-pointer" alt="" />
-            ))}
+            {productData.image.map((item, index) => image && <img onClick={() => setImage(item)} src={item} key={index} className="w-[24%] sm:w-full sm:mb-3 flex-shrink-0 cursor-pointer" alt="" />)}
           </div>
-          <div className="w-full sm:w-[80%]">
-            {image && <img className="w-full h-auto" src={image} alt="" />}
-          </div>
+          <div className="w-full sm:w-[80%]">{image && <img className="w-full h-auto" src={image} alt="" />}</div>
         </div>
         {/* Product Info */}
         <div className="flex-1">
@@ -75,7 +71,9 @@ const Product = () => {
               ))}
             </div>
           </div>
-          <button className="bg-black text-white px-8 py-3 text-sm active:bg-gray-700">ADD TO CART</button>
+          <button onClick={() => addToCart(productData._id,size)} className="bg-black text-white px-8 py-3 text-sm active:bg-gray-700">
+            ADD TO CART
+          </button>
           <hr className="mt-8 sm:w-4/5" />
           <div className="text-sm text-gray-500 mt-5 flex flex-col gap-1">
             <p>100% Orignal product.</p>
@@ -103,7 +101,7 @@ const Product = () => {
         </div>
       </div>
       {/* Related Products */}
-      <RelatedProduct category={productData.category} subCategory={productData.subCategory}/>
+      <RelatedProduct category={productData.category} subCategory={productData.subCategory} />
     </div>
   ) : (
     <div className="opacity-0"></div>

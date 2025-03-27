@@ -12,12 +12,14 @@ import Navbar from "./component/Navbar";
 import Footer from "./component/Footer";
 import WhatsAppChatButton from "./component/WhatsAppChatButton.jsx";
 import SearchBar from "./component/SearchBar.jsx";
+import { ToastContainer, toast } from 'react-toastify';
 function App() {
   return (
     <>
       <Navbar />
       <SearchBar/>
       <div className="px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]">
+        <ToastContainer/>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/collection" element={<Collection />} />
