@@ -1,6 +1,5 @@
 import hero_img from './hero_img.png'
 import cart_icon from './cart_icon.png'
-import bin_icon from './bin_icon.png'
 import dropdown_icon from './dropdown_icon.png'
 import exchange_icon from './exchange_icon.png'
 import profile_icon from './profile_icon.png'
@@ -21,7 +20,7 @@ export const assets = {
     search_icon:'https://res.cloudinary.com/dmmz8ldz9/image/upload/f_auto,q_auto/v1741605704/ecommerce-assets/k5frntckft90j80ndcqr.png',
     star_dull_icon:'https://res.cloudinary.com/dmmz8ldz9/image/upload/q_auto,f_auto/v1741605705/ecommerce-assets/qvew44ynpz6ttehj0auv.png',
     star_icon:'https://res.cloudinary.com/dmmz8ldz9/image/upload/q_auto,f_auto/v1741605705/ecommerce-assets/p40zvxenlivjpkja66lc.png',
-    bin_icon,
+    bin_icon:'https://res.cloudinary.com/dmmz8ldz9/image/upload/f_auto,q_auto/v1741605630/ecommerce-assets/hcdnubfi4ajhzxhscevc.png',
     support_img,
     menu_icon,
     about_img:"https://res.cloudinary.com/dmmz8ldz9/image/upload/f_auto,q_auto/v1741605639/ecommerce-assets/iktuyiuthjwugpqnbqzn.png",
