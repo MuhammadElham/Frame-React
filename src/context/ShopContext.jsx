@@ -31,17 +31,20 @@ const ShopContextProvider = (props) => {
     }
     setCartItems(cartData);
   };
-  // for selecting products 
+  // for selecting products
   const getCartCount = () => {
     let totalCount = 0;
-    for (const items in cartItems) { // cartItems is Object having { ID : { Size : Quantity } }
-      for (const item in cartItems[items]) { // cartItems[items] is for Size 
+    for (const items in cartItems) {
+      // cartItems is Object having { ID : { Size : Quantity } }
+      for (const item in cartItems[items]) {
+        // cartItems[items] is for Size
         try {
-          if (cartItems[items][item] > 0) { // cartItems[items][item] is for Quantity
+          if (cartItems[items][item] > 0) {
+            // cartItems[items][item] is for Quantity
             totalCount += cartItems[items][item];
-            console.log('cartItems = ' , cartItems) 
-            console.log('cartItems[items] = ' , cartItems[items]) 
-            console.log('cartItems[items][item] = ' , cartItems[items][item])  
+            console.log("cartItems = ", cartItems);
+            console.log("cartItems[items] = ", cartItems[items]);
+            console.log("cartItems[items][item] = ", cartItems[items][item]);
           }
         } catch (error) {}
       }
@@ -55,20 +58,24 @@ const ShopContextProvider = (props) => {
     setCartItems(cartData);
   };
   // for Total Amount
-  const getCartAmount = () => {
+  const getCartAmount = async () => {
     // temp var
-    let totalAmount = 0
+    let totalAmount = 0;
     // looping from items ID
-    for(const items in cartItems){
+    for (const items in cartItems) {
       // finding from products
-      let itemInfo = products.find((product)=>product._id===items) // itemInfo having all details about products
-      console.log('itemInfo = ' , itemInfo);
+      let itemInfo = products.find((product) => product._id === items); // itemInfo having all details about products
       // looping from Size
-
+      for (const item in cartItems[items]) {
+        try {
+          if (cartItems[items][item] > 0) {
+            totalAmount += itemInfo.price * cartItems[items][item];
+          }
+        } catch (error) {}
+      }
     }
-    // return totalAmount;
-
-  }
+    return totalAmount;
+  };
   const value = {
     products,
     currency,
@@ -81,7 +88,7 @@ const ShopContextProvider = (props) => {
     addToCart,
     getCartCount,
     updateQuantity,
-    getCartAmount
+    getCartAmount,
   };
   return <ShopContext.Provider value={value}>{props.children}</ShopContext.Provider>;
 };
