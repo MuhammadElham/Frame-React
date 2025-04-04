@@ -31,14 +31,17 @@ const ShopContextProvider = (props) => {
     }
     setCartItems(cartData);
   };
-  //
+  // for selecting products 
   const getCartCount = () => {
     let totalCount = 0;
-    for (const items in cartItems) {
-      for (const item in cartItems[items]) {
+    for (const items in cartItems) { // cartItems is Object having { ID : { Size : Quantity } }
+      for (const item in cartItems[items]) { // cartItems[items] is for Size 
         try {
-          if (cartItems[items][item] > 0) {
+          if (cartItems[items][item] > 0) { // cartItems[items][item] is for Quantity
             totalCount += cartItems[items][item];
+            console.log('cartItems = ' , cartItems) 
+            console.log('cartItems[items] = ' , cartItems[items]) 
+            console.log('cartItems[items][item] = ' , cartItems[items][item])  
           }
         } catch (error) {}
       }
@@ -51,6 +54,21 @@ const ShopContextProvider = (props) => {
     cartData[itemId][size] = quantity;
     setCartItems(cartData);
   };
+  // for Total Amount
+  const getCartAmount = () => {
+    // temp var
+    let totalAmount = 0
+    // looping from items ID
+    for(const items in cartItems){
+      // finding from products
+      let itemInfo = products.find((product)=>product._id===items) // itemInfo having all details about products
+      console.log('itemInfo = ' , itemInfo);
+      // looping from Size
+
+    }
+    // return totalAmount;
+
+  }
   const value = {
     products,
     currency,
@@ -63,6 +81,7 @@ const ShopContextProvider = (props) => {
     addToCart,
     getCartCount,
     updateQuantity,
+    getCartAmount
   };
   return <ShopContext.Provider value={value}>{props.children}</ShopContext.Provider>;
 };
