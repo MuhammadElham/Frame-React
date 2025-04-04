@@ -21,7 +21,7 @@ const Hero = () => {
         <h1 className="prata-regular text-3xl sm:py-3 md:text-4xl lg:text-5xl leading-relaxed">Your Marriage, treasured</h1>
         <p className="text-sm lg:text-base sm:w-2/4">Every marriage has a beginning - make yours unforgettable with a handcrafted nikah certificate by Kargari.</p>
         <Link to="/collection">
-          <button className="bg-white text-black hover:bg-black hover:text-white w-auto max-w-fit tracking-wide my-4 text-xs px-5 py-3 sm:px-6 sm:py-3 sm:text-sm md:my-6 lg:text-[16px] lg:px-8 lg:py-4">SHOP NIKKAH CONTRACTS</button>
+          <button className="bg-white text-black hover:bg-black hover:text-white duration-300 w-auto max-w-fit tracking-wide my-4 text-xs px-5 py-3 sm:px-6 sm:py-3 sm:text-sm md:my-6 lg:text-[16px] lg:px-8 lg:py-4">SHOP NIKKAH CONTRACTS</button>
         </Link>
       </div>
     </div>
