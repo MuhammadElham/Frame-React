@@ -33,7 +33,7 @@ function App() {
           <Route path="/orders" element={<Orders />} />
         </Routes>
         <Footer />
-        <WhatsAppChatButton />
+        {/* <WhatsAppChatButton /> */}
         <ChatBot/>
       </div>
     </>
