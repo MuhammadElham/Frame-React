@@ -32,10 +32,10 @@ export default function ChatBot() {
       },
       order: {
         text: "For order tracking:\n\n📱 WhatsApp: 0333-3003310\n📧 Email: elhamwaheed777@gmail.com\n\nPlease provide your order #KGS-XXXX",
-        options: ["Open WhatsApp", "Resend Order Details"],
+        options: ["Custom Orders", "Pricing"],
       },
       contact: {
-        text: "Reach us at:\n\n📞 (+92) 333-3003310\n📧 elhamwaheed777@gmail.com\n📍 [Studio Address]\n\nHours: 10AM-7PM (Mon-Sat)",
+        text: "Reach us at:\n📞 (+92) 333-3003310\n📧 elhamwaheed777@gmail.com\n📍 D17 Street 25c Lane 2 Model Colony Karachi \n\nHours: 10AM-7PM (Mon-Sat)",
         options: ["Call Now", "Open Email"],
       },
       //   Email
