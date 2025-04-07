@@ -23,7 +23,7 @@ export default function ChatBot() {
     
     const responses = {
       nikkah: {
-        text: 'Here is our premium Nikkah Frame Collection: /collection/nikkah\n\nWe offer:\n• Gold-plated designs\n• Floral patterns\n• Custom name engravings\n• Fast delivery',
+        text: `Here is our premium Nikkah Frame Collection: /collection/nikkah\n\nWe offer:\n• Gold-plated designs\n• Floral patterns\n• Custom name engravings\n• Fast delivery`,
         options: ['View Gallery', 'Pricing', 'Contact Designer']
       },
       custom: {
@@ -38,6 +38,11 @@ export default function ChatBot() {
         text: 'Reach us at:\n\n📞 (+92) 333-3003310\n📧 elhamwaheed777@gmail.com\n📍 [Studio Address]\n\nHours: 10AM-7PM (Mon-Sat)',
         options: ['Call Now', 'Open Email']
       },
+    //   Email
+      email: {
+        text: 'Reach us at:\n📧 elhamwaheed777@gmail.com\n',
+        options: ['Call Now', 'Open Email','Contact Info']
+      },
       greeting: {
         text: 'How may I assist you today? 😊',
         options: ['Nikkah Frames', 'Custom Orders', 'Order Tracking', 'Contact Info']
@@ -51,6 +56,10 @@ export default function ChatBot() {
     if (lowerInput.includes('nikkah')) return responses.nikkah;
     if (lowerInput.includes('custom')) return responses.custom;
     if (lowerInput.includes('order')) return responses.order;
+    // Email
+    if (lowerInput.includes('email')) return responses.email;
+    // Call Now
+    if (lowerInput.includes('email')) return responses.callNow;
     if (lowerInput.includes('contact')) return responses.contact;
     if (/(hi|hello|salam|assalam)/i.test(lowerInput)) return responses.greeting;
     return responses.default;
