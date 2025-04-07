@@ -108,6 +108,7 @@ export default function ChatBot() {
                   {msg.options && msg.sender === "bot" && (
                     <div className="mt-2 flex flex-wrap gap-2">
                       {msg.options.map((option, i) => (
+                        // Options
                         <button key={i} onClick={() => handleQuickReply(option)} className="text-xs bg-white border border-[#03a84e] text-[#03a84e] px-2 py-1 rounded-lg hover:bg-[#03a84e] hover:text-white transition">
                           {option}
                         </button>
@@ -126,8 +127,9 @@ export default function ChatBot() {
       {/* Input Area */}
       <div className="p-3 border-t bg-gray-50">
         <div className="flex">
-          <input type="text" className="flex-1 border rounded-l-lg px-3 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-[#03a84e]" value={input} onChange={(e) => setInput(e.target.value)} onKeyDown={(e) => e.key === "Enter" && handleSend()} placeholder="Type your message..." />
-          <button className="bg-[#03a84e] hover:bg-green-600 text-white px-4 rounded-r-lg" onClick={handleSend}>
+            {/* Input and Button */}
+          <input type="text" className="flex-1 border rounded-l-lg px-3 py-2 text-xs sm:text-sm focus:outline-none focus:ring-1 focus:ring-[#03a84e]" value={input} onChange={(e) => setInput(e.target.value)} onKeyDown={(e) => e.key === "Enter" && handleSend()} placeholder="Type your message..." />
+          <button className="bg-[#03a84e] hover:bg-green-600 text-white text-sm sm:text-base py-[5px] px-3 sm:px-4 sm:py-1 rounded-r-lg" onClick={handleSend}>
             Send
           </button>
         </div>
