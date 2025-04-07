@@ -92,7 +92,7 @@ export default function ChatBot() {
   return (
     <div className="fixed bottom-5 right-5 w-80 max-h-[80vh] shadow-xl rounded-2xl overflow-hidden bg-white border border-gray-200 flex flex-col">
       {/* Header */}
-      <div className="bg-[#03a84e] text-white px-4 py-3 font-bold text-lg flex items-center gap-2">
+      <div className="bg-[#03a84e] text-white px-4 py-3 font-bold text-base sm:text-lg flex items-center gap-2">
         <FaRobot /> Karigari Studio Assistant
       </div>
 
