@@ -109,7 +109,7 @@ export default function ChatBot() {
               <FaRobot />
               Karigari Studio Assistant
             </div>
-            <IoClose onClick={toggleClick} className="cursor-pointer"/>
+            <IoClose onClick={toggleClick} className="cursor-pointer" />
           </div>
 
           {/* Chat Messages */}
