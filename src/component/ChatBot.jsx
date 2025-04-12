@@ -91,61 +91,64 @@ export default function ChatBot() {
 
   return (
     // Change in Width
-    <div className="fixed bottom-5 right-5 w-[270px] sm:w-80 sm:max-h-[80vh] shadow-xl rounded-2xl overflow-hidden bg-white border border-gray-200 flex flex-col z-10">
-      {/* Header */}
-      <div className="bg-[#03a84e] text-white px-4 py-3 font-bold text-base sm:text-lg flex items-center gap-2">
-        <FaRobot /> Karigari Studio Assistant
-      </div>
+    <>
+      <img width="48" height="48" src="https://img.icons8.com/sf-regular/48/40C057/message-bot.png" alt="message-bot" />
+      <div className="fixed bottom-5 right-5 w-[270px] sm:w-80 sm:max-h-[80vh] shadow-xl rounded-2xl overflow-hidden bg-white border-2 border-gray-200 flex flex-col z-10">
+        {/* Header */}
+        <div className="bg-[#03a84e] text-white px-4 py-3 font-bold text-base sm:text-lg flex items-center gap-2">
+          <FaRobot /> Karigari Studio Assistant
+        </div>
 
-      {/* Chat Messages */}
-      <div className="flex-1 p-3 space-y-3 overflow-y-auto text-sm">
-        {messages.map((msg, idx) => (
-          <motion.div key={idx} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className={`flex ${msg.sender === "user" ? "justify-end" : "justify-start"}`}>
-            <div className={`rounded-xl px-3 py-2 max-w-[85%] ${msg.sender === "user" ? "bg-gray-100 text-gray-800" : "bg-[#e8f5e9] text-gray-700"}`}>
-              <div className="flex items-start gap-2">
-                {msg.sender === "bot" && <FaRobot className="text-[#03a84e] mt-1 flex-shrink-0" />}
-                <div>
-                  <div className="whitespace-pre-line">{msg.text}</div>
-                  {msg.options && msg.sender === "bot" && (
-                    <div className="mt-2 flex flex-wrap gap-2">
-                      {msg.options.map((option, i) => (
-                        // Options
-                        <button key={i} onClick={() => handleQuickReply(option)} className="text-xs bg-white border border-[#03a84e] text-[#03a84e] px-2 py-1 rounded-lg hover:bg-[#03a84e] hover:text-white transition">
-                          {option}
-                        </button>
-                      ))}
-                    </div>
-                  )}
+        {/* Chat Messages */}
+        <div className="flex-1 p-3 space-y-3 overflow-y-auto text-sm">
+          {messages.map((msg, idx) => (
+            <motion.div key={idx} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className={`flex ${msg.sender === "user" ? "justify-end" : "justify-start"}`}>
+              <div className={`rounded-xl px-3 py-2 max-w-[85%] ${msg.sender === "user" ? "bg-gray-100 text-gray-800" : "bg-[#e8f5e9] text-gray-700"}`}>
+                <div className="flex items-start gap-2">
+                  {msg.sender === "bot" && <FaRobot className="text-[#03a84e] mt-1 flex-shrink-0" />}
+                  <div>
+                    <div className="whitespace-pre-line">{msg.text}</div>
+                    {msg.options && msg.sender === "bot" && (
+                      <div className="mt-2 flex flex-wrap gap-2">
+                        {msg.options.map((option, i) => (
+                          // Options
+                          <button key={i} onClick={() => handleQuickReply(option)} className="text-xs bg-white border border-[#03a84e] text-[#03a84e] px-2 py-1 rounded-lg hover:bg-[#03a84e] hover:text-white transition">
+                            {option}
+                          </button>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                  {msg.sender === "user" && <FaUser className="text-gray-500 mt-1 flex-shrink-0" />}
                 </div>
-                {msg.sender === "user" && <FaUser className="text-gray-500 mt-1 flex-shrink-0" />}
               </div>
-            </div>
-          </motion.div>
-        ))}
-        <div ref={messagesEndRef} />
-      </div>
+            </motion.div>
+          ))}
+          <div ref={messagesEndRef} />
+        </div>
 
-      {/* Input Area */}
-      <div className="p-3 border-t bg-gray-50">
-        <div className="flex">
+        {/* Input Area */}
+        <div className="p-3 border-t bg-gray-50">
+          <div className="flex">
             {/* Input and Button */}
-          <input type="text" className="flex-1 border rounded-l-lg px-3 py-2 text-xs sm:text-sm focus:outline-none focus:ring-1 focus:ring-[#03a84e]" value={input} onChange={(e) => setInput(e.target.value)} onKeyDown={(e) => e.key === "Enter" && handleSend()} placeholder="Type your message..." />
-          <button className="bg-[#03a84e] hover:bg-green-600 text-white text-sm sm:text-base py-[5px] px-3 sm:px-4 sm:py-1 rounded-r-lg" onClick={handleSend}>
-            Send
-          </button>
-        </div>
-        <div className="flex justify-center gap-3 mt-2 text-gray-500">
-          <button onClick={() => handleQuickReply("Contact Info")} className="text-xs flex items-center gap-1 hover:text-[#03a84e]">
-            <FaPhoneAlt size={10} /> Call
-          </button>
-          <button onClick={() => handleQuickReply("Order Tracking")} className="text-xs flex items-center gap-1 hover:text-[#03a84e]">
-            <FaWhatsapp size={12} /> WhatsApp
-          </button>
-          <button onClick={() => handleQuickReply("Custom Orders")} className="text-xs flex items-center gap-1 hover:text-[#03a84e]">
-            <FaEnvelope size={10} /> Email
-          </button>
+            <input type="text" className="flex-1 border rounded-l-lg px-3 py-2 text-xs sm:text-sm focus:outline-none focus:ring-1 focus:ring-[#03a84e]" value={input} onChange={(e) => setInput(e.target.value)} onKeyDown={(e) => e.key === "Enter" && handleSend()} placeholder="Type your message..." />
+            <button className="bg-[#03a84e] hover:bg-green-600 text-white text-sm sm:text-base py-[5px] px-3 sm:px-4 sm:py-1 rounded-r-lg" onClick={handleSend}>
+              Send
+            </button>
+          </div>
+          <div className="flex justify-center gap-3 mt-2 text-gray-500">
+            <button onClick={() => handleQuickReply("Contact Info")} className="text-xs flex items-center gap-1 hover:text-[#03a84e]">
+              <FaPhoneAlt size={10} /> Call
+            </button>
+            <button onClick={() => handleQuickReply("Order Tracking")} className="text-xs flex items-center gap-1 hover:text-[#03a84e]">
+              <FaWhatsapp size={12} /> WhatsApp
+            </button>
+            <button onClick={() => handleQuickReply("Custom Orders")} className="text-xs flex items-center gap-1 hover:text-[#03a84e]">
+              <FaEnvelope size={10} /> Email
+            </button>
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
