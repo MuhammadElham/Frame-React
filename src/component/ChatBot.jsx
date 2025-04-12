@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import { FaRobot, FaUser, FaWhatsapp, FaEnvelope, FaPhoneAlt } from "react-icons/fa";
+import { IoClose } from "react-icons/io5";
 
 export default function ChatBot() {
   const [messages, setMessages] = useState([
@@ -98,13 +99,17 @@ export default function ChatBot() {
     // Change in Width
     <div>
       {/* Icon Logo */}
-      <img onClick={toggleClick} src="https://img.icons8.com/glyph-neue/64/40C057/message-bot.png" alt="message-bot" className="w-[45px] h-[45px] sm:w-[55px] sm:h-[55px] fixed bottom-4 right-4 sm:bottom-7 sm:right-7 z-20 cursor-pointer" />
+      <img onClick={toggleClick} src="https://img.icons8.com/glyph-neue/64/40C057/message-bot.png" alt="message-bot" className="w-[45px] h-[45px] sm:w-[55px] sm:h-[55px] fixed bottom-4 right-4 sm:bottom-7 sm:right-7 cursor-pointer" />
       {/* ChatBot */}
       {isOpen && (
-        <div className="fixed bottom-5 right-5 w-[270px] sm:w-80 sm:max-h-[80vh] shadow-xl rounded-2xl overflow-hidden bg-white border-2 border-gray-200 flex flex-col z-10 ">
+        <div className="fixed bottom-5 right-5 w-[270px] sm:w-80 sm:max-h-[80vh] shadow-xl rounded-2xl overflow-hidden bg-white border-2 border-[#00BA54] flex flex-col z-10 ">
           {/* Header */}
-          <div className="bg-[#03a84e] text-white px-4 py-3 font-bold text-base sm:text-lg flex items-center gap-2">
-            <FaRobot /> Karigari Studio Assistant
+          <div className="bg-[#03a84e] text-white px-4 py-3 font-bold text-base sm:text-lg flex items-center justify-between">
+            <div className="flex items-center gap-2">
+              <FaRobot />
+              Karigari Studio Assistant
+            </div>
+            <IoClose onClick={toggleClick} className="cursor-pointer"/>
           </div>
 
           {/* Chat Messages */}
