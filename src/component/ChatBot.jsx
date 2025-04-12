@@ -98,7 +98,7 @@ export default function ChatBot() {
     // Change in Width
     <div>
       {/* Icon Logo */}
-      <img onClick={toggleClick} width="55" height="55" src="https://img.icons8.com/glyph-neue/64/40C057/message-bot.png" alt="message-bot" className="fixed bottom-4 right-4 sm:bottom-7 sm:right-7 z-20 cursor-pointer" />
+      <img onClick={toggleClick} src="https://img.icons8.com/glyph-neue/64/40C057/message-bot.png" alt="message-bot" className="w-[45px] h-[45px] sm:w-[55px] sm:h-[55px] fixed bottom-4 right-4 sm:bottom-7 sm:right-7 z-20 cursor-pointer" />
       {/* ChatBot */}
       {isOpen && (
         <div className="fixed bottom-5 right-5 w-[270px] sm:w-80 sm:max-h-[80vh] shadow-xl rounded-2xl overflow-hidden bg-white border-2 border-gray-200 flex flex-col z-10 ">
