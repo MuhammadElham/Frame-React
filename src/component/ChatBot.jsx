@@ -118,9 +118,13 @@ export default function ChatBot() {
               <motion.div key={idx} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className={`flex ${msg.sender === "user" ? "justify-end" : "justify-start"}`}>
                 <div className={`rounded-xl px-3 py-2 max-w-[85%] ${msg.sender === "user" ? "bg-gray-100 text-gray-800" : "bg-[#e8f5e9] text-gray-700"}`}>
                   <div className="flex items-start gap-2">
+                    {/* Bot Logo */}
                     {msg.sender === "bot" && <FaRobot className="text-[#03a84e] mt-1 flex-shrink-0" />}
-                    <div>
-                      <div className="whitespace-pre-line">{msg.text}</div>
+                    {/* Msg Text */}
+                    <div className="">
+                      <div style={{ wordBreak: "break-word", overflowWrap: "anywhere" }} className="whitespace-pre-line">
+                        {msg.text}
+                      </div>
                       {msg.options && msg.sender === "bot" && (
                         <div className="mt-2 flex flex-wrap gap-2">
                           {msg.options.map((option, i) => (
