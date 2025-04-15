@@ -42,6 +42,7 @@ export const productImage = {
     
     p_img5_1:"https://res.cloudinary.com/dmmz8ldz9/image/upload/f_auto,q_auto/v1741605694/ecommerce-assets/ptxzaoi64ohfjtl0rmma.png",
     p_img5_2:"https://res.cloudinary.com/dmmz8ldz9/image/upload/f_auto,q_auto/v1744715191/479903393_17866350045325260_6378561506323650750_n.jpg_trrsfi.jpg",
+    p_img5_3:"https://res.cloudinary.com/dmmz8ldz9/image/upload/f_auto,q_auto/v1741605648/ecommerce-assets/totatoflmts0cv3blxug.png",
     
     p_img6:"https://res.cloudinary.com/dmmz8ldz9/image/upload/f_auto,q_auto/v1741605698/ecommerce-assets/vylzld6qrlqxpqskredz.png",
     
@@ -174,7 +175,7 @@ export const products = [
         name: "Elegant Nikah Ring Tray – Custom Floral Glass Base",
         description: "Elevate your Nikah ceremony with our handcrafted ring tray set, designed with a blend of modern elegance and traditional charm. Featuring a glass base, soft floral arrangements, and rounded detailing, this set is adorned with delicate beads and personalized couple name elements — creating a perfect harmony of beauty and meaning for your special moment.",
         price: "1200.00 PKR",
-        image: [productImage.p_img5_1,productImage.p_img5_2],
+        image: [productImage.p_img5_1,productImage.p_img5_2,productImage.p_img5_3],
         category: "Ring Trays",
         subCategory: "Topwear",
         sizes: ["M", "L", "XL"],
