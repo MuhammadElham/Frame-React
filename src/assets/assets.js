@@ -117,8 +117,10 @@ export const productImage = {
     p_img26_2:"https://res.cloudinary.com/dmmz8ldz9/image/upload/f_auto,q_auto/v1744759453/469094692_17856100041325260_6274626798944399098_n.jpg_yeoizd.jpg",
     p_img26_3:"https://res.cloudinary.com/dmmz8ldz9/image/upload/f_auto,q_auto/v1744759459/469096089_17856100050325260_6757727566981721057_n.jpg_eyhps0.jpg",
     
-    p_img27:"https://res.cloudinary.com/dmmz8ldz9/image/upload/f_auto,q_auto/v1741605661/ecommerce-assets/dlcpx57dpmqt0gztcrvr.png",
-    
+    p_img27_1:"https://res.cloudinary.com/dmmz8ldz9/image/upload/f_auto,q_auto/v1741605661/ecommerce-assets/dlcpx57dpmqt0gztcrvr.png",
+    p_img27_2:"https://res.cloudinary.com/dmmz8ldz9/image/upload/f_auto,q_auto/v1744759864/468335156_122128340000449798_1094237449817387004_n.jpg_yzn2oj.jpg",
+    p_img27_3:"https://res.cloudinary.com/dmmz8ldz9/image/upload/f_auto,q_auto/v1744759870/468564004_17855333484325260_2157122007120668402_n.jpg_teyiln.jpg",
+
     p_img28:"https://res.cloudinary.com/dmmz8ldz9/image/upload/f_auto,q_auto/v1741605662/ecommerce-assets/bxxviabp0ihoai4nlbqe.png",
     p_img29:"https://res.cloudinary.com/dmmz8ldz9/image/upload/f_auto,q_auto/v1741605664/ecommerce-assets/ykikljpu2ijj6mbduu7s.png",
     p_img30:"https://res.cloudinary.com/dmmz8ldz9/image/upload/f_auto,q_auto/v1741605663/ecommerce-assets/smm0qtnlkfnx2qdnvvfx.png",
@@ -502,7 +504,7 @@ export const products = [
         name: "Men Slim Fit Relaxed Denim Jacket",
         description: "A lightweight, usually knitted, pullover shirt, close-fitting and with a round neckline and short sleeves, worn as an undershirt or outer garment.",
         price: "0.00 PKR",
-        image: productImage.p_img28,
+        image: [productImage.p_img28_1,productImage.p_img28_2],
         category: "Frames",
         subCategory: "Winterwear",
         sizes: ["S", "M", "L", "XL"],
