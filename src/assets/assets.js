@@ -44,10 +44,21 @@ export const productImage = {
     p_img5_2:"https://res.cloudinary.com/dmmz8ldz9/image/upload/f_auto,q_auto/v1744715191/479903393_17866350045325260_6378561506323650750_n.jpg_trrsfi.jpg",
     
     p_img6:"https://res.cloudinary.com/dmmz8ldz9/image/upload/f_auto,q_auto/v1741605698/ecommerce-assets/vylzld6qrlqxpqskredz.png",
-    p_img7:"https://res.cloudinary.com/dmmz8ldz9/image/upload/f_auto,q_auto/v1741605699/ecommerce-assets/nnpxtqrlnvsilsbb4jmn.png",
-    p_img8:"https://res.cloudinary.com/dmmz8ldz9/image/upload/f_auto,q_auto/v1741605700/ecommerce-assets/gdbeqlykkcp91jyxtgod.png",
-    p_img9:"https://res.cloudinary.com/dmmz8ldz9/image/upload/f_auto,q_auto/v1741605701/ecommerce-assets/zijadu3rmmxf428fvadp.png",
-    p_img10:"https://res.cloudinary.com/dmmz8ldz9/image/upload/f_auto,q_auto/v1741605641/ecommerce-assets/x7lhv3v1mxj9mdqxydyw.png",
+    
+    p_img7_1:"https://res.cloudinary.com/dmmz8ldz9/image/upload/f_auto,q_auto/v1741605699/ecommerce-assets/nnpxtqrlnvsilsbb4jmn.png",
+    p_img7_2:"https://res.cloudinary.com/dmmz8ldz9/image/upload/f_auto,q_auto/v1744716992/476905877_17865738501325260_4554691956955949788_n.jpg_uxqyhn.jpg",
+    
+    p_img8_1:"https://res.cloudinary.com/dmmz8ldz9/image/upload/f_auto,q_auto/v1741605700/ecommerce-assets/gdbeqlykkcp91jyxtgod.png",
+    p_img8_2:"https://res.cloudinary.com/dmmz8ldz9/image/upload/v1744718531/476475209_17865349662325260_3863682556892844271_n.jpg_dmlf54.jpg",
+    p_img8_3:"https://res.cloudinary.com/dmmz8ldz9/image/upload/v1744718711/476475097_17865349062325260_4191549623736035974_n.jpg_fed91u.jpg",
+
+    p_img9_1:"https://res.cloudinary.com/dmmz8ldz9/image/upload/f_auto,q_auto/v1741605701/ecommerce-assets/zijadu3rmmxf428fvadp.png",
+    p_img9_2:"https://res.cloudinary.com/dmmz8ldz9/image/upload/f_auto,q_auto/v1744717600/475921436_17864555334325260_3375329692087444650_n.jpg_mkdnsp.jpg",
+    
+    p_img10_1:"https://res.cloudinary.com/dmmz8ldz9/image/upload/f_auto,q_auto/v1741605641/ecommerce-assets/x7lhv3v1mxj9mdqxydyw.png",
+    p_img10_2:"https://res.cloudinary.com/dmmz8ldz9/image/upload/f_auto,q_auto/v1744719482/475743395_17864543856325260_9087259187656537401_n.jpg_qhdn5t.jpg",
+    p_img10_3:"https://res.cloudinary.com/dmmz8ldz9/image/upload/f_auto,q_auto/v1744719519/475902306_17864543865325260_1337840992228017275_n.jpg_fdskb1.jpg",
+    
     p_img11:"https://res.cloudinary.com/dmmz8ldz9/image/upload/f_auto,q_auto/v1741605642/ecommerce-assets/aejvlkufflg1u7kueyw2.png",
     p_img12:"https://res.cloudinary.com/dmmz8ldz9/image/upload/f_auto,q_auto/v1741605643/ecommerce-assets/m0dsvzkf3gujlijpwhv4.png",
     p_img13:"https://res.cloudinary.com/dmmz8ldz9/image/upload/f_auto,q_auto/v1741605644/ecommerce-assets/umrp5ptwwshlj0lnvodi.png",
@@ -156,8 +167,8 @@ export const products = [
     {
         _id: "aaaaf",
         name: "Golden Aura Nikah Frame – Maroon & Floral Luxury Piece",
-        description: "A lightweight, usually knitted, pullover shirt, close-fitting and with a round neckline and short sleeves, worn as an undershirt or outer garment.",
-        price: "5000.00 PKR",
+        description: "This handcrafted Nikah frame brings together bold maroon tones, rich floral accents, and radiant gold Arabic calligraphy. Its striking design makes it ideal for wedding corners, home décor, or as a memorable gift for newlyweds.",
+        price: "1350.00 PKR",
         image: productImage.p_img6,
         category: "Frames",
         subCategory: "Topwear",
@@ -167,10 +178,10 @@ export const products = [
     },
     {
         _id: "aaaag",
-        name: "Men Tapered Fit Flat-Front Trousers",
-        description: "A lightweight, usually knitted, pullover shirt, close-fitting and with a round neckline and short sleeves, worn as an undershirt or outer garment.",
-        price: "0.00 PKR",
-        image: productImage.p_img7,
+        name: "Glass Welcome Board – Personalized Floral Nikah Edition",
+        description: "Make your Nikah entrance unforgettable with our premium glass welcome board. Elegantly personalized with your names and event details, it features soft floral accents and graceful Arabic calligraphy — a timeless décor piece for your special day.",
+        price: "6000.00 PKR",
+        image: [productImage.p_img7_1,productImage.p_img7_2],
         category: "Welcome Boards",
         subCategory: "Bottomwear",
         sizes: ["S", "L", "XL"],
@@ -178,23 +189,11 @@ export const products = [
         bestseller: false
     },
     {
-        _id: "aaaah",
-        name: "Men Round Neck Pure Cotton T-shirt",
-        description: "A lightweight, usually knitted, pullover shirt, close-fitting and with a round neckline and short sleeves, worn as an undershirt or outer garment.",
-        price: "0.00 PKR",
-        image: productImage.p_img8,
-        category: "Frames",
-        subCategory: "Topwear",
-        sizes: ["S", "M", "L", "XL"],
-        date: 1716622345448,
-        bestseller: false
-    },
-    {
         _id: "aaaai",
-        name: "Girls Round Neck Cotton Top",
-        description: "A lightweight, usually knitted, pullover shirt, close-fitting and with a round neckline and short sleeves, worn as an undershirt or outer garment.",
-        price: "0.00 PKR",
-        image: productImage.p_img9,
+        name: "Glass Welcome Board – Floral Elegance Edition",
+        description: "Add a personal touch to your Nikah ceremony with this elegant glass welcome board, featuring floral accents. Customize with the couple's names, wedding date, and a meaningful message. A perfect keepsake to cherish for years.",
+        price: "6000.00 PKR",
+        image: [productImage.p_img9_1,productImage.p_img9_2],
         category: "Welcome Boards",
         subCategory: "Topwear",
         sizes: ["M", "L", "XL"],
@@ -202,11 +201,23 @@ export const products = [
         bestseller: false
     },
     {
+        _id: "aaaah",
+        name: "Red & Gold Floral Nikah Keepsake Frame",
+        description: "Celebrate your union with our Red & Gold Floral Nikah Keepsake Frame. Featuring a striking red color and elegant golden border, this personalized frame is perfect for displaying your names, wedding date, and message. A timeless and elegant keepsake for your special day.",
+        price: "1600.00 PKR",
+        image: [productImage.p_img8_1,productImage.p_img8_2,productImage.p_img8_3],
+        category: "Frames",
+        subCategory: "Topwear",
+        sizes: ["S", "M", "L", "XL"],
+        date: 1716622345448,
+        bestseller: false
+    },
+    {
         _id: "aaaaj",
         name: "Men Tapered Fit Flat-Front Trousers",
         description: "A lightweight, usually knitted, pullover shirt, close-fitting and with a round neckline and short sleeves, worn as an undershirt or outer garment.",
         price: "0.00 PKR",
-        image: productImage.p_img10,
+        image: [productImage.p_img10_1,productImage.p_img10_2,productImage.p_img10_3],
         category: "Frames",
         subCategory: "Bottomwear",
         sizes: ["S", "L", "XL"],
