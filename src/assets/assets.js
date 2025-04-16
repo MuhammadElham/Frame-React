@@ -261,8 +261,8 @@ export const products = [
     },
     {
         _id: "aaaaj",
-        name: "Men Tapered Fit Flat-Front Trousers",
-        description: "A lightweight, usually knitted, pullover shirt, close-fitting and with a round neckline and short sleeves, worn as an undershirt or outer garment.",
+        name: "Royal Black & Gold Nikah Frame",
+        description: "A uniquely elegant Nikah frame featuring a deep black background, striking golden text, and a sleek golden border. Personalized with the couple's names and date, it’s the perfect statement piece to honor your special day.",
         price: "0.00 PKR",
         image: [productImage.p_img10_1,productImage.p_img10_2,productImage.p_img10_3],
         category: "Frames",
