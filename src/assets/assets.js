@@ -121,7 +121,9 @@ export const productImage = {
     p_img27_2:"https://res.cloudinary.com/dmmz8ldz9/image/upload/f_auto,q_auto/v1744759864/468335156_122128340000449798_1094237449817387004_n.jpg_yzn2oj.jpg",
     p_img27_3:"https://res.cloudinary.com/dmmz8ldz9/image/upload/f_auto,q_auto/v1744759870/468564004_17855333484325260_2157122007120668402_n.jpg_teyiln.jpg",
 
-    p_img28:"https://res.cloudinary.com/dmmz8ldz9/image/upload/f_auto,q_auto/v1741605662/ecommerce-assets/bxxviabp0ihoai4nlbqe.png",
+    p_img28_1:"https://res.cloudinary.com/dmmz8ldz9/image/upload/f_auto,q_auto/v1741605662/ecommerce-assets/bxxviabp0ihoai4nlbqe.png",
+    p_img28_2:"https://res.cloudinary.com/dmmz8ldz9/image/upload/f_auto,q_auto/v1744760531/468026575_17854559418325260_3054686228088053631_n.jpg_n9wbrs.jpg",
+
     p_img29:"https://res.cloudinary.com/dmmz8ldz9/image/upload/f_auto,q_auto/v1741605664/ecommerce-assets/ykikljpu2ijj6mbduu7s.png",
     p_img30:"https://res.cloudinary.com/dmmz8ldz9/image/upload/f_auto,q_auto/v1741605663/ecommerce-assets/smm0qtnlkfnx2qdnvvfx.png",
     p_img31:"https://res.cloudinary.com/dmmz8ldz9/image/upload/f_auto,q_auto/v1741605669/ecommerce-assets/zkbqtybxd44uumqlhwkz.png",
@@ -501,9 +503,9 @@ export const products = [
     },
     {
         _id: "aaabb",
-        name: "Men Slim Fit Relaxed Denim Jacket",
-        description: "A lightweight, usually knitted, pullover shirt, close-fitting and with a round neckline and short sleeves, worn as an undershirt or outer garment.",
-        price: "0.00 PKR",
+        name: "Elegant Nikah Frame with Personalized Couple Pens",
+        description: "A graceful Nikah frame paired with two customized pens featuring the couple's names. A perfect keepsake to add a personal and memorable touch to your special day.",
+        price: "3300.00 PKR",
         image: [productImage.p_img28_1,productImage.p_img28_2],
         category: "Frames",
         subCategory: "Winterwear",
