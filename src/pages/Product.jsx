@@ -6,7 +6,7 @@ import RelatedProduct from "../component/RelatedProduct";
 
 const Product = () => {
   const { productId } = useParams();
-  const { products, currency, addToCart } = useContext(ShopContext);
+  const { products, currency, currencyCode, addToCart } = useContext(ShopContext);
   const [productData, setProductData] = useState(false);
   const [image, setImage] = useState(null);
   const [size, setSize] = useState("");
@@ -57,6 +57,7 @@ const Product = () => {
           <p className="mt-5 text-3xl font-medium">
             {currency}
             {productData.price}
+            {currencyCode}
           </p>
           <p className="mt-5 text-gray-500 md:w-4/5">{productData.description}</p>
           {/* -- Size -- */}

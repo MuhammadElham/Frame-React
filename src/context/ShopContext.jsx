@@ -7,6 +7,7 @@ export const ShopContext = createContext();
 
 const ShopContextProvider = (props) => {
   const currency = "Rs.";
+  const currencyCode = " PKR"
   const delivery_fee = 10;
   const [search, setSearch] = useState("");
   const [showSearch, setShowSearch] = useState(false);
@@ -82,6 +83,7 @@ const ShopContextProvider = (props) => {
   const value = {
     products,
     currency,
+    currencyCode,
     delivery_fee,
     search,
     setSearch,

@@ -155,7 +155,7 @@ export const products = [
     name: "Gold-Embellished Nikah Certificate",
     description:
       "This handcrafted Nikah Certificate features a high-quality printed design on premium textured card stock, adorned with gold-foil detailing for an elegant, luxurious finish. Set within a sleek black frame with a crystal-clear glass front, it’s designed to preserve and showcase your special moment. Ideal for home display or as a heartfelt gift. Customizable with names, date, and venue to make it truly yours.",
-    price: "1500.00 PKR",
+    price: "1500.00",
     image: [productImage.p_img1_1, productImage.p_img1_2, productImage.p_img1_3],
     category: "Frames",
     subCategory: "Topwear",

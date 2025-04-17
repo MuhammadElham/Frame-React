@@ -5,7 +5,7 @@ import { assets } from "../assets/assets";
 import CartTotal from "../component/CartTotal";
 
 const Cart = () => {
-  const { products, currency, cartItems, updateQuantity, navigate } = useContext(ShopContext);
+  const { products, currency, currencyCode, cartItems, updateQuantity, navigate } = useContext(ShopContext);
   const [cartData, setCartData] = useState([]); // Array
 
   useEffect(() => {
@@ -47,6 +47,7 @@ const Cart = () => {
                     <p>
                       {currency}
                       {productData.price}
+                      {currencyCode}
                     </p>
                     <p className="px-2 sm:px-3 sm:py-1 text-sm border border-black bg-black text-white">{item.size}</p>
                   </div>
