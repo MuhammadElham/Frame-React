@@ -62,12 +62,16 @@ const Product = () => {
           </p>
           <p className="mt-5 text-gray-500 md:w-4/5">{productData.description}</p>
           <div className="flex flex-col gap-4 my-8">
-            <p>Select Size</p>
+            <p>Size</p>
             <div className="flex gap-2">
               {productData.sizes.map((item, index) => (
-                <button onClick={() => setSize(item)} className={`border py-2 px-4 bg-gray-100 ${item === size ? "border-orange-500" : ""}`} key={index}>
+                // <button onClick={() => setSize(item)} className={`border py-2 px-4 bg-gray-100 ${item === size ? "border-orange-500" : ""}`} key={index}>
+              <button 
+                onClick={() => setSize(item)}
+                className={`border border-black text-black py-1 px-5 rounded-full  ${item === size ? "text-white bg-black " : ""}`} 
+                key={index}>
                   {item}
-                </button>
+               </button>
               ))}
             </div>
           </div>
