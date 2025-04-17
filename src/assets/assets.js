@@ -159,7 +159,7 @@ export const products = [
     image: [productImage.p_img1_1, productImage.p_img1_2, productImage.p_img1_3],
     category: "Frames",
     subCategory: "Topwear",
-    sizes: ["S", "M", "L"],
+    sizes: ["12 x 24", "M", "L"],
     date: 1716634345448,
     bestseller: true,
   },
