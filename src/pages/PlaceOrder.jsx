@@ -58,6 +58,10 @@ const PlaceOrder = () => {
               <p className="text-gray-500 text-sm font-medium mx-4">CASH ON DELIVERY</p>
             </div>
           </div>
+          {/* Button */}
+          <div className="w-full text-end mt-8">
+            <button className="border bg-black text-white px-16 py-3 text-sm hover:bg-white hover:text-black hover:border-black">PLACE ORDER</button>
+          </div>
         </div>
       </div>
     </div>
