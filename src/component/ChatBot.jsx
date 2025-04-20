@@ -11,6 +11,7 @@ export default function ChatBot() {
       options: ["Nikkah Frames", "Custom Orders", "Order Tracking", "Contact Info"],
     },
   ]);
+  
   const [input, setInput] = useState("");
   const [isOpen, setIsOpen] = useState(false);
   const messagesEndRef = useRef(null);
@@ -23,6 +24,26 @@ export default function ChatBot() {
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
+
+  useEffect(() => {
+    const sendMessage = async () => {
+        const response = await fetch("http://localhost:5000/api/chat", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                message: "Tell me about Google.com?"
+            })
+        });
+
+        const data = await response.json();
+        console.log("Bot Reply = ", data);
+    };
+
+    sendMessage();
+}, []);
+
 
   const generateBotResponse = (userInput) => {
     const lowerInput = userInput.toLowerCase();
