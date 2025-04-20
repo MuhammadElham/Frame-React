@@ -184,7 +184,7 @@ export const products = [
     description:
       "This handcrafted Nikah Certificate captures the beauty of your sacred bond with soft pastel tones and intricate floral details. Designed with elegance in mind, it features delicate Arabic calligraphy surrounded by soft, watercolor-inspired florals. The certificate is presented in a clean, polished frame that enhances its timeless charm. Fully customizable to commemorate your union with your names, wedding date, and personal touch — a cherished keepsake or thoughtful gift for your special day.",
     price: "3000.00",
-    image: productImage.p_img3,
+    image: [productImage.p_img3],
     category: "Frames",
     subCategory: "Topwear",
     sizes: ['12" x 24"', '11" x 17" (mini)'],
@@ -285,7 +285,7 @@ export const products = [
     image: [productImage.p_img11_1, productImage.p_img11_2, productImage.p_img11_3],
     category: "Frames",
     subCategory: "Topwear",
-    sizes: ["S", "M", "L"],
+    sizes: ['12" x 24"', '11" x 17" (mini)'],
     date: 1716623345448,
     bestseller: false,
   },
