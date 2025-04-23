@@ -25,24 +25,44 @@ export default function ChatBot() {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
 
-  useEffect(() => {
-    const sendMessage = async () => {
-        const response = await fetch("http://localhost:5000/api/chat", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                message: "Tell me about Google.com?"
-            })
-        });
-
-        const data = await response.json();
-        console.log("Bot Reply = ", data);
-    };
-
-    sendMessage();
-}, []);
+  // BACKEND API
+  const handleSend = async () => {
+    if (!input.trim()) return;
+  
+    const newMessages = [...messages, { sender: "user", text: input }];
+    setMessages(newMessages);
+    setInput("");
+  
+    try {
+      const response = await fetch("http://localhost:5000/api/chat", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ message: input }),
+      });
+  
+      const data = await response.json();
+      
+  
+      // Assuming backend response is in { reply: "Your bot message" }
+      const botReply = {
+        sender: "bot",
+        text: data.text || "Sorry, I couldn't understand that.",
+        options:  null, // If your backend sends options too
+      };
+  
+      setMessages((prevMessages) => [...prevMessages, botReply]);
+    } catch (error) {
+      console.error("Error fetching bot reply:", error);
+      const botErrorReply = {
+        sender: "bot",
+        text: "Oops! Something went wrong. Please try again later.",
+      };
+      setMessages((prevMessages) => [...prevMessages, botErrorReply]);
+    }
+  };
+  
 
 
   const generateBotResponse = (userInput) => {
@@ -102,19 +122,19 @@ export default function ChatBot() {
     handleSend();
   };
 
-  const handleSend = () => {
-    if (!input.trim()) return;
+  // const handleSend = () => {
+  //   if (!input.trim()) return;
 
-    // Add user message
-    const newMessages = [...messages, { sender: "user", text: input }];
+  //   // Add user message
+  //   const newMessages = [...messages, { sender: "user", text: input }];
 
-    // Generate bot response
-    const { text, options } = generateBotResponse(input);
-    const botReply = { sender: "bot", text, options };
+  //   // Generate bot response
+  //   const { text, options } = generateBotResponse(input);
+  //   const botReply = { sender: "bot", text, options };
 
-    setMessages([...newMessages, botReply]);
-    setInput("");
-  };
+  //   setMessages([...newMessages, botReply]);
+  //   setInput("");
+  // };
 
   return (
     // Change in Width
