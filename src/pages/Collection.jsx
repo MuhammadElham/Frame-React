@@ -30,7 +30,7 @@ const Collection = () => {
     }
     setFilterProducts(sortedProducts);
   };
-// GPT Logic which i change it 
+  // GPT Logic which i change it
   const applyFilter = () => {
     let filteredProducts = products.slice();
     // 🔍 Apply Search Filter
@@ -44,9 +44,11 @@ const Collection = () => {
     // 📌 Apply Sorting
     sortProduct(filteredProducts);
   };
+
   useEffect(() => {
     applyFilter();
-  }, [sortType, products, category, search]);
+  }, [sortType, products, category, search, products]);
+
   return (
     <div className="flex flex-col sm:flex-row gap-1 sm:gap-10 pt-10 border-t">
       {/* Filter Options  */}
