@@ -14,6 +14,7 @@ const ShopContextProvider = (props) => {
   const [showSearch, setShowSearch] = useState(false);
   const [cartItems, setCartItems] = useState({}); // Object
   const [products, setProducts] = useState([]);
+  const [token, setToken] = useState("");
   // Navigation for Proceed Button
   const navigate = useNavigate();
 
@@ -117,6 +118,8 @@ const ShopContextProvider = (props) => {
     getCartAmount,
     navigate,
     backendUrl,
+    token,
+    setToken,
   };
   return <ShopContext.Provider value={value}>{props.children}</ShopContext.Provider>;
 };
