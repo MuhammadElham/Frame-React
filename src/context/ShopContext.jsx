@@ -18,7 +18,7 @@ const ShopContextProvider = (props) => {
   // Navigation for Proceed Button
   const navigate = useNavigate();
 
-  const addToCart = async (itemId, size) => {
+  const addToCart = async (itemId, size, userId) => {
     // Toastify for Size
     if (!size) {
       toast.error("Select Product Size");
@@ -40,7 +40,7 @@ const ShopContextProvider = (props) => {
     //
     if (token) {
       try {
-        await axios.post(backendUrl + "/api/cart/add", { itemId, size }, { headers: { token } });
+        await axios.post(backendUrl + "/api/cart/add", { itemId, size, userId }, { headers: { token } });
       } catch (error) {
         console.log(error);
         toast.error(error.message);
@@ -62,7 +62,9 @@ const ShopContextProvider = (props) => {
             console.log("cartItems[items] = ", cartItems[items]);
             console.log("cartItems[items][item] = ", cartItems[items][item]);
           }
-        } catch (error) {}
+        } catch (error) {
+          console.log(error);
+        }
       }
     }
     return totalCount;
