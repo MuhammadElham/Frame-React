@@ -58,9 +58,6 @@ const ShopContextProvider = (props) => {
           if (cartItems[items][item] > 0) {
             // cartItems[items][item] is for Quantity
             totalCount += cartItems[items][item];
-            console.log("cartItems = ", cartItems);
-            console.log("cartItems[items] = ", cartItems[items]);
-            console.log("cartItems[items][item] = ", cartItems[items][item]);
           }
         } catch (error) {
           console.log(error);
