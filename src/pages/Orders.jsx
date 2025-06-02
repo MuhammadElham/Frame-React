@@ -52,19 +52,15 @@ const Orders = () => {
               <div>
                 <p className="sm:text-base font-medium">{item.name}</p>
                 <div className="flex items-center gap-3 mt-2 text-base text-gray-700">
-                  <p className="text-lg">
-                    {currency}
-                    {item.price}
-                    {currencyCode}
-                  </p>
-                  <p>Quantity: 1</p>
+                  <p>{currency}{item.price}{currencyCode}</p>
+                  <p>Quantity: {item.quantity}</p>
                   <p className="flex items-center gap-2">
-                    Size: <span className="px-3 py-1 text-sm border border-black bg-black text-white tracking-wider">12" x 24"</span>
+                    Size: <span className="px-3 py-1 text-sm border border-black bg-black text-white tracking-wider">{item.size}</span>
                   </p>
                 </div>
                 {/* --- Date --- */}
                 <p className="mt-2">
-                  Date: <span className="text-gray-400">18-April-2025</span>
+                  Date: <span className="text-gray-400">{new Date(item.date).toDateString()}</span>
                 </p>
               </div>
             </div>
