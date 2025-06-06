@@ -10,10 +10,9 @@ import Login from "./pages/Login";
 import Orders from "./pages/Orders";
 import Navbar from "./component/Navbar";
 import Footer from "./component/Footer";
-import WhatsAppChatButton from "./component/WhatsAppChatButton.jsx";
 import SearchBar from "./component/SearchBar.jsx";
-import { ToastContainer, toast } from 'react-toastify';
-import ChatBot from "./component/ChatBot.jsx";
+import { ToastContainer } from 'react-toastify';
+import ChatBot from "./component/ChatBot.jsx"
 function App() {
   return (
     <>

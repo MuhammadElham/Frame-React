@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { FaRobot, FaUser, FaWhatsapp, FaEnvelope, FaPhoneAlt } from "react-icons/fa";
 import { IoClose } from "react-icons/io5";
 
-export default function ChatBot() {
+function ChatBot() {
   const [messages, setMessages] = useState([
     {
       sender: "bot",
@@ -11,7 +11,7 @@ export default function ChatBot() {
       options: ["Nikkah Frames", "Custom Orders", "Order Tracking", "Contact Info"],
     },
   ]);
-  
+
   const [input, setInput] = useState("");
   const [isOpen, setIsOpen] = useState(false);
   const messagesEndRef = useRef(null);
@@ -28,11 +28,11 @@ export default function ChatBot() {
   // BACKEND API
   const handleSend = async () => {
     if (!input.trim()) return;
-  
+
     const newMessages = [...messages, { sender: "user", text: input }];
     setMessages(newMessages);
     setInput("");
-  
+
     try {
       const response = await fetch("http://localhost:5000/api/chat", {
         method: "POST",
@@ -41,17 +41,16 @@ export default function ChatBot() {
         },
         body: JSON.stringify({ message: input }),
       });
-  
+
       const data = await response.json();
-      
-  
+
       // Assuming backend response is in { reply: "Your bot message" }
       const botReply = {
         sender: "bot",
         text: data.text || "Sorry, I couldn't understand that.",
-        options:  null, // If your backend sends options too
+        options: null, // If your backend sends options too
       };
-  
+
       setMessages((prevMessages) => [...prevMessages, botReply]);
     } catch (error) {
       console.error("Error fetching bot reply:", error);
@@ -62,8 +61,6 @@ export default function ChatBot() {
       setMessages((prevMessages) => [...prevMessages, botErrorReply]);
     }
   };
-  
-
 
   const generateBotResponse = (userInput) => {
     const lowerInput = userInput.toLowerCase();
@@ -121,20 +118,6 @@ export default function ChatBot() {
     setInput(option);
     handleSend();
   };
-
-  // const handleSend = () => {
-  //   if (!input.trim()) return;
-
-  //   // Add user message
-  //   const newMessages = [...messages, { sender: "user", text: input }];
-
-  //   // Generate bot response
-  //   const { text, options } = generateBotResponse(input);
-  //   const botReply = { sender: "bot", text, options };
-
-  //   setMessages([...newMessages, botReply]);
-  //   setInput("");
-  // };
 
   return (
     // Change in Width
@@ -211,3 +194,5 @@ export default function ChatBot() {
     </div>
   );
 }
+
+export default ChatBot;

@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { ShopContext } from "../context/ShopContext";
 import { assets } from "../assets/assets";
 import Title from "../component/Title";
@@ -43,6 +43,8 @@ const Collection = () => {
     }
     // 📌 Apply Sorting
     sortProduct(filteredProducts);
+
+    console.log(filterProducts);
   };
 
   useEffect(() => {
@@ -61,7 +63,9 @@ const Collection = () => {
         <div className={`border border-gray-300 pl-5 py-3 my-6 ${showFilter ? "" : "hidden"} sm:block `}>
           <p className="mb-3 text-sm font-medium">CATEGORIES</p>
           <div className="flex flex-col gap-2 text-sm font-light text-gray-700">
-            {["Frames", "Ring Trays", "Welcome Boards", "Sweet Boxes", "Pens", "Dupatta"].map((item) => (
+
+            {["Frame", "Ring Trays", "Welcome Board", "Sweet Box", "Pen", "Dupatta"].map((item) => (
+              
               <p key={item} className="flex gap-2 cursor-default">
                 <input className="w-3 cursor-pointer" type="checkbox" value={item} onChange={toggleCategory} />
                 {item}
