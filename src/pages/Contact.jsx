@@ -11,7 +11,8 @@ const Contact = () => {
       </div>
       {/* Container */}
       <div className="my-10 flex flex-col justify-center md:flex-row gap-10 mb-28 ">
-        <img className="w-full md:max-w-[480px]" src={assets.contact_img} alt="" />
+        {/* <img className="w-full md:max-w-[480px]" src="https://res.cloudinary.com/dmmz8ldz9/image/upload/f_auto,q_auto/v1741605697/ecommerce-assets/nv5z5op0coc4s4wlas66.png" loading="lazy" alt="" /> */}
+        <img className="w-full h-[430px] md:h-auto md:max-w-[450px] rounded-lg" src="https://res.cloudinary.com/dmmz8ldz9/image/upload/f_auto,q_auto/v1741605697/ecommerce-assets/nv5z5op0coc4s4wlas66.png" loading="lazy" alt="" />
         <div className="flex flex-col justify-center items-start gap-6">
           <p className="font-semibold text-xl text-gray-600">Our Store</p>
           <p className="text-gray-500">
