@@ -1,6 +1,5 @@
 import React from "react";
 import Title from "../component/Title";
-import { assets } from "../assets/assets";
 import NewsLetter from "../component/NewsLetter";
 const Contact = () => {
   return (
@@ -25,7 +24,7 @@ const Contact = () => {
           <button className="border border-black px-8 py-4 text-sm hover:bg-black hover:text-white transition-all duration-300">Explore Jobs</button>
         </div>
       </div>
-      <NewsLetter/>
+      <NewsLetter />
     </div>
   );
 };
