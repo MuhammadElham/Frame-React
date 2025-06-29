@@ -1,8 +1,10 @@
 import { useContext, useEffect, useState } from "react";
 import { ShopContext } from "../context/ShopContext";
-import { assets } from "../assets/assets";
 import Title from "../component/Title";
 import ProductItem from "../component/ProductItem";
+// Updation
+import { FiFilter } from "react-icons/fi";
+import { motion } from "framer-motion";
 
 const Collection = () => {
   const { products, search, showSearch } = useContext(ShopContext);
@@ -55,17 +57,35 @@ const Collection = () => {
     <div className="flex flex-col sm:flex-row gap-1 sm:gap-10 pt-10 border-t">
       {/* Filter Options  */}
       <div className="min-w-60">
-        <p onClick={() => setShowFilter(!showFilter)} className="my-2 text-xl flex items-center cursor-pointer gap-3">
+        {/* Mobile Button with Animation */}
+        <motion.button
+          onClick={() => setShowFilter(!showFilter)}
+          className="md:hidden flex items-center gap-2 mb-5 text-base font-medium px-3 py-2 border rounded"
+          animate={
+            showFilter
+              ? { rotate: 0, scale: 1 } // stop animation if filter is open
+              : { rotate: [0, -6, 6, -6, 6, 0], scale: [1, 1.05, 1] }
+          }
+          transition={{
+            repeat: showFilter ? 0 : Infinity,
+            repeatDelay: 4, // shake every 4 seconds
+            duration: 0.6,
+            ease: "easeInOut",
+          }}
+        >
+          <FiFilter className="w-4 h-4" />
+          <span>Filters</span>
+        </motion.button>
+
+        {/* Desktop Filter Heading - keep same */}
+        <p onClick={() => setShowFilter(!showFilter)} className="hidden md:flex items-center cursor-pointer gap-3 my-2 text-xl">
           FILTERS
-          <img className={`h-3 sm:hidden ${showFilter ? "rotate-90" : ""}`} src={assets.dropdown_icon} alt="" />
         </p>
         {/* Category Filter */}
         <div className={`border border-gray-300 pl-5 py-3 my-6 ${showFilter ? "" : "hidden"} sm:block `}>
           <p className="mb-3 text-sm font-medium">CATEGORIES</p>
           <div className="flex flex-col gap-2 text-sm font-light text-gray-700">
-
             {["Frame", "Ring Trays", "Welcome Board", "Sweet Box", "Pen", "Dupatta"].map((item) => (
-              
               <p key={item} className="flex gap-2 cursor-default">
                 <input className="w-3 cursor-pointer" type="checkbox" value={item} onChange={toggleCategory} />
                 {item}
