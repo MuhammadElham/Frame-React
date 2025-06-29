@@ -45,18 +45,9 @@ const Reels = () => {
           loop={true}
         >
           {reelsData.map((reel, index) => (
-            <SwiperSlide key={reel.id} className="reel-slide relative rounded-xl overflow-hidden">
-              <div className="relative w-full h-[250px] lg:h-[300px] custom-height">
-                <video
-                  ref={(el) => (videoRefs.current[index] = el)}
-                  className="reel-video w-full h-full object-cover rounded-xl"
-                  playsInline
-                  muted
-                  autoPlay
-                  loop
-                  controlsList="nodownload"
-                  onContextMenu={(e) => e.preventDefault()}
-                >
+            <SwiperSlide key={reel.id} className="reel-slide relative overflow-hidden">
+              <div className="relative w-full overflow-hidden aspect-[9/16]">
+                <video ref={(el) => (videoRefs.current[index] = el)} className="reel-video w-full h-full object-cover rounded-[4px] sm:rounded-md" loading="lazy" preload="metadata" playsInline muted autoPlay loop controlsList="nodownload" onContextMenu={(e) => e.preventDefault()}>
                   <source src={reel.video} type="video/mp4" />
                 </video>
               </div>
@@ -65,8 +56,8 @@ const Reels = () => {
         </Swiper>
 
         {/* Custom Left & Right Navigation Buttons */}
-        <button className="swiper-button-prev absolute left-0 top-1/2 transform -translate-y-1/2 z-10 bg-black bg-opacity-50 text-white p-3 rounded-full">❮</button>
-        <button className="swiper-button-next absolute right-0 top-1/2 transform -translate-y-1/2 z-10 bg-black bg-opacity-50 text-white p-3 rounded-full">❯</button>
+        <button className="swiper-button-prev z-10 bg-black bg-opacity-50 text-white p-3 rounded-full">❮</button>
+        <button className="swiper-button-next z-10 bg-black bg-opacity-50 text-white p-3 rounded-full">❯</button>
       </div>
     </div>
   );
