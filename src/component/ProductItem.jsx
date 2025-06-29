@@ -15,7 +15,7 @@ const ProductItem = ({ id, image, name, price }) => {
 
   return (
     <Link to={`/product/${id}`} onClick={scrollToTop} className="text-gray-700 cursor-pointer">
-      <div className="overflow-hidden rounded-sm sm:rounded-md aspect-[3/4]">
+      <div className="overflow-hidden rounded-[4px] sm:rounded-md aspect-[3/4]">
         <img className="w-full h-full object-cover hover:scale-110 transition duration-300 ease-in-out" src={imageUrl} loading="lazy" alt={name} />
       </div>
       {/* <div className="overflow-hidden">
