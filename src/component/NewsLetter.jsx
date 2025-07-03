@@ -7,11 +7,10 @@ const NewsLetter = () => {
   return (
     <div className="text-center">
       <p className="text-2xl font-medium text-gray-800">
-        Subscribe now & get 20% off
+        Subscribe & Save 20% on Your Dream Wedding
       </p>
       <p className="text-gray-400 mt-3">
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laborum,
-        voluptas.
+        Get exclusive designs and special offers delivered to your inbox
       </p>
       <form
         onSubmit={onSubmitHandler}
