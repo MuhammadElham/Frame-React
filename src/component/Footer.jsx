@@ -11,7 +11,7 @@ const Footer = () => {
           <Link to="/">
             <img className="mb-5 w-32" src={assets.logo} alt="" />
           </Link>
-          <p className="w-full md:w-2/3 text-gray-600">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam harum nostrum repellendus vitae neque quis necessitatibus animi autem voluptatibus sunt? Nisi minus, totam porro provident amet aliquam modi maxime fugiat?</p>
+          <p className="w-full md:w-2/3 text-gray-600">Crafting timeless wedding memories through exquisite handmade frames, nikah certificates, and ceremonial accessories. Each piece tells your unique love story with traditional artistry and modern elegance.</p>
         </div>
 
         {/* 2 Col */}
@@ -40,7 +40,7 @@ const Footer = () => {
       </div>
       <div>
         <hr />
-        <p className="py-5 text-sm text-center">Copyright 2024@ karigari.com - All Right Reserved.</p>
+        <p className="py-5 text-sm text-center">Copyright 2025@ karigari.com - All Right Reserved.</p>
       </div>
     </div>
   );
