@@ -20,8 +20,10 @@ const ShopContextProvider = (props) => {
 
   const addToCart = async (itemId, size, userId) => {
     // Toastify for Size
-    if (!size) {
-      toast.error("Select Product Size");
+    const productInfo = products.find((p) => p._id === itemId);
+    const needsSize = productInfo?.sizes?.length > 0;
+    if (needsSize && !size) {
+      toast.error("Please select a size");
       return;
     }
     // Fetching number of Product Items and Add them into respective place
