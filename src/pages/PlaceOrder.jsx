@@ -60,7 +60,8 @@ const PlaceOrder = () => {
             setCartItems({});
             navigate("/orders");
           } else {
-            toast.error(response.data.message);
+            // toast.error(response.data.message);
+            navigate("/login");
           }
           break;
         default:
