@@ -1,6 +1,5 @@
 import React from "react";
-import { assets } from "../assets/assets";
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -9,7 +8,7 @@ const Footer = () => {
         {/* 1 Col */}
         <div>
           <Link to="/">
-            <img className="mb-5 w-32" src={assets.logo} alt="" />
+            <img className="mb-5 w-32" src="https://res.cloudinary.com/dmmz8ldz9/image/upload/f_auto,q_auto/v1741605636/ecommerce-assets/flqrjp0nlmalt5vscokn.png" alt="" />
           </Link>
           <p className="w-full md:w-2/3 text-gray-600">Crafting timeless wedding memories through exquisite handmade frames, nikah certificates, and ceremonial accessories. Each piece tells your unique love story with traditional artistry and modern elegance.</p>
         </div>
