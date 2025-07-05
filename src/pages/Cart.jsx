@@ -50,7 +50,8 @@ const Cart = () => {
                       {productData.price}
                       {currencyCode}
                     </p>
-                    <p className="px-2 sm:px-3 sm:py-1 text-sm border border-black bg-black text-white">{item.size}</p>
+                    {/* Logic */}
+                    {item.size?.length > 0 && <p className="px-2 sm:px-3 sm:py-1 text-sm border border-black bg-black text-white">{item.size}</p>}
                   </div>
                 </div>
               </div>
