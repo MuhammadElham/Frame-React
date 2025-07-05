@@ -3,7 +3,7 @@ import { ShopContext } from "../context/ShopContext";
 import { Link } from "react-router-dom";
 
 const ProductItem = ({ id, image, name, price }) => {
-  const { currency,currencyCode } = useContext(ShopContext);
+  const { currency, currencyCode } = useContext(ShopContext);
   const imageUrl = Array.isArray(image) ? image[0] : image;
 
   const scrollToTop = () => {

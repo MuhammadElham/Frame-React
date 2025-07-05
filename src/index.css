@@ -42,8 +42,8 @@ a.active hr {
     color: white !important;
     font-size: 12px;
     font-weight: bold;
-    width: 35px;
-    height: 35px;
+    width: 60px;
+    height: 60px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -57,14 +57,71 @@ a.active hr {
 .swiper-button-prev::after,
 .swiper-button-next::after {
     font-size: 14px !important;
-    /* Adjusted icon size */
 }
 
 /* Hover Effect */
 .swiper-button-prev:hover,
 .swiper-button-next:hover {
-    background: rgba(0, 0, 0, 0.8);
+    background: rgba(0, 0, 0, 0.7);
 }
+
+@media (max-width: 640px) {
+ .swiper-button-prev,
+.swiper-button-next {
+    font-size: 8px;
+    padding: 22px;
+}
+.swiper-button-prev::after,
+.swiper-button-next::after {
+    font-size: 8px !important;
+}
+}
+
+/* Best Seller */
+.bestseller-swiper .swiper-button-prev,
+.bestseller-swiper .swiper-button-next {
+    color: white !important;
+    font-size: 12px;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 50%;
+    padding: 30px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+}
+
+/* Adjust arrow icon size */
+.bestseller-swiper .swiper-button-prev::after,
+.bestseller-swiper .swiper-button-next::after {
+  font-size: 14px !important;
+}
+
+/* Hover effect */
+.bestseller-swiper .swiper-button-prev:hover,
+.bestseller-swiper .swiper-button-next:hover {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+@media (max-width: 640px) {
+  .bestseller-swiper .swiper-button-prev,
+  .bestseller-swiper .swiper-button-next {
+    width: 40px;
+    height: 40px;
+    padding: 4px;
+  }
+
+  .bestseller-swiper .swiper-button-prev::after,
+  .bestseller-swiper .swiper-button-next::after {
+    font-size: 10px !important;
+  }
+}
+/* -------- */
 
 @media (min-width: 1700px) {
     .custom-height {

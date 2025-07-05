@@ -22,34 +22,29 @@ const BestSeller = () => {
     <div className="my-10">
       <div className="text-center text-3xl py-8">
         <Title text1={"BEST "} text2={"SELLERS"} />
-        <p className="w-3/4 m-auto text-xs sm:text-sm md:text-base text-gray-600">
-          Most loved pieces chosen by couples worldwide. Trusted quality, timeless designs.
-        </p>
+        <p className="w-3/4 m-auto text-xs sm:text-sm md:text-base text-gray-600">Most loved pieces chosen by couples worldwide. Trusted quality, timeless designs.</p>
       </div>
 
       {/* Product Slider */}
-      <Swiper
-        modules={[Navigation]}
-        navigation
-        spaceBetween={16}
-        breakpoints={{
-          320: { slidesPerView: 2 },
-          640: { slidesPerView: 3 },
-          768: { slidesPerView: 4 },
-          1024: { slidesPerView: 5 },
-        }}
-      >
-        {bestSeller.map((item, index) => (
-          <SwiperSlide key={index}>
-            <ProductItem
-              id={item._id}
-              image={item.image}
-              name={item.name}
-              price={item.price}
-            />
-          </SwiperSlide>
-        ))}
-      </Swiper>
+      <div className="bestseller-swiper relative">
+        <Swiper
+          modules={[Navigation]}
+          navigation
+          spaceBetween={16}
+          breakpoints={{
+            320: { slidesPerView: 2 },
+            640: { slidesPerView: 3 },
+            768: { slidesPerView: 4 },
+            1024: { slidesPerView: 5 },
+          }}
+        >
+          {bestSeller.map((item, index) => (
+            <SwiperSlide key={index}>
+              <ProductItem id={item._id} image={item.image} name={item.name} price={item.price} />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
     </div>
   );
 };
