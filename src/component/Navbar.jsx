@@ -13,6 +13,14 @@ const Navbar = () => {
     setCartItems({});
   };
 
+  // Scroll Up
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
   return (
     <div
       className="flex items-center justify-between py-5 font-medium sticky bg-white
@@ -52,7 +60,9 @@ w-full top-0 left-0 z-[1000] px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]"
             <div className="group-hover:block hidden absolute dropdown-menu right-0 pt-4">
               <div className="flex flex-col gap-2 w-36 py-3 px-5 bg-slate-100 text-gray-500 rounded">
                 <p className="cursor-pointer hover:text-black">My Profile</p>
-                <p onClick={() => navigate('/orders')} className="cursor-pointer hover:text-black">Orders</p>
+                <p onClick={() => navigate("/orders")} className="cursor-pointer hover:text-black">
+                  Orders
+                </p>
                 <p onClick={logout} className="cursor-pointer hover:text-black">
                   Logout
                 </p>
@@ -75,16 +85,16 @@ w-full top-0 left-0 z-[1000] px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]"
             <p>Back</p>
           </div>
           {/* NavItems */}
-          <NavLink onClick={() => setVisible(false)} className="py-2 pl-6 border" to="/">
+          <NavLink onClick={() => {setVisible(false) ; scrollToTop();}} className="py-2 pl-6 border" to="/">
             HOME
           </NavLink>
-          <NavLink onClick={() => setVisible(false)} className="py-2 pl-6 border" to="/collection">
+          <NavLink onClick={() => {setVisible(false) ; scrollToTop();}} className="py-2 pl-6 border" to="/collection">
             COLLECTION
           </NavLink>
-          <NavLink onClick={() => setVisible(false)} className="py-2 pl-6 border" to="/about">
+          <NavLink onClick={() => {setVisible(false) ; scrollToTop();}} className="py-2 pl-6 border" to="/about">
             ABOUT
           </NavLink>
-          <NavLink onClick={() => setVisible(false)} className="py-2 pl-6 border" to="/contact">
+          <NavLink onClick={() => {setVisible(false) ; scrollToTop();}} className="py-2 pl-6 border" to="/contact">
             CONTACT
           </NavLink>
         </div>
