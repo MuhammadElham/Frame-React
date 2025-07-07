@@ -1,17 +1,15 @@
 import hero_img from "./hero_img.png";
-import dropdown_icon from "./dropdown_icon.png";
 import exchange_icon from "./exchange_icon.png";
 import quality_icon from "./quality_icon.png";
 import support_img from "./support_img.png";
-import menu_icon from "./menu_icon.png";
 import razorpay_logo from "./razorpay_logo.png";
 import stripe_logo from "./stripe_logo.png";
 
 export const assets = {
   logo: "https://res.cloudinary.com/dmmz8ldz9/image/upload/f_auto,q_auto/v1741605636/ecommerce-assets/flqrjp0nlmalt5vscokn.png",
   hero_img,
-  cart_icon:"https://res.cloudinary.com/dmmz8ldz9/image/upload/v1741605630/ecommerce-assets/dierfmkhsm9brcz3ge5p.png",
-  dropdown_icon,
+  cart_icon:"https://res.cloudinary.com/dmmz8ldz9/image/upload/f_auto,q_auto/v1741605630/ecommerce-assets/dierfmkhsm9brcz3ge5p.png",
+  dropdown_icon:'https://res.cloudinary.com/dmmz8ldz9/image/upload/f_auto,q_auto/v1751842088/dropdown_icon_olornq.png',
   exchange_icon,
   profile_icon:"https://res.cloudinary.com/dmmz8ldz9/image/upload/f_auto,q_auto:eco/v1741605638/ecommerce-assets/rqqaaleguvchnayfiefv.png",
   quality_icon,
@@ -20,7 +18,7 @@ export const assets = {
   star_icon: "https://res.cloudinary.com/dmmz8ldz9/image/upload/q_auto,f_auto/v1741605705/ecommerce-assets/p40zvxenlivjpkja66lc.png",
   bin_icon: "https://res.cloudinary.com/dmmz8ldz9/image/upload/f_auto,q_auto/v1741605630/ecommerce-assets/hcdnubfi4ajhzxhscevc.png",
   support_img,
-  menu_icon,
+  menu_icon: "https://res.cloudinary.com/dmmz8ldz9/image/upload/f_auto,q_auto/v1751841885/menu_icon_t3exvl.png",
   about_img: "https://res.cloudinary.com/dmmz8ldz9/image/upload/f_auto,q_auto/v1741605639/ecommerce-assets/iktuyiuthjwugpqnbqzn.png",
   contact_img: "https://res.cloudinary.com/dmmz8ldz9/image/upload/f_auto,q_auto/v1741605632/ecommerce-assets/oxfk1hrjiu7njz9k0oxr.png",
   razorpay_logo,

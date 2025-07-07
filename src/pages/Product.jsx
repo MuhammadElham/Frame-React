@@ -1,8 +1,8 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { ShopContext } from "../context/ShopContext";
-import { assets } from "../assets/assets";
 import RelatedProduct from "../component/RelatedProduct";
+import ZoomImage from "../component/ZoomImage";
 
 const Product = () => {
   const { productId } = useParams();
@@ -41,17 +41,20 @@ const Product = () => {
         {/* Product Image */}
         <div className="flex-1 flex flex-col-reverse gap-3 sm:flex-row">
           <div className="flex sm:flex-col overflow-x-auto sm:overflow-y-scroll justify-between sm:justify-normal sm:w-[18.7%] w-full">{productData.image.map((item, index) => image && <img onClick={() => setImage(item)} src={item} key={index} className="w-[24%] rounded-[4px] sm:rounded-md sm:w-full sm:mb-3 flex-shrink-0 cursor-pointer" alt="" />)}</div>
-          <div className="w-full sm:w-[80%]">{image && <img className="w-full h-auto rounded-[4px] sm:rounded-md" src={image} alt="" />}</div>
+          {/* Zoom Effect */}
+          {/* <div className="w-full sm:w-[80%]">{image && <img className="w-full h-auto rounded-[4px] sm:rounded-md" src={image} alt="" />}</div> */}
+          {/* Logic */}
+          <ZoomImage src={image} width="100%" height="auto" />
         </div>
         {/* Product Info */}
         <div className="flex-1">
           <h1 className="font-medium text-2xl mt-2">{productData.name}</h1>
           <div className="flex items-center gap-1 mt-2">
-            <img src={assets.star_icon} alt="" className="w-3 5" />
-            <img src={assets.star_icon} alt="" className="w-3 5" />
-            <img src={assets.star_icon} alt="" className="w-3 5" />
-            <img src={assets.star_icon} alt="" className="w-3 5" />
-            <img src={assets.star_dull_icon} alt="" className="w-3 5" />
+            <img src="https://res.cloudinary.com/dmmz8ldz9/image/upload/q_auto,f_auto/v1741605705/ecommerce-assets/p40zvxenlivjpkja66lc.png" alt="" className="w-3 5" />
+            <img src="https://res.cloudinary.com/dmmz8ldz9/image/upload/q_auto,f_auto/v1741605705/ecommerce-assets/p40zvxenlivjpkja66lc.png" alt="" className="w-3 5" />
+            <img src="https://res.cloudinary.com/dmmz8ldz9/image/upload/q_auto,f_auto/v1741605705/ecommerce-assets/p40zvxenlivjpkja66lc.png" alt="" className="w-3 5" />
+            <img src="https://res.cloudinary.com/dmmz8ldz9/image/upload/q_auto,f_auto/v1741605705/ecommerce-assets/p40zvxenlivjpkja66lc.png" alt="" className="w-3 5" />
+            <img src="https://res.cloudinary.com/dmmz8ldz9/image/upload/q_auto,f_auto/v1741605705/ecommerce-assets/qvew44ynpz6ttehj0auv.png" alt="" className="w-3 5" />
             <p className="pl-2">(122)</p>
           </div>
           <p className="mt-5 text-3xl font-medium">
