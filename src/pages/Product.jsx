@@ -42,9 +42,9 @@ const Product = () => {
         <div className="flex-1 flex flex-col-reverse gap-3 sm:flex-row">
           <div className="flex sm:flex-col overflow-x-auto sm:overflow-y-scroll justify-between sm:justify-normal sm:w-[18.7%] w-full">{productData.image.map((item, index) => image && <img onClick={() => setImage(item)} src={item} key={index} className="w-[24%] rounded-[4px] sm:rounded-md sm:w-full sm:mb-3 flex-shrink-0 cursor-pointer" alt="" />)}</div>
           {/* Zoom Effect */}
-          {/* <div className="w-full sm:w-[80%]">{image && <img className="w-full h-auto rounded-[4px] sm:rounded-md" src={image} alt="" />}</div> */}
+          <div className="w-full sm:w-[80%]">{image && <img className="w-full h-auto rounded-[4px] sm:rounded-md" src={image} alt="" />}</div>
           {/* Logic */}
-          <div className="w-full sm:w-[80%] h-full rounded-[4px] sm:rounded-md overflow-hidden">
+          {/* <div className="w-full sm:w-[80%] h-full rounded-[4px] sm:rounded-md overflow-hidden">
             <ZoomImage
               src={image}
               width="100%"
@@ -54,7 +54,7 @@ const Product = () => {
                 objectFit: "cover", 
               }}
             />
-          </div>
+          </div> */}
 
           {/* <ZoomImage src={image} width={"80%"} height={"100%"} /> */}
         </div>
