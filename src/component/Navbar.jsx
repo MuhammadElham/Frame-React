@@ -78,7 +78,7 @@ w-full top-0 left-0 z-[1000] px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]"
       </div>
       {/* Sidebar Menu for Small Screen */}
       <div className={`absolute top-0 right-0 bottom-0 overflow-hidden bg-white transition-all h-min z-[100] ${visible ? "w-full" : "w-0"}`}>
-        <div className="flex flex-col text-gray-600">
+        <div className="flex flex-col text-gray-600 h-screen">
           <div onClick={() => setVisible(false)} className="flex items-center gap-4 p-3 cursor-pointer w-fit">
             <img className="h-4 rotate-180" src="https://res.cloudinary.com/dmmz8ldz9/image/upload/f_auto,q_auto/v1751842088/dropdown_icon_olornq.png" alt="" />
             <p>Back</p>
