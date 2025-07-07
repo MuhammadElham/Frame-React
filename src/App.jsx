@@ -1,5 +1,6 @@
 import { Routes, Route, useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
+import useLenis from "./component/UseLenis.jsx";
 import PageTransition from "./component/PageTransition.jsx";
 import Home from "./pages/Home";
 import Collection from "./pages/Collection";
@@ -16,6 +17,7 @@ import SearchBar from "./component/SearchBar.jsx";
 import { ToastContainer } from "react-toastify";
 import ChatBot from "./component/ChatBot.jsx";
 function App() {
+  useLenis();
   const location = useLocation();
   return (
     <>
