@@ -151,7 +151,6 @@ a.active hr {
   z-index: 5;
 }
 
-
 @media (min-width: 1700px) {
     .custom-height {
       height: 400px !important;

@@ -44,7 +44,19 @@ const Product = () => {
           {/* Zoom Effect */}
           {/* <div className="w-full sm:w-[80%]">{image && <img className="w-full h-auto rounded-[4px] sm:rounded-md" src={image} alt="" />}</div> */}
           {/* Logic */}
-          <ZoomImage src={image} width="100%" height="auto" />
+          <div className="w-full sm:w-[80%] h-full rounded-[4px] sm:rounded-md overflow-hidden">
+            <ZoomImage
+              src={image}
+              width="100%"
+              height="100%"
+              style={{
+                borderRadius: "inherit",
+                objectFit: "cover", 
+              }}
+            />
+          </div>
+
+          {/* <ZoomImage src={image} width={"80%"} height={"100%"} /> */}
         </div>
         {/* Product Info */}
         <div className="flex-1">
