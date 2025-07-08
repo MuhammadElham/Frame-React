@@ -1,6 +1,9 @@
 import React, { useContext, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { ShopContext } from "../context/ShopContext";
+// SideBar
+import { AnimatePresence, motion } from "framer-motion";
+
 const Navbar = () => {
   const [visible, setVisible] = useState(false);
   const { setShowSearch, getCartCount, setCartItems, navigate, token, setToken } = useContext(ShopContext);
@@ -18,6 +21,31 @@ const Navbar = () => {
       top: 0,
       behavior: "smooth",
     });
+  };
+
+  // SideBar Annimation
+  const sidebarVariants = {
+    hidden: { x: "100%" }, // starts off-screen to the right
+    visible: {
+      x: 0,
+      transition: { duration: 0.4, ease: "easeInOut" },
+    },
+    exit: {
+      x: "100%",
+      transition: { duration: 0.3 },
+    },
+  };
+
+  const backdropVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 0.4,
+      transition: { duration: 0.3 },
+    },
+    exit: {
+      opacity: 0,
+      transition: { duration: 0.2 },
+    },
   };
 
   return (
@@ -77,55 +105,66 @@ w-full top-0 left-0 z-[1000] px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]"
         <img onClick={() => setVisible(true)} src="https://res.cloudinary.com/dmmz8ldz9/image/upload/f_auto,q_auto/v1751841885/menu_icon_t3exvl.png" className="w-5 cursor-pointer sm:hidden" alt="" />
       </div>
       {/* Sidebar Menu for Small Screen */}
-      <div className={`absolute top-0 right-0 bottom-0 overflow-hidden bg-white transition-all h-min z-[100] ${visible ? "w-full" : "w-0"}`}>
-        <div className="flex flex-col text-gray-600 h-screen">
-          <div onClick={() => setVisible(false)} className="flex items-center gap-4 p-3 cursor-pointer w-fit">
-            <img className="h-4 rotate-180" src="https://res.cloudinary.com/dmmz8ldz9/image/upload/f_auto,q_auto/v1751842088/dropdown_icon_olornq.png" alt="" />
-            <p>Back</p>
-          </div>
-          {/* NavItems */}
-          <NavLink
-            onClick={() => {
-              setVisible(false);
-              scrollToTop();
-            }}
-            className="py-2 pl-6 border"
-            to="/"
-          >
-            HOME
-          </NavLink>
-          <NavLink
-            onClick={() => {
-              setVisible(false);
-              scrollToTop();
-            }}
-            className="py-2 pl-6 border"
-            to="/collection"
-          >
-            COLLECTION
-          </NavLink>
-          <NavLink
-            onClick={() => {
-              setVisible(false);
-              scrollToTop();
-            }}
-            className="py-2 pl-6 border"
-            to="/about"
-          >
-            ABOUT
-          </NavLink>
-          <NavLink
-            onClick={() => {
-              setVisible(false);
-              scrollToTop();
-            }}
-            className="py-2 pl-6 border"
-            to="/contact"
-          >
-            CONTACT
-          </NavLink>
-        </div>
-      </div>
+      <AnimatePresence>
+        {visible && (
+          <>
+            {/* Backdrop Animation */}
+            <motion.div className="fixed inset-0 bg-black z-[90]" variants={backdropVariants} initial="hidden" animate="visible" exit="exit" onClick={() => setVisible(false)} />
+
+            {/* Sidebar Animation - Styling Preserved */}
+            <motion.div className={`absolute top-0 right-0 bottom-0 overflow-hidden bg-white h-min z-[100] w-full`} variants={sidebarVariants} initial="hidden" animate="visible" exit="exit">
+              <div className="flex flex-col text-gray-600 h-screen">
+                <div onClick={() => setVisible(false)} className="flex items-center gap-4 p-3 cursor-pointer w-fit">
+                  <img className="h-4 rotate-180" src="https://res.cloudinary.com/dmmz8ldz9/image/upload/f_auto,q_auto/v1751842088/dropdown_icon_olornq.png" alt="" />
+                  <p>Back</p>
+                </div>
+
+                {/* NavItems */}
+                <NavLink
+                  onClick={() => {
+                    setVisible(false);
+                    scrollToTop();
+                  }}
+                  className="py-2 pl-6 border"
+                  to="/"
+                >
+                  HOME
+                </NavLink>
+                <NavLink
+                  onClick={() => {
+                    setVisible(false);
+                    scrollToTop();
+                  }}
+                  className="py-2 pl-6 border"
+                  to="/collection"
+                >
+                  COLLECTION
+                </NavLink>
+                <NavLink
+                  onClick={() => {
+                    setVisible(false);
+                    scrollToTop();
+                  }}
+                  className="py-2 pl-6 border"
+                  to="/about"
+                >
+                  ABOUT
+                </NavLink>
+                <NavLink
+                  onClick={() => {
+                    setVisible(false);
+                    scrollToTop();
+                  }}
+                  className="py-2 pl-6 border"
+                  to="/contact"
+                >
+                  CONTACT
+                </NavLink>
+              </div>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
     </div>
   );
 };
