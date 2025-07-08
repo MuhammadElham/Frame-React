@@ -150,6 +150,21 @@ a.active hr {
   top: 0;
   z-index: 5;
 }
+/* Marquee Sldier */
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 50s linear infinite;
+}
+
+/* End */
 
 @media (min-width: 1700px) {
     .custom-height {

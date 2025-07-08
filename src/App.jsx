@@ -2,6 +2,7 @@ import { Routes, Route, useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import useLenis from "./component/UseLenis.jsx";
 import PageTransition from "./component/PageTransition.jsx";
+import TopMarquee from "./component/TopMarquee.jsx";
 import Home from "./pages/Home";
 import Collection from "./pages/Collection";
 import About from "./pages/About";
@@ -21,6 +22,7 @@ function App() {
   const location = useLocation();
   return (
     <>
+    <TopMarquee/> 
       <Navbar />
       <SearchBar />
       <div className="px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]">
