@@ -16,7 +16,7 @@ import Navbar from "./component/Navbar";
 import Footer from "./component/Footer";
 import SearchBar from "./component/SearchBar.jsx";
 import { ToastContainer } from "react-toastify";
-import ChatBot from "./component/ChatBot.jsx";
+// import ChatBot from "./component/ChatBot.jsx";
 function App() {
   useLenis();
   const location = useLocation();
@@ -43,7 +43,7 @@ function App() {
         </AnimatePresence>
         <Footer />
         {/* <WhatsAppChatButton /> */}
-        <ChatBot />
+        {/* <ChatBot /> */}
       </div>
     </>
   );
