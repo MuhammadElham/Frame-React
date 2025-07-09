@@ -2,7 +2,7 @@ import React from "react";
 
 const TopMarquee = () => {
   return (
-    <div className="w-full bg-white text-black overflow-hidden mt-2 text-sm sm:text-base relative z-[9999]">
+    <div className="w-full bg-black text-white overflow-hidden py-2 text-sm sm:text-base relative z-[9999]">
       <div className="animate-marquee flex gap-x-5 items-center w-max">
         {[...Array(50)].map((_, i) => (
           <div key={i} className="flex items-center gap-x-5">
@@ -11,7 +11,7 @@ const TopMarquee = () => {
           </div>
         ))}
       </div>
-      <hr className="mt-2 border-[1.5px]" />
+      {/* <hr className="mt-2 border-[1.5px]" /> */}
     </div>
   );
 };

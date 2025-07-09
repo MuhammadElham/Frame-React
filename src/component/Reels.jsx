@@ -6,12 +6,13 @@ import { Navigation } from "swiper/modules";
 
 // Videos - Direct Path (No Import)
 const reelsData = [
-  { id: 1, video: "https://res.cloudinary.com/dmmz8ldz9/video/upload/f_auto,q_auto,vc_auto/v1752058712/4ac5db53302d0aaf0731744d01355191_ssk4ah.mp4" },
+  { id: 1, video: "https://res.cloudinary.com/dmmz8ldz9/video/upload/f_auto,q_auto,vc_auto/v1741613375/ecommerce-videos/yncig6trzxg9bqbrcqdu.mp4" },
   { id: 2, video: "https://res.cloudinary.com/dmmz8ldz9/video/upload/f_auto,q_auto,vc_auto/v1741613372/ecommerce-videos/ax4v1eqa5pcbn6cwtzm2.mp4" },
-  { id: 3, video: "https://res.cloudinary.com/dmmz8ldz9/video/upload/f_auto,q_auto,vc_auto/v1741613364/ecommerce-videos/pmyppgvyzie1maiaqlpo.mp4" },
+  // { id: 3, video: "https://res.cloudinary.com/dmmz8ldz9/video/upload/f_auto,q_auto,vc_auto/v1741613364/ecommerce-videos/pmyppgvyzie1maiaqlpo.mp4" },
+  { id: 3, video: "https://res.cloudinary.com/dmmz8ldz9/video/upload/f_auto,q_auto,vc_auto/v1752063897/file_inijyl_b9quqi.mp4" },
   { id: 4, video: "https://res.cloudinary.com/dmmz8ldz9/video/upload/f_auto,q_auto,vc_auto/v1741613380/ecommerce-videos/gnqoprltjyps65hlcz3l.mp4" },
   { id: 5, video: "https://res.cloudinary.com/dmmz8ldz9/video/upload/f_auto,q_auto,vc_auto/v1741613384/ecommerce-videos/onhtfia5mjvxmbxfz7pv.mp4" },
-  { id: 6, video: "https://res.cloudinary.com/dmmz8ldz9/video/upload/f_auto,q_auto,vc_auto/v1741613375/ecommerce-videos/yncig6trzxg9bqbrcqdu.mp4" },
+  { id: 6, video: "https://res.cloudinary.com/dmmz8ldz9/video/upload/f_auto,q_auto,vc_auto/v1752058712/4ac5db53302d0aaf0731744d01355191_ssk4ah.mp4" },
   { id: 7, video: "https://res.cloudinary.com/dmmz8ldz9/video/upload/f_auto,q_auto,vc_auto/v1741613361/ecommerce-videos/sevfkzcbbfqo8karo6ks.mp4" },
   { id: 8, video: "https://res.cloudinary.com/dmmz8ldz9/video/upload/f_auto,q_auto,vc_auto/v1741613366/ecommerce-videos/eyv5garyzbceggj7cgdz.mp4" },
   { id: 9, video: "https://res.cloudinary.com/dmmz8ldz9/video/upload/f_auto,q_auto,vc_auto/v1741613356/ecommerce-videos/omxnrxz72c09zmkmarrk.mp4" },
