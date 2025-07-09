@@ -6,7 +6,7 @@ const TopMarquee = () => {
       <div className="animate-marquee flex gap-x-5 items-center w-max">
         {[...Array(50)].map((_, i) => (
           <div key={i} className="flex items-center gap-x-5">
-            <p className="font-semibold whitespace-nowrap text-xs sm:text-base">15% OFF Your First Purchase</p>
+            <p className="font-semibold whitespace-nowrap text-xs sm:text-base"><span className="text-[#d1a847]">15%</span> OFF Your First Purchase</p>
             <p className="whitespace-nowrap text-xs sm:text-base font-light">Sign Up Now</p>
           </div>
         ))}
