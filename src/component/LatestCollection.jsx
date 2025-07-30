@@ -2,7 +2,8 @@ import React, { useContext, useEffect, useState } from "react";
 import { ShopContext } from "../context/ShopContext";
 import Title from "./Title";
 import ProductItem from "./ProductItem";
-import Certificate from "../assets/certificate.png"
+// import Certificate from "../assets/certificate.png"
+import Certificate from "../../src/assets/certificate.png"
 
 const LatestCollection = () => {
   const { products } = useContext(ShopContext);
