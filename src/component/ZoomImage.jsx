@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
 
-const ZoomImage = ({ src, width = 550, height = 700 }) => {
+// const ZoomImage = ({ src, width = 550, height = 700 }) => {
+const ZoomImage = ({ src, width, height }) => {
   const zoomRef = useRef();
 
   const handleMouseMove = (e) => {
@@ -33,7 +34,7 @@ const ZoomImage = ({ src, width = 550, height = 700 }) => {
         height,
       }}
     >
-      <img src={src} alt="Product" />
+      <img src={src} className="rounded-md sm:rounded-lg" alt="Product" />
     </div>
   );
 };
