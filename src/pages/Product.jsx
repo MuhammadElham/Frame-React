@@ -10,6 +10,8 @@ const Product = () => {
   const [productData, setProductData] = useState(false);
   const [image, setImage] = useState(null);
   const [size, setSize] = useState("");
+  // Form Yes or No
+  const [transferSignature, setTransferSignature] = useState("");
 
   const fetchProductData = async () => {
     const foundProduct = products.find((item) => item._id === productId);
@@ -42,7 +44,6 @@ const Product = () => {
         <div className="flex-1 flex flex-col-reverse gap-3 sm:flex-row">
           <div className="flex sm:flex-col overflow-x-auto sm:overflow-y-scroll justify-between sm:justify-normal sm:w-[18.7%] w-full">{productData.image.map((item, index) => image && <img onClick={() => setImage(item)} src={item} key={index} className="w-[24%] rounded-[4px] sm:rounded-md sm:w-full sm:mb-3 flex-shrink-0 cursor-pointer" alt="" />)}</div>
           {/* Zoom Effect */}
-          {/* <div className="w-full sm:w-[80%]">{image && <img className="w-full h-auto rounded-[4px] sm:rounded-md" src={image} alt="" />}</div> */}
           {/* Logic */}
           <div className="w-full sm:w-[80%] h-full rounded-[4px] sm:rounded-md overflow-hidden">
             <ZoomImage
@@ -51,7 +52,7 @@ const Product = () => {
               height="100%"
               style={{
                 borderRadius: "inherit",
-                objectFit: "cover", 
+                objectFit: "cover",
               }}
             />
           </div>
@@ -75,7 +76,7 @@ const Product = () => {
           <p className="mt-5 text-gray-500 md:w-4/5">{productData.description}</p>
           {/* -- Size -- */}
           {productData.sizes?.length > 0 && (
-            <div className="flex flex-col gap-4 mt-8">
+            <div className="flex flex-col gap-4 mt-8 mb-4">
               <p>Size</p>
               <div className="flex gap-2">
                 {productData.sizes.map((item, index) => (
@@ -84,8 +85,152 @@ const Product = () => {
                   </button>
                 ))}
               </div>
+              <p className="text-gray-500 font-medium text-lg">Order Now - Fill Out the Form & Add to Cart:</p>
             </div>
           )}
+          {/* Form */}
+          <form className="">
+            {/* Type of Certificate */}
+            <div>
+              <h4 className="text-gray-500 font-medium pb-1">Type of Certificate</h4>
+              <select className="text-sm p-3 w-2/4 outline-none border border-black mb-3 text-gray-400">
+                <option>Marriage Certificate</option>
+                <option>Anniversary Certificate</option>
+              </select>
+            </div>
+
+            {/* Language */}
+            <div>
+              <h4 className="text-gray-500 font-medium pb-1">Language</h4>
+              <select className="text-sm p-3 w-2/4 outline-none border border-black mb-3 text-gray-400">
+                <option>English</option>
+                <option>French</option>
+                <option>Arabic</option>
+                <option>Turkish</option>
+                <option>German</option>
+                <option>Farsi</option>
+                <option>Urdu</option>
+              </select>
+            </div>
+
+            {/* Signature Lines */}
+            <div>
+              <h4 className="text-gray-500 font-medium pb-1">Signature Lines</h4>
+              <select className="text-sm p-3 w-2/4 outline-none border border-black mb-3 text-gray-400">
+                <option>All (Husband, Wife, Witnesses, Wali, Officiant)</option>
+                <option>Husband & Wife Only</option>
+                <option>Husband & Wife & Witnesses & Wali</option>
+                <option>Husband & Wife & Officiant & Wali</option>
+                <option>Husband & Wife & Witnesses & Officiant</option>
+                <option>Husband & Wife & Wali</option>
+                <option>Husband & Wife & Officiant</option>
+              </select>
+            </div>
+
+            {/* Transfer Signatures */}
+            <div>
+              <h4 className="text-gray-500 font-medium pb-1">Transfer Signatures (Optional)</h4>
+              <div className="w-1/3 flex items-center justify-between">
+                <label className="text-gray-400">
+                  <input type="radio" name="transferSignature" value="yes" checked={transferSignature === "yes"} onChange={(e) => setTransferSignature(e.target.value)} className="mr-2 cursor-pointer accent-yellow-700" />
+                  Yes
+                </label>
+                <label className="text-gray-400">
+                  <input type="radio" name="transferSignature" value="no" checked={transferSignature === "no"} onChange={(e) => setTransferSignature(e.target.value)} className="mr-2 cursor-pointer accent-yellow-700" />
+                  No
+                </label>
+              </div>
+              <p className="w-2/4 text-gray-400 mb-4">Choose 'yes' if you would like to transfer signatures from your old contract onto this one.</p>
+            </div>
+
+            {/* Number of Witness Signature Areas */}
+            <div>
+              <h4 className="text-gray-500 font-medium pb-1">Number of Witness Signature Areas</h4>
+              <select className="text-sm p-3 w-2/4 outline-none border border-black mb-3 text-gray-400">
+                <option>2 (Recommended)</option>
+                <option>4</option>
+                <option>6</option>
+              </select>
+            </div>
+
+            {/* Husband Full Name */}
+            <div>
+              <h4 className="text-gray-500 font-medium pb-1">Husband Full Name</h4>
+              <input type="text" className="text-sm p-3 w-2/4 outline-none border border-black mb-3 text-gray-400" />
+            </div>
+
+            {/* Wife Full Name */}
+            <div>
+              <h4 className="text-gray-500 font-medium pb-1">Wife Full Name</h4>
+              <input type="text" className="text-sm p-3 w-2/4 outline-none border border-black mb-3 text-gray-400" />
+            </div>
+
+            {/* Name Order */}
+            <div>
+              <h4 className="text-gray-500 font-medium pb-1">Husband or Wife's Name First?</h4>
+              <select className="text-sm p-3 w-2/4 outline-none border border-black mb-3 text-gray-400">
+                <option>Husband's Name First</option>
+                <option>Wife's Name First</option>
+              </select>
+            </div>
+
+            {/* Gregorian Date */}
+            <div>
+              <h4 className="text-gray-500 font-medium pb-1">Date of Marriage - Gregorian</h4>
+              <input type="text" placeholder="ex: August 1, 2025" className="text-sm p-3 w-2/4 outline-none border border-black mb-3 text-gray-400" />
+            </div>
+
+            {/* Islamic Date */}
+            <div>
+              <h4 className="text-gray-500 font-medium pb-1">Islamic Date of Marriage</h4>
+              <input type="text" placeholder="ex: Safar 7, 1447" className="text-sm p-3 w-2/4 outline-none border border-black mb-3 text-gray-400" />
+            </div>
+
+            {/* City Name */}
+            <div>
+              <h4 className="text-gray-500 font-medium pb-1">City, State, Country of Marriage</h4>
+              <input type="text" placeholder="ex: Toronto, Ontario, Canada" className="text-sm p-3 w-2/4 outline-none border border-black text-gray-400" />
+              <p className="text-sm text-gray-400 mb-4">The section will be written as "In the city of..."</p>
+            </div>
+
+            {/* Mahr */}
+            <div>
+              <h4 className="text-gray-500 font-medium pb-1">Mahr (Optional)</h4>
+              <input type="text" className="text-sm p-3 w-2/4 outline-none border border-black mb-3 text-gray-400" />
+            </div>
+
+            {/* Extra Customizations */}
+            <div>
+              <h4 className="text-gray-500 font-medium pb-3">Extra Customizations (Optional)</h4>
+              <div className="w-2/4 grid grid-cols-2 gap-x-6 gap-y-3 text-sm text-gray-400 mb-3">
+                <label className="flex items-center space-x-2 cursor-pointer">
+                  <input type="checkbox" className="accent-yellow-700 w-4 h-4" />
+                  <span>Text Changes</span>
+                </label>
+                <label className="flex items-center space-x-2 cursor-pointer">
+                  <input type="checkbox" className="accent-yellow-700 w-4 h-4" />
+                  <span>Color Changes (+25.00 dh)</span>
+                </label>
+                <label className="flex items-center space-x-2 cursor-pointer">
+                  <input type="checkbox" className="accent-yellow-700 w-4 h-4" />
+                  <span>Couple's Crest (+50.00 dh)</span>
+                </label>
+                <label className="flex items-center space-x-2 cursor-pointer">
+                  <input type="checkbox" className="accent-yellow-700 w-4 h-4" />
+                  <span>Marriage Conditions</span>
+                </label>
+              </div>
+              <p className="w-2/4 text-gray-400 mb-4 text-sm">Extra customizations require an extended processing time of 10 business days and you will receive an email preview within 5 business days. Once you give your final approval, it will take 5 more business days before your certificate is dispatched for shipping.</p>
+            </div>
+
+            {/* Notes */}
+            <div>
+              <h4 className="text-gray-500 font-medium pb-1">Any other notes</h4>
+              <textarea className="w-2/4 text-sm p-3 outline-none border border-black text-gray-400" placeholder="Anything we need to know before working on your certificate?"></textarea>
+            </div>
+          </form>
+
+          {/* Add to Cart */}
           <button onClick={() => addToCart(productData._id, size)} className="px-8 py-3 mt-8 text-sm border border-black bg-black text-white hover:bg-white hover:text-black transition-all duration-300">
             ADD TO CART
           </button>

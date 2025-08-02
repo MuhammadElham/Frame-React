@@ -39,3 +39,4 @@ const ZoomImage = ({ src, width = 550, height = 700 }) => {
 };
 
 export default ZoomImage;
+

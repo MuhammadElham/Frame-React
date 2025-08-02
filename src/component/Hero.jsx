@@ -1,5 +1,4 @@
 import React from "react";
-import bannerImage from "../assets/karigari Logos/Banner Image/banner1.jpg";
 import { Link } from "react-router-dom";
 
 const Hero = () => {
