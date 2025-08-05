@@ -264,7 +264,6 @@ const Product = () => {
               <textarea name="note" value={formData.note} onChange={handleChange} className="w-full sm:w-2/4 text-sm p-3 outline-none border border-black text-gray-400" placeholder="Anything we need to know before working on your certificate?"></textarea>
             </div>
           </form>
-          {console.log("Form Data = ", formData)}
           {/* Add to Cart */}
           <button onClick={() => addToCart(productData._id, size)} className="px-8 py-3 mt-8 text-sm border border-black bg-black text-white hover:bg-white hover:text-black transition-all duration-300">
             ADD TO CART
