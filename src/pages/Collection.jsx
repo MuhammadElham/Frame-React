@@ -45,8 +45,6 @@ const Collection = () => {
     }
     // 📌 Apply Sorting
     sortProduct(filteredProducts);
-
-    console.log(filterProducts);
   };
 
   useEffect(() => {

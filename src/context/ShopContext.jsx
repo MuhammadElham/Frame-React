@@ -18,7 +18,7 @@ const ShopContextProvider = (props) => {
   // Navigation for Proceed Button
   const navigate = useNavigate();
 
-  const addToCart = async (itemId, size, userId) => {
+  const addToCart = async (itemId, size, formData, userId) => {
     // Toastify for Size
     const productInfo = products.find((p) => p._id === itemId);
     const needsSize = productInfo?.sizes?.length > 0;
@@ -26,17 +26,26 @@ const ShopContextProvider = (props) => {
       toast.error("Please select a size");
       return;
     }
-    // Fetching number of Product Items and Add them into respective place
     let cartData = structuredClone(cartItems);
     if (cartData[itemId]) {
-      if (cartData[itemId][size]) {
-        cartData[itemId][size] += 1;
+      if (typeof cartData[itemId][size] === "object" && cartData[itemId][size]?.quantity) {
+        // agar size ka data object hai aur quantity hai to +1
+        cartData[itemId][size].quantity += 1;
       } else {
-        cartData[itemId][size] = 1;
+        // size ka data missing ya incorrect format hai to naya object set karo
+        cartData[itemId][size] = {
+          quantity: 1,
+          formData,
+        };
       }
     } else {
-      cartData[itemId] = {};
-      cartData[itemId][size] = 1;
+      // naya product add karo with size and formData
+      cartData[itemId] = {
+        [size]: {
+          quantity: 1,
+          formData,
+        },
+      };
     }
     setCartItems(cartData);
     //
@@ -50,40 +59,96 @@ const ShopContextProvider = (props) => {
     }
   };
   // for selecting products
-  const getCartCount = () => {
+ const getCartCount = () => {
     let totalCount = 0;
-    for (const items in cartItems) {
-      // cartItems is Object having { ID : { Size : Quantity } }
-      for (const item in cartItems[items]) {
-        // cartItems[items] is for Size
-        try {
-          if (cartItems[items][item] > 0) {
-            // cartItems[items][item] is for Quantity
-            totalCount += cartItems[items][item];
-          }
-        } catch (error) {
-          console.log(error);
+    for (const productId in cartItems) {
+      for (const size in cartItems[productId]) {
+        const item = cartItems[productId][size];
+        if (item.quantity > 0) {
+          totalCount += item.quantity;
         }
       }
     }
     return totalCount;
   };
+  // const getCartCount = () => {
+  //   console.log("cartItem ",cartItems);
+    
+  //   let totalCount = 0;
+  //   for (const productId in cartItems) {
+  //     for (const size in cartItems[productId]) {
+  //       try {
+  //         const item = cartItems[productId][size];
+  //         if (item.quantity > 0) {
+  //           totalCount += item.quantity;
+  //           console.log("Total Count ", totalCount);
+  //         }
+  //       } catch (error) {
+  //         console.log(error);
+  //       }
+  //     }
+  //   }
+  //   return totalCount;
+  // };
+  // Update quantity safely
+ // Inside ShopContext.js
+const updateQuantity = (productId, size, newQuantity, formData = null) => {
+  setCartItems((prevCart) => {
+    const updatedCart = { ...prevCart };
 
-  // for Delete Item
-  const updateQuantity = async (itemId, size, quantity) => {
-    let cartData = structuredClone(cartItems);
-    cartData[itemId][size] = quantity;
-    setCartItems(cartData);
-    //
-    if (token) {
-      try {
-        await axios.post(backendUrl + "/api/cart/update", { itemId, size, quantity }, { headers: { token } });
-      } catch (error) {
-        console.log(error);
-        toast.error(error.message);
-      }
+    // Agar product nahi hai cart me to naya banado
+    if (!updatedCart[productId]) {
+      updatedCart[productId] = {};
     }
-  };
+
+    // Agar size nahi hai to naya banado
+    if (!updatedCart[productId][size]) {
+      updatedCart[productId][size] = {
+        formData: formData || {},
+        quantity: 0
+      };
+    }
+
+    // Agar quantity 0 kar rahe ho to item delete kar do
+    if (newQuantity <= 0) {
+      delete updatedCart[productId][size];
+
+      // Agar product ka koi size nahi bacha to product delete kar do
+      if (Object.keys(updatedCart[productId]).length === 0) {
+        delete updatedCart[productId];
+      }
+    } else {
+      updatedCart[productId][size] = {
+        ...updatedCart[productId][size],
+        quantity: newQuantity,
+        ...(formData ? { formData } : {}) // agar naya formData aaye to update karo
+      };
+    }
+
+    return updatedCart;
+  });
+};
+
+  // const updateQuantity = async (itemId, size, quantity) => {
+  //   let cartData = structuredClone(cartItems);
+  //   // cartData[itemId][size] = quantity;
+  //   if (typeof cartData[itemId][size] === "number") {
+  //     cartData[itemId][size] = { quantity, formData: null };
+  //   } else {
+  //     cartData[itemId][size].quantity = quantity;
+  //   }
+
+  //   setCartItems(cartData);
+  //   //
+  //   if (token) {
+  //     try {
+  //       await axios.post(backendUrl + "/api/cart/update", { itemId, size, quantity }, { headers: { token } });
+  //     } catch (error) {
+  //       console.log(error);
+  //       toast.error(error.message);
+  //     }
+  //   }
+  // };
 
   // for Total Amount
   const getCartAmount = () => {
@@ -96,9 +161,13 @@ const ShopContextProvider = (props) => {
       // looping from Size
       for (const item in cartItems[items]) {
         try {
-          if (cartItems[items][item] > 0) {
-            totalAmount += itemInfo.price * cartItems[items][item];
+          const cartItem = cartItems[items][item];
+          if (cartItem && cartItem.quantity > 0) {
+            totalAmount += itemInfo.price * cartItem.quantity;
           }
+          // if (cartItems[items][item] > 0) {
+          //   totalAmount += itemInfo.price * cartItems[items][item];
+          // }
         } catch (error) {}
       }
     }
@@ -142,6 +211,20 @@ const ShopContextProvider = (props) => {
       getUserCart(localStorage.getItem("token"));
     }
   }, []);
+  // new 
+   // Load cart from localStorage on first render
+  useEffect(() => {
+    const savedCart = localStorage.getItem("cartItems");
+    if (savedCart) {
+      setCartItems(JSON.parse(savedCart));
+    }
+  }, []);
+
+  // Save cart to localStorage whenever it changes
+  useEffect(() => {
+    localStorage.setItem("cartItems", JSON.stringify(cartItems));
+  }, [cartItems]);
+
   const value = {
     products,
     currency,
