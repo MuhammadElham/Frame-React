@@ -4,9 +4,9 @@ import { IoCheckmark } from "react-icons/io5";
 const CartNotification = ({ productData, formData, productImage, productSize, onClose }) => {
   return (
     <div className="absolute top-40 right-0 px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]">
-      <div className="py-[25px] px-[30px] border-2 border-black">
+      <div className="max-w-[370px] py-[25px] px-[30px] border-[1px] border-gray-200">
         {/* tick section */}
-        <div className="flex items-center text-sm gap-2">
+        <div className="flex items-center text-sm gap-2 text-gray-600">
           <IoCheckmark />
           <p>item added to your cart </p>
         </div>
@@ -33,6 +33,11 @@ const CartNotification = ({ productData, formData, productImage, productSize, on
             <p className="text-sm text-gray-600 mt-[6px]">Extra Customizations: {formData.customization.join(", ")}</p>
             <p className="text-sm text-gray-600 mt-[6px]">Note: {formData.note}</p>
           </div>
+        </div>
+        {/* Buttons */}
+        <div className="flex flex-col">
+          <button className="text-base text-[rgba(161,137,95,0.5)] border-[1px] border-[rgba(147,125,87,0.5)] py-[12px] tracking-[1.2px] mt-[10px]">View my cart</button>
+          <button className="text-base text-white bg-black py-[12px] tracking-[1.2px] mt-[10px] transition-transform duration-200 hover:scale-95">Check out</button>
         </div>
       </div>
     </div>
