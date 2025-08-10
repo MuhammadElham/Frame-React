@@ -18,6 +18,8 @@ const ShopContextProvider = (props) => {
   // Navigation for Proceed Button
   const navigate = useNavigate();
 
+  
+
   const addToCart = async (itemId, size, formData, userId) => {
     // Toastify for Size
     const productInfo = products.find((p) => p._id === itemId);

@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { ShopContext } from "../context/ShopContext";
 import RelatedProduct from "../component/RelatedProduct";
 import ZoomImage from "../component/ZoomImage";
+import CartNotification from "../component/CartNotification";
 
 const Product = () => {
   const { productId } = useParams();
@@ -10,6 +11,7 @@ const Product = () => {
   const [productData, setProductData] = useState(false);
   const [image, setImage] = useState(null);
   const [size, setSize] = useState("");
+  const [showAddToCartPopup, setShowAddToCartPopup] = useState(true);
   const [formData, setFormData] = useState({
     certificate: "",
     language: "",
@@ -265,9 +267,11 @@ const Product = () => {
             </form>
           )}
           {/* Add to Cart */}
-          <button onClick={() => addToCart(productData._id, size, formData)} className="px-8 py-3 mt-8 text-sm border border-black bg-black text-white hover:bg-white hover:text-black transition-all duration-300">
+          <button onClick={() => addToCart((productData._id, size, formData))} className="px-8 py-3 mt-8 text-sm border border-black bg-black text-white hover:bg-white hover:text-black transition-all duration-300">
             ADD TO CART
           </button>
+          {/* Notification Render */}
+          {showAddToCartPopup && <CartNotification productData={productData} formData={formData} productImage={image} productSize={size} onClose={() => showAddToCartPopup(false)} />}
           {/* ---------- Details Portion END ---------- */}
           <hr className="mt-8 sm:w-4/5" />
           <div className="text-sm text-gray-500 mt-5 flex flex-col gap-1">
