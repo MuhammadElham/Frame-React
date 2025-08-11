@@ -17,8 +17,7 @@ const ShopContextProvider = (props) => {
   const [token, setToken] = useState("");
   // Navigation for Proceed Button
   const navigate = useNavigate();
-
-  
+  const [isOpen, setIsOpen] = useState(false);
 
   const addToCart = async (itemId, size, formData, userId) => {
     // Toastify for Size
@@ -61,7 +60,7 @@ const ShopContextProvider = (props) => {
     }
   };
   // for selecting products
- const getCartCount = () => {
+  const getCartCount = () => {
     let totalCount = 0;
     for (const productId in cartItems) {
       for (const size in cartItems[productId]) {
@@ -75,7 +74,7 @@ const ShopContextProvider = (props) => {
   };
   // const getCartCount = () => {
   //   console.log("cartItem ",cartItems);
-    
+
   //   let totalCount = 0;
   //   for (const productId in cartItems) {
   //     for (const size in cartItems[productId]) {
@@ -93,43 +92,43 @@ const ShopContextProvider = (props) => {
   //   return totalCount;
   // };
   // Update quantity safely
- // Inside ShopContext.js
-const updateQuantity = (productId, size, newQuantity, formData = null) => {
-  setCartItems((prevCart) => {
-    const updatedCart = { ...prevCart };
+  // Inside ShopContext.js
+  const updateQuantity = (productId, size, newQuantity, formData = null) => {
+    setCartItems((prevCart) => {
+      const updatedCart = { ...prevCart };
 
-    // Agar product nahi hai cart me to naya banado
-    if (!updatedCart[productId]) {
-      updatedCart[productId] = {};
-    }
-
-    // Agar size nahi hai to naya banado
-    if (!updatedCart[productId][size]) {
-      updatedCart[productId][size] = {
-        formData: formData || {},
-        quantity: 0
-      };
-    }
-
-    // Agar quantity 0 kar rahe ho to item delete kar do
-    if (newQuantity <= 0) {
-      delete updatedCart[productId][size];
-
-      // Agar product ka koi size nahi bacha to product delete kar do
-      if (Object.keys(updatedCart[productId]).length === 0) {
-        delete updatedCart[productId];
+      // Agar product nahi hai cart me to naya banado
+      if (!updatedCart[productId]) {
+        updatedCart[productId] = {};
       }
-    } else {
-      updatedCart[productId][size] = {
-        ...updatedCart[productId][size],
-        quantity: newQuantity,
-        ...(formData ? { formData } : {}) // agar naya formData aaye to update karo
-      };
-    }
 
-    return updatedCart;
-  });
-};
+      // Agar size nahi hai to naya banado
+      if (!updatedCart[productId][size]) {
+        updatedCart[productId][size] = {
+          formData: formData || {},
+          quantity: 0,
+        };
+      }
+
+      // Agar quantity 0 kar rahe ho to item delete kar do
+      if (newQuantity <= 0) {
+        delete updatedCart[productId][size];
+
+        // Agar product ka koi size nahi bacha to product delete kar do
+        if (Object.keys(updatedCart[productId]).length === 0) {
+          delete updatedCart[productId];
+        }
+      } else {
+        updatedCart[productId][size] = {
+          ...updatedCart[productId][size],
+          quantity: newQuantity,
+          ...(formData ? { formData } : {}), // agar naya formData aaye to update karo
+        };
+      }
+
+      return updatedCart;
+    });
+  };
 
   // const updateQuantity = async (itemId, size, quantity) => {
   //   let cartData = structuredClone(cartItems);
@@ -213,8 +212,8 @@ const updateQuantity = (productId, size, newQuantity, formData = null) => {
       getUserCart(localStorage.getItem("token"));
     }
   }, []);
-  // new 
-   // Load cart from localStorage on first render
+  // new
+  // Load cart from localStorage on first render
   useEffect(() => {
     const savedCart = localStorage.getItem("cartItems");
     if (savedCart) {
@@ -246,6 +245,8 @@ const updateQuantity = (productId, size, newQuantity, formData = null) => {
     navigate,
     token,
     setToken,
+    isOpen,
+    setIsOpen,
   };
   return <ShopContext.Provider value={value}>{props.children}</ShopContext.Provider>;
 };

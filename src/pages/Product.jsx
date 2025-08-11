@@ -7,7 +7,7 @@ import CartNotification from "../component/CartNotification";
 
 const Product = () => {
   const { productId } = useParams();
-  const { products, currency, currencyCode, addToCart } = useContext(ShopContext);
+  const { products, currency, currencyCode, addToCart, setIsOpen } = useContext(ShopContext);
   const [productData, setProductData] = useState(false);
   const [image, setImage] = useState(null);
   const [size, setSize] = useState("");
@@ -271,6 +271,7 @@ const Product = () => {
             onClick={() => {
               addToCart(productData._id, size, formData);
               size && setShowAddToCartPopup(true);
+              setIsOpen(true);
             }}
             className="px-8 py-3 mt-8 text-sm border border-black bg-black text-white hover:bg-white hover:text-black transition-all duration-300"
           >
