@@ -1,14 +1,16 @@
 import React from "react";
 import { IoCheckmark } from "react-icons/io5";
 
-const CartNotification = ({ productData, formData, productImage, productSize, onClose }) => {
+const CartNotification = ({ productData, formData, productImage, productSize }) => {
   return (
     <div className="absolute top-40 right-0 px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]">
       <div className="max-w-[370px] py-[25px] px-[30px] border-[1px] border-gray-200">
-        {/* tick section */}
-        <div className="flex items-center text-sm gap-2 text-gray-600">
-          <IoCheckmark />
-          <p>item added to your cart </p>
+        <div className="flex items-center justify-between">
+          <div className="flex items-center text-sm gap-2 text-gray-600">
+            <IoCheckmark />
+            <p>item added to your cart </p>
+          </div>
+          <p className="font-light text-lg cursor-pointer">X</p>
         </div>
         <div className="flex mt-[20px] mb-[30px]">
           {/* image section */}
@@ -36,8 +38,9 @@ const CartNotification = ({ productData, formData, productImage, productSize, on
         </div>
         {/* Buttons */}
         <div className="flex flex-col">
-          <button className="text-base text-[rgba(161,137,95,0.5)] border-[1px] border-[rgba(147,125,87,0.5)] py-[12px] tracking-[1.2px] mt-[10px]">View my cart</button>
-          <button className="text-base text-white bg-black py-[12px] tracking-[1.2px] mt-[10px] transition-transform duration-200 hover:scale-95">Check out</button>
+          <button className="text-sm text-[#d1a847] border-[1px] border-[#cf9a1e] py-[12px] tracking-[1.2px] mt-[10px] hover:border-[2px] hover:border-[rgba(92,58,1,0.5)]">View my cart</button>
+          <button className="text-sm text-white bg-black py-[12px] tracking-[1.2px] mt-[10px] transition-transform duration-200 hover:scale-95">Check out</button>
+          <p className="text-sm text-[#d1a847] underline cursor-pointer mt-[10px] text-center">Continue shopping</p>
         </div>
       </div>
     </div>
