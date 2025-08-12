@@ -1,13 +1,33 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { IoCheckmark } from "react-icons/io5";
 import { ShopContext } from "../context/ShopContext";
+import { createPortal } from "react-dom";
 
 const CartNotification = ({ productData, formData, productImage, productSize }) => {
   const { isOpen, setIsOpen } = useContext(ShopContext);
-  return (
+  const [topPosition, setTopPosition] = useState(165);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        // jitni scroll ke baad change karna hai
+        setTopPosition(125);
+      } else {
+        setTopPosition(165);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // Render the notification using a Portal
+  return createPortal(
     isOpen && (
-      <div className="absolute top-40 right-0 px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]">
-        <div className="max-w-[370px] py-[25px] px-[30px] border-[1px] border-gray-200">
+      <div className={`fixed z-[9999] right-0 px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw] transition-all duration-300`} style={{ top: `${topPosition}px` }}>
+        <div className="bg-white max-w-[400px] py-[25px] px-[30px] border-[1px] border-gray-200 shadow-lg">
           <div className="flex items-center justify-between">
             <div className="flex items-center text-sm gap-2 text-gray-600">
               <IoCheckmark />
@@ -20,7 +40,7 @@ const CartNotification = ({ productData, formData, productImage, productSize }) 
           <div className="flex mt-[20px] mb-[30px]">
             {/* image section */}
             <div className="mt-[6px] mr-[15px]">
-              <img src={productImage} className="w-[70px] h-[106px]" loading="lazy" alt="Product Image" />
+              <img src={productImage} className="w-[200px] h-[120px] rounded-md" loading="lazy" alt="Product" />
             </div>
             {/* detail section */}
             <div>
@@ -43,15 +63,20 @@ const CartNotification = ({ productData, formData, productImage, productSize }) 
           </div>
           {/* Buttons */}
           <div className="flex flex-col">
-            <button className="text-sm text-[#d1a847] border-[1px] border-[#cf9a1e] py-[12px] tracking-[1.2px] mt-[10px] hover:border-[2px] hover:border-[rgba(92,58,1,0.5)]">View my cart</button>
-            <button className="text-sm text-white bg-black py-[12px] tracking-[1.2px] mt-[10px] transition-transform duration-200 hover:scale-95">Check out</button>
+            <button onClick={() => navigate("/cart")} className="text-sm text-[#d1a847] border-[1px] border-[#cf9a1e] py-[12px] tracking-[1.2px] mt-[10px] hover:border-[2px] hover:border-[rgba(92,58,1,0.5)]">
+              View my cart
+            </button>
+            <button onClick={() => navigate("/place-order")} className="text-sm text-white bg-black py-[12px] tracking-[1.2px] mt-[10px] transition-transform duration-200 hover:scale-95">
+              Check out
+            </button>
             <p onClick={() => setIsOpen(false)} className="text-sm text-[#d1a847] underline cursor-pointer mt-[10px] text-center">
               Continue shopping
             </p>
           </div>
         </div>
       </div>
-    )
+    ),
+    document.body // This puts the popup outside all parent elements
   );
 };
 
