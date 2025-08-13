@@ -39,8 +39,8 @@ const CartNotification = ({ productData, formData, productImage, productSize }) 
           </div>
           <div className="flex mt-[20px] mb-[30px]">
             {/* image section */}
-            <div className="mt-[6px] mr-[15px]">
-              <img src={productImage} className="w-[200px] h-[120px] rounded-md" loading="lazy" alt="Product" />
+            <div className="max-w-[110px] min-w-[110px] mt-[6px] mr-[20px]">
+              <img src={productImage} className="object-cover rounded-md" loading="lazy" alt="Product" />
             </div>
             {/* detail section */}
             <div>
