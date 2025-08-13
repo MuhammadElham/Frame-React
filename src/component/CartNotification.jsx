@@ -33,7 +33,7 @@ const CartNotification = ({ productData, formData, productImage, productSize }) 
               <IoCheckmark />
               <p>item added to your cart </p>
             </div>
-            <p onClick={() => setIsOpen(false)} className="font-light text-lg cursor-pointer">
+            <p onClick={() => setIsOpen(false)} className="font-light text-lg cursor-pointer transition-transform duration-200 hover:rotate-90 hover:scale-90 hover:opacity-70">
               X
             </p>
           </div>
