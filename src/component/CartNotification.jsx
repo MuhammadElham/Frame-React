@@ -26,14 +26,22 @@ const CartNotification = ({ productData, formData, productImage, productSize }) 
   // Render the notification using a Portal
   return createPortal(
     isOpen && (
-      <div className={`fixed z-[9999] right-0 px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw] transition-all duration-300`} style={{ top: `${topPosition}px` }}>
-        <div className="bg-white max-w-[400px] py-[25px] px-[30px] border-[1px] border-gray-200 shadow-lg">
-          <div className="flex items-center justify-between">
+      //   <div className={`fixed z-[9999] right-0 px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw] transition-all duration-300`} style={{ top: `${topPosition}px` }}>
+      //     <div className="max-w-[400px] bg-white py-[25px] px-[30px] border-[1px] border-gray-200 shadow-lg">
+      <div
+        className={`fixed z-[9999] transition-all duration-300 w-full sm:w-auto sm:right-0 px-0 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]`}
+        style={{
+          top: window.innerWidth < 640 ? "93px" : `${topPosition}px`, // Mobile pe thoda upar
+          left: window.innerWidth < 640 ? "0" : "auto", // Mobile pe center
+        }}
+      >
+        <div className="w-full sm:max-w-[400px] bg-white py-[25px] px-[20px] border border-gray-200 shadow-lg">
+          <div className="flex items-end justify-between">
             <div className="flex items-center text-sm gap-2 text-gray-600">
               <IoCheckmark />
               <p>item added to your cart </p>
             </div>
-            <p onClick={() => setIsOpen(false)} className="font-light text-lg cursor-pointer transition-transform duration-200 hover:rotate-90 hover:scale-90 hover:opacity-70">
+            <p onClick={() => setIsOpen(false)} className="font-extralight text-2xl cursor-pointer transition-transform duration-75 hover:scale-110">
               X
             </p>
           </div>
@@ -43,7 +51,7 @@ const CartNotification = ({ productData, formData, productImage, productSize }) 
               <img src={productImage} className="object-cover rounded-md" loading="lazy" alt="Product" />
             </div>
             {/* detail section */}
-            <div>
+            <div className="max-h-[300px] overflow-y-auto sm:max-h-full">
               <p className="text-base text-gray-800 mb-[5px]">{productData.name}</p>
               <p className="text-sm text-gray-600">Size: {productSize}</p>
               <p className="text-sm text-gray-600 mt-[6px]">Type: {formData.certificate}</p>
