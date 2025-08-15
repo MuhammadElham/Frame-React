@@ -85,7 +85,7 @@ import Title from "../component/Title";
 import CartTotal from "../component/CartTotal";
 
 const Cart = () => {
-  const { products, currency, currencyCode, cartItems, updateQuantity, navigate } = useContext(ShopContext);
+  const { products, currency, currencyCode, cartItems, updateQuantity, navigate, formData } = useContext(ShopContext);
   const [cartData, setCartData] = useState([]);
 
   useEffect(() => {
@@ -128,18 +128,29 @@ const Cart = () => {
             <div key={index} className="py-4 border-t border-b text-gray-700 grid grid-cols-[4fr_0.5fr_0.5fr] sm:grid-cols-[4fr_2fr_0.5fr] items-center gap-4">
               <div className="flex items-start gap-6">
                 {/* Product Image */}
-                <img className="w-16 sm:w-20" src={Array.isArray(productData.image) ? productData.image[0] : productData.image} alt="" />
+                <img className="w-16 sm:w-20 rounded-md" src={Array.isArray(productData.image) ? productData.image[0] : productData.image} alt="" />
                 {/* Product Details */}
-                <div>
-                  <p className="text-xs sm:text-lg font-medium">{productData.name}</p>
-                  <div className="flex items-center gap-5 mt-2">
-                    <p>
-                      {currency}
-                      {productData.price}
-                      {currencyCode}
-                    </p>
-                    {item.size?.length > 0 && <p className="px-2 sm:px-3 sm:py-1 text-sm border border-black bg-black text-white">{item.size}</p>}
-                  </div>
+                <div className="text-xs sm:text-base">
+                  <p className="text-xs sm:text-lg font-medium mb-2">{productData.name}</p>
+                  <p>
+                    {currency} {productData.price} {currencyCode}{" "}
+                  </p>
+                  {item.size?.length > 0 && (
+                    <>
+                      <p className="mt-2">Size: {item.size}</p>
+                      <p className="mt-2">Type: {formData.certificate}</p>
+                      <p className="mt-2">Language: {formData.language}</p>
+                      <p className="mt-2">Signatures: {formData.signature_line}</p>
+                      <p className="mt-2">Witness Signature Areas: {formData.witness}</p>
+                      <p className="mt-2">Groom: {formData.husband_name}</p>
+                      <p className="mt-2">Bride: {formData.wife_name}</p>
+                      <p className="mt-2">Names Style: {formData.name_order}</p>
+                      <p className="mt-2">Date: {formData.gregorian_date}</p>
+                      <p className="mt-2">Islamic Date: {formData.islamic_date}</p>
+                      <p className="mt-2">City: {formData.city}</p>
+                      <p className="mt-2">Extra Customizations: {formData.city}</p>
+                    </>
+                  )}
                 </div>
               </div>
 
