@@ -13,9 +13,9 @@ const CartNotification = ({ productData, formData, productImage, productSize }) 
     const handleScroll = () => {
       if (window.scrollY > 50) {
         // jitni scroll ke baad change karna hai
-        setTopPosition(125);
+        setTopPosition(180);
       } else {
-        setTopPosition(165);
+        setTopPosition(222);
       }
     };
 
@@ -26,8 +26,6 @@ const CartNotification = ({ productData, formData, productImage, productSize }) 
   // Render the notification using a Portal
   return createPortal(
     isOpen && (
-      //   <div className={`fixed z-[9999] right-0 px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw] transition-all duration-300`} style={{ top: `${topPosition}px` }}>
-      //     <div className="max-w-[400px] bg-white py-[25px] px-[30px] border-[1px] border-gray-200 shadow-lg">
       <div
         className={`fixed z-[9999] transition-all duration-300 w-full sm:w-auto sm:right-0 px-0 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]`}
         style={{
