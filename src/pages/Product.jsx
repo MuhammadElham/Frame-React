@@ -7,27 +7,11 @@ import CartNotification from "../component/CartNotification";
 
 const Product = () => {
   const { productId } = useParams();
-  const { products, currency, currencyCode, addToCart, setIsOpen } = useContext(ShopContext);
+  const { products, currency, currencyCode, addToCart, setIsOpen, formData, setFormData } = useContext(ShopContext);
   const [productData, setProductData] = useState(false);
   const [image, setImage] = useState(null);
   const [size, setSize] = useState("");
   const [showAddToCartPopup, setShowAddToCartPopup] = useState(false);
-  const [formData, setFormData] = useState({
-    certificate: "",
-    language: "",
-    signature_line: "",
-    transfer_signature: "",
-    witness: "",
-    husband_name: "",
-    wife_name: "",
-    name_order: "",
-    gregorian_date: "",
-    islamic_date: "",
-    city: "",
-    mahr: "",
-    customization: [],
-    note: "",
-  });
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;

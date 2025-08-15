@@ -18,6 +18,22 @@ const ShopContextProvider = (props) => {
   // Navigation for Proceed Button
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
+  const [formData, setFormData] = useState({
+    certificate: "",
+    language: "",
+    signature_line: "",
+    transfer_signature: "",
+    witness: "",
+    husband_name: "",
+    wife_name: "",
+    name_order: "",
+    gregorian_date: "",
+    islamic_date: "",
+    city: "",
+    mahr: "",
+    customization: [],
+    note: "",
+  });
 
   const addToCart = async (itemId, size, formData, userId) => {
     // Toastify for Size
@@ -247,6 +263,8 @@ const ShopContextProvider = (props) => {
     setToken,
     isOpen,
     setIsOpen,
+    formData,
+    setFormData,
   };
   return <ShopContext.Provider value={value}>{props.children}</ShopContext.Provider>;
 };
