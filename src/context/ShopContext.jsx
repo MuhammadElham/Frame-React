@@ -36,46 +36,48 @@ const ShopContextProvider = (props) => {
   });
 
   const addToCart = async (itemId, size, formData, userId) => {
-    // Toastify for Size
     const productInfo = products.find((p) => p._id === itemId);
     const needsSize = productInfo?.sizes?.length > 0;
+
     if (needsSize && !size) {
       toast.error("Please select a size");
       return;
-    }
+    }  
+
+    // ✅ Naya item banate waqt condition use karo
+    const newItem = {
+      userId,
+      itemId: productInfo._id,
+      size: needsSize ? size : null,
+      formData: formData || {},
+      quantity: 1,
+    };
     let cartData = structuredClone(cartItems);
+
     if (cartData[itemId]) {
       if (typeof cartData[itemId][size] === "object" && cartData[itemId][size]?.quantity) {
-        // agar size ka data object hai aur quantity hai to +1
         cartData[itemId][size].quantity += 1;
       } else {
-        // size ka data missing ya incorrect format hai to naya object set karo
-        cartData[itemId][size] = {
-          quantity: 1,
-          formData,
-        };
+        cartData[itemId][size] = newItem;
       }
     } else {
-      // naya product add karo with size and formData
       cartData[itemId] = {
-        [size]: {
-          quantity: 1,
-          formData,
-        },
+        [size || "default"]: newItem, // agar size na ho to "default"
       };
     }
+
     setCartItems(cartData);
-    //
+
+    // 🔗 Backend sync
     if (token) {
       try {
-        await axios.post(backendUrl + "/api/cart/add", { itemId, size, userId }, { headers: { token } });
+        await axios.post(backendUrl + "/api/cart/add", { itemId: productInfo._id, size, formData, quantity: 1 }, { headers: { token } });
       } catch (error) {
         console.log(error);
         toast.error(error.message);
       }
     }
   };
-  // for selecting products
   const getCartCount = () => {
     let totalCount = 0;
     for (const productId in cartItems) {
@@ -88,27 +90,6 @@ const ShopContextProvider = (props) => {
     }
     return totalCount;
   };
-  // const getCartCount = () => {
-  //   console.log("cartItem ",cartItems);
-
-  //   let totalCount = 0;
-  //   for (const productId in cartItems) {
-  //     for (const size in cartItems[productId]) {
-  //       try {
-  //         const item = cartItems[productId][size];
-  //         if (item.quantity > 0) {
-  //           totalCount += item.quantity;
-  //           console.log("Total Count ", totalCount);
-  //         }
-  //       } catch (error) {
-  //         console.log(error);
-  //       }
-  //     }
-  //   }
-  //   return totalCount;
-  // };
-  // Update quantity safely
-  // Inside ShopContext.js
   const updateQuantity = (productId, size, newQuantity, formData = null) => {
     setCartItems((prevCart) => {
       const updatedCart = { ...prevCart };
@@ -145,27 +126,6 @@ const ShopContextProvider = (props) => {
       return updatedCart;
     });
   };
-
-  // const updateQuantity = async (itemId, size, quantity) => {
-  //   let cartData = structuredClone(cartItems);
-  //   // cartData[itemId][size] = quantity;
-  //   if (typeof cartData[itemId][size] === "number") {
-  //     cartData[itemId][size] = { quantity, formData: null };
-  //   } else {
-  //     cartData[itemId][size].quantity = quantity;
-  //   }
-
-  //   setCartItems(cartData);
-  //   //
-  //   if (token) {
-  //     try {
-  //       await axios.post(backendUrl + "/api/cart/update", { itemId, size, quantity }, { headers: { token } });
-  //     } catch (error) {
-  //       console.log(error);
-  //       toast.error(error.message);
-  //     }
-  //   }
-  // };
 
   // for Total Amount
   const getCartAmount = () => {
@@ -209,8 +169,19 @@ const ShopContextProvider = (props) => {
   const getUserCart = async (token) => {
     try {
       const response = await axios.post(backendUrl + "/api/cart/get", {}, { headers: { token } });
-      if (response.data.success) {
-        setCartItems(response.data.cartData);
+
+      if (response.data.success && Array.isArray(response.data.cart)) {
+        const structured = {};
+        response.data.cart.forEach((item) => {
+          if (!structured[item.itemId]) structured[item.itemId] = {};
+          structured[item.itemId][item.size || "default"] = {
+            quantity: item.quantity,
+            ...(item.formData ? { formData: item.formData } : {}),
+          };
+        });
+        setCartItems(structured);
+      } else {
+        setCartItems({}); // empty cart handle
       }
     } catch (error) {
       console.log(error);

@@ -9,7 +9,7 @@ import { toast } from "react-toastify";
 const PlaceOrder = () => {
   const [method, setMethod] = useState("cod");
   const { navigate, backendUrl, token, cartItems, setCartItems, getCartAmount, delivery_fee, products } = useContext(ShopContext);
-  const [formData, setFormData] = useState({
+  const [isFormData, setIsFormData] = useState({
     firstName: "",
     lastName: "",
     email: "",
@@ -25,37 +25,67 @@ const PlaceOrder = () => {
     const name = event.target.name;
     const value = event.target.value;
 
-    setFormData((data) => ({ ...data, [name]: value }));
+    setIsFormData((data) => ({ ...data, [name]: value }));
   };
 
   const onSubmitHandler = async (event) => {
     event.preventDefault();
     try {
+      console.log("Cart Items Before Processing:", cartItems); // 👈 sabse pehle yaha
       let orderItems = [];
-      for (const items in cartItems) {
-        for (const item in cartItems[items]) {
-          if (cartItems[items][item] > 0) {
-            const itemInfo = structuredClone(products.find((product) => product._id === items));
-            if (itemInfo) {
-              itemInfo.size = item;
-              itemInfo.quantity = cartItems[items][item];
-              orderItems.push(itemInfo);
+      for (const productId in cartItems) {
+        const productInfo = structuredClone(products.find((p) => p._id === productId));
+        if (!productInfo) continue;
+
+        const hasSizes = productInfo?.sizes?.length > 0;
+
+        if (hasSizes) {
+          for (const size in cartItems[productId]) {
+            const { quantity, formData } = cartItems[productId][size];
+            if (quantity > 0) {
+              orderItems.push({
+                productId,
+                name: productInfo.name,
+                price: productInfo.price,
+                size,
+                quantity,
+                formData: formData , // ✅ correct key
+              });
             }
+          }
+        } else {
+          const { quantity } = cartItems[productId].default || {};
+          if (quantity > 0) {
+            orderItems.push({
+              productId,
+              name: productInfo.name,
+              price: productInfo.price,
+              size: null,
+              quantity,
+              formData: null,
+            });
           }
         }
       }
-
       let orderData = {
-        address: formData,
+        address: isFormData,
         items: orderItems,
         amount: getCartAmount() + delivery_fee,
       };
+      // let orderData = {
+      //   address: isFormData,
+      //   items: orderItems,
+      //   amount: getCartAmount() + delivery_fee,
+      // };
+      console.log("Form Data: ", isFormData);
+      console.log("Order Items: ", orderItems);
+      console.log("Final Order Data (to be sent): ", orderData);
 
       switch (method) {
         // API Calls for COD
         case "cod":
           const response = await axios.post(backendUrl + "/api/order/place", orderData, { headers: { token } });
-
+          console.log("API Response:", response.data); // 👈 backend reply
           if (response.data.success) {
             setCartItems({});
             navigate("/orders");
@@ -83,20 +113,20 @@ const PlaceOrder = () => {
         </div>
         {/* Input Fields */}
         <div className="flex gap-3">
-          <input required onChange={onChangeHandler} name="firstName" value={formData.firstName} className="border border-gray-300 rounded py-1.5 px-3.5 w-full" type="text" placeholder="First name" />
-          <input required onChange={onChangeHandler} name="lastName" value={formData.lastName} className="border border-gray-300 rounded py-1.5 px-3.5 w-full" type="text" placeholder="Last name" />
+          <input required onChange={onChangeHandler} name="firstName" value={isFormData.firstName} className="border border-gray-300 rounded py-1.5 px-3.5 w-full" type="text" placeholder="First name" />
+          <input required onChange={onChangeHandler} name="lastName" value={isFormData.lastName} className="border border-gray-300 rounded py-1.5 px-3.5 w-full" type="text" placeholder="Last name" />
         </div>
-        <input required onChange={onChangeHandler} name="email" value={formData.email} className="border border-gray-300 rounded py-1.5 px-3.5 w-full" type="email" placeholder="Email address" />
-        <input required onChange={onChangeHandler} name="street" value={formData.street} className="border border-gray-300 rounded py-1.5 px-3.5 w-full" type="text" placeholder="Street" />
+        <input required onChange={onChangeHandler} name="email" value={isFormData.email} className="border border-gray-300 rounded py-1.5 px-3.5 w-full" type="email" placeholder="Email address" />
+        <input required onChange={onChangeHandler} name="street" value={isFormData.street} className="border border-gray-300 rounded py-1.5 px-3.5 w-full" type="text" placeholder="Street" />
         <div className="flex gap-3">
-          <input required onChange={onChangeHandler} name="city" value={formData.city} className="border border-gray-300 rounded py-1.5 px-3.5 w-full" type="text" placeholder="City" />
-          <input required onChange={onChangeHandler} name="state" value={formData.state} className="border border-gray-300 rounded py-1.5 px-3.5 w-full" type="text" placeholder="State" />
+          <input required onChange={onChangeHandler} name="city" value={isFormData.city} className="border border-gray-300 rounded py-1.5 px-3.5 w-full" type="text" placeholder="City" />
+          <input required onChange={onChangeHandler} name="state" value={isFormData.state} className="border border-gray-300 rounded py-1.5 px-3.5 w-full" type="text" placeholder="State" />
         </div>
         <div className="flex gap-3">
-          <input required onChange={onChangeHandler} name="zipcode" value={formData.zipcode} className="border border-gray-300 rounded py-1.5 px-3.5 w-full" type="number" placeholder="Zipcode" />
-          <input required onChange={onChangeHandler} name="country" value={formData.country} className="border border-gray-300 rounded py-1.5 px-3.5 w-full" type="text" placeholder="Country" />
+          <input required onChange={onChangeHandler} name="zipcode" value={isFormData.zipcode} className="border border-gray-300 rounded py-1.5 px-3.5 w-full" type="number" placeholder="Zipcode" />
+          <input required onChange={onChangeHandler} name="country" value={isFormData.country} className="border border-gray-300 rounded py-1.5 px-3.5 w-full" type="text" placeholder="Country" />
         </div>
-        <input required onChange={onChangeHandler} name="phone" value={formData.phone} className="border border-gray-300 rounded py-1.5 px-3.5 w-full" type="number" placeholder="Phone" />
+        <input required onChange={onChangeHandler} name="phone" value={isFormData.phone} className="border border-gray-300 rounded py-1.5 px-3.5 w-full" type="number" placeholder="Phone" />
       </div>
 
       {/* -------- Right Side -------- */}
