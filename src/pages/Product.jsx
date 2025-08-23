@@ -60,7 +60,7 @@ const Product = () => {
       {/* Product Data */}
       <div className="flex gap-12 sm:gap-12 flex-col sm:flex-row">
         {/* Product Image */}
-        <div className="flex-1 flex flex-col-reverse gap-3 sm:flex-row sm:max-h-[calc(100vh-100px)] sm:sticky sm:top-32">
+        <div className="flex-1 flex flex-col-reverse gap-3 sm:flex-row sm:max-h-[calc(100vh-100px)] sm:sticky sm:top-[190px]">
           <div className="flex sm:flex-col overflow-x-auto sm:overflow-y-auto justify-between sm:justify-normal sm:w-[18.7%] w-full max-h-full">{productData.image.map((item, index) => image && <img onClick={() => setImage(item)} src={item} key={index} className="w-[24%] rounded-[4px] sm:rounded-md sm:w-full sm:mb-3 flex-shrink-0 cursor-pointer object-cover" alt="" />)}</div>
           {/* Zoom Effect */}
           {/* Logic */}
